@@ -297,6 +297,67 @@ body {
   text-decoration: underline;
 }
 
+
+/* Galerie */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-quaternary);
+  font-size: 13px;
+  text-align: center;
+  padding: 12px;
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -345,6 +406,10 @@ body {
       <button class="tab-btn" data-tab="projets" onclick="showTab('projets')">
         <svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h10V5H7zm2 2h6v2H9V7zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"/></svg>
         Projets
+      </button>
+      <button class="tab-btn" data-tab="galerie" onclick="showTab('galerie')">
+        <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zM7 13h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
+        Galerie
       </button>
       <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
         <svg viewBox="0 0 24 24"><path d="M20.704 18.883A9.9 9.9 0 0 0 12 12.878a9.9 9.9 0 0 0-8.704 6.005c-.376 1.04.427 2.013 1.501 2.13l.218.013h13.973l.217-.013c1.075-.117 1.879-1.09 1.502-2.134zM12 14.678a6.9 6.9 0 0 0-6.908 4.548h13.816A6.9 6.9 0 0 0 12 14.678zm.231-10.672a4.5 4.5 0 0 1 4.269 4.494l-.006.231a4.5 4.5 0 0 1-4.494 4.269 4.5 4.5 0 0 1-4.494-4.269l-.006-.231a4.5 4.5 0 0 1 4.5-4.5l.231.006zm-.231 1.794a2.7 2.7 0 1 0 0 5.4002 2.7 2.7 0 0 0 0-5.4002z"/></svg>
@@ -562,6 +627,53 @@ body {
         <span class="tag">CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">En ligne</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="tab-panel">
+    <div class="section-title">Galerie</div>
+    <div class="section-subtitle">
+      Images du projet, de la ferme et des moments qui comptent.
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 1 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 1</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 2 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 2</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 3 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 3</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 4 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 4</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 5 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 5</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">[ Photo 6 — remplace par ton image ]</div>
+        <div class="gallery-caption">Description de la photo 6</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-title">Comment ajouter tes vraies photos</div>
+      <div class="card-text">
+        Pour remplacer ces placeholders par tes vraies images, tu as deux options :
+        <br><br>
+        <b>Option 1 — Images en ligne :</b> Téléverse tes photos sur un service comme Imgur, copie le lien direct de l'image, et remplace le texte du placeholder par :<br>
+        <code>&lt;img src="https://lien-de-ton-image.jpg" alt="description"&gt;</code>
+        <br><br>
+        <b>Option 2 — Attendre :</b> Garde les placeholders pour l'instant et ajoute les photos plus tard quand tu seras prêt.
       </div>
     </div>
   </section>
