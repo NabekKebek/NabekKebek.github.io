@@ -388,6 +388,89 @@ body {
   height: 20px;
   fill: currentColor;
 }
+
+/* Ressources */
+.resource-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.resource-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.resource-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.resource-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+.resource-content {
+  flex: 1;
+  min-width: 0;
+}
+.resource-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.resource-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-quaternary);
+}
+.resource-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.15s ease;
+  margin-top: 8px;
+}
+.resource-btn:hover {
+  background: var(--accent-hover);
+}
+.resource-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.resource-btn-disabled {
+  background: var(--surface-muted);
+  color: var(--text-quaternary);
+  cursor: not-allowed;
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -448,6 +531,10 @@ body {
       <button class="tab-btn" data-tab="galerie" onclick="showTab('galerie')">
         <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zM7 13h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
         Galerie
+      </button>
+      <button class="tab-btn" data-tab="ressources" onclick="showTab('ressources')">
+        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+        Ressources
       </button>
       <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
         <svg viewBox="0 0 24 24"><path d="M20.704 18.883A9.9 9.9 0 0 0 12 12.878a9.9 9.9 0 0 0-8.704 6.005c-.376 1.04.427 2.013 1.501 2.13l.218.013h13.973l.217-.013c1.075-.117 1.879-1.09 1.502-2.134zM12 14.678a6.9 6.9 0 0 0-6.908 4.548h13.816A6.9 6.9 0 0 0 12 14.678zm.231-10.672a4.5 4.5 0 0 1 4.269 4.494l-.006.231a4.5 4.5 0 0 1-4.494 4.269 4.5 4.5 0 0 1-4.494-4.269l-.006-.231a4.5 4.5 0 0 1 4.5-4.5l.231.006zm-.231 1.794a2.7 2.7 0 1 0 0 5.4002 2.7 2.7 0 0 0 0-5.4002z"/></svg>
@@ -850,6 +937,79 @@ body {
         <code>&lt;img src="https://lien-de-ton-image.jpg" alt="description"&gt;</code>
         <br><br>
         <b>Option 2 — Attendre :</b> Garde les placeholders pour l'instant et ajoute les photos plus tard quand tu seras prêt.
+      </div>
+    </div>
+  </section>
+
+  <!-- RESSOURCES -->
+  <section id="ressources" class="tab-panel">
+    <div class="section-title">Ressources téléchargeables</div>
+    <div class="section-subtitle">
+      Documents, guides et outils produits par Nabek. Télécharge-les gratuitement.
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+      </div>
+      <div class="resource-content">
+        <div class="resource-title">Guide de mise en ligne d'un site web</div>
+        <div class="resource-desc">
+          Un guide pas à pas pour créer et héberger un site web gratuitement avec GitHub Pages. Adapté aux débutants.
+        </div>
+        <div class="resource-meta">PDF · 7 Ko · 7 pages</div>
+        <a class="resource-btn" href="#" onclick="alert('Ce document sera disponible prochainement.')">
+          <svg viewBox="0 0 24 24"><path d="M12 15.5l-5-5h3V4h4v6.5h3l-5 5zM5 16v3h14v-3h2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3h2z"/></svg>
+          Télécharger
+        </a>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+      </div>
+      <div class="resource-content">
+        <div class="resource-title">Modèle de budget — Ferme régénérative</div>
+        <div class="resource-desc">
+          Un tableau de budget prévisionnel pour une ferme régénérative au Québec. Inclut les coûts de démarrage, les équipements, les semences et les revenus estimés en CAD.
+        </div>
+        <div class="resource-meta">PDF · À venir</div>
+        <span class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M12 15.5l-5-5h3V4h4v6.5h3l-5 5zM5 16v3h14v-3h2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3h2z"/></svg>
+          Bientôt disponible
+        </span>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+      </div>
+      <div class="resource-content">
+        <div class="resource-title">Calendrier des semis — Québec</div>
+        <div class="resource-desc">
+          Un calendrier mensuel des semis adapté au climat québécois. Quand planter les tomates, les carottes, les légumes feuillus et les herbes selon les dates de gel.
+        </div>
+        <div class="resource-meta">PDF · À venir</div>
+        <span class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M12 15.5l-5-5h3V4h4v6.5h3l-5 5zM5 16v3h14v-3h2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3h2z"/></svg>
+          Bientôt disponible
+        </span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-title">Comment ajouter tes propres documents</div>
+      <div class="card-text">
+        Pour rendre un document téléchargeable sur ce site :
+        <ul>
+          <li>Téléverse ton fichier PDF dans le dépôt GitHub (même méthode que pour index.html)</li>
+          <li>Note le nom exact du fichier (ex: mon-document.pdf)</li>
+          <li>Dans le code HTML de cette page, remplace le <b>#</b> du lien par le nom du fichier</li>
+          <li>Le lien ressemblera à : <code>href="mon-document.pdf"</code></li>
+        </ul>
+        Les visiteurs pourront alors cliquer et télécharger directement.
       </div>
     </div>
   </section>
