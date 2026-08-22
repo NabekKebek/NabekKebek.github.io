@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabek — Ferme régénérative & projets</title>
+<style>
+:root {
+  --text-primary: #1a1a1a;
+  --text-secondary: #555;
+  --text-tertiary: #888;
+  --text-quaternary: #aaa;
+  --surface: #f5f5f5;
+  --surface-muted: #f0f0f0;
+  --border: #e0e0e0;
+  --accent: #2d6a4f;
+  --accent-light: #d8f3dc;
+  --bg: #ffffff;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #e8e8e8;
+    --text-secondary: #b0b0b0;
+    --text-tertiary: #808080;
+    --text-quaternary: #606060;
+    --surface: #2a2a2a;
+    --surface-muted: #252525;
+    --border: #3a3a3a;
+    --accent: #52b788;
+    --accent-light: #1b4332;
+    --bg: #1a1a1a;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* Navigation */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 12px 0;
+}
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  transition: all 0.15s ease-out;
+}
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-muted);
+}
+.tab-btn.active {
+  color: var(--accent);
+  font-weight: 500;
+  background: var(--accent-light);
+}
+.tab-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+/* Content */
+.tab-content { padding: 24px 0 40px; }
+.tab-panel { display: none; animation: fadeIn 0.25s ease-out; }
+.tab-panel.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero */
+.hero { text-align: center; padding: 32px 0 20px; }
+.hero h1 {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.hero p {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+.hero-accent {
+  display: inline-block;
+  width: 48px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 12px auto;
+}
+
+/* Sections */
+.section-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 14px;
+  background: var(--surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.card-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card-text ul {
+  list-style: none;
+  padding-left: 0;
+}
+.card-text ul li {
+  padding: 4px 0;
+  padding-left: 18px;
+  position: relative;
+}
+.card-text ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
+}
+.meta {
+  font-size: 12px;
+  color: var(--text-quaternary);
+  margin-top: 10px;
+}
+
+/* Tags */
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Links */
+.link-section { margin-top: 8px; }
+.link-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+.link-row:last-child { border-bottom: none; }
+.link-row:hover { color: var(--accent); }
+.link-row svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+.link-row span { flex: 1; }
+.link-desc {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 0 16px;
+  font-size: 12px;
+  color: var(--text-quaternary);
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px; }
+  .nav-tabs { gap: 2px; }
+  .tab-btn { padding: 6px 10px; font-size: 13px; }
+  .tab-btn svg { width: 16px; height: 16px; }
+  .card { padding: 14px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <div class="container">
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-tab="accueil" onclick="showTab('accueil')">
+        <svg viewBox="0 0 24 24"><path d="M12 2.1c5.468.0002 9.9 4.433 9.9 9.9s-4.432 9.9-9.9 9.9-9.9-4.432-9.9-9.9 4.432-9.9 9.9-9.9zm0 1.8a8.1 8.1 0 1 0 0 16.2 8.1 8.1 0 0 0 0-16.2zm0 5.6c.497.0002.9.37.9.826v6.348a.9.9 0 0 1-1.8 0V10.327c0-.456.403-.826.9-.826zm0-3c.497 0 .9.404.9.9a.9.9 0 0 1-1.8 0 .9.9 0 0 1 .9-.9z"/></svg>
+        Accueil
+      </button>
+      <button class="tab-btn" data-tab="presentation" onclick="showTab('presentation')">
+        <svg viewBox="0 0 24 24"><path d="M12 12.878c4.02.0001 7.44 2.507 8.705 6.005.376 1.04-.427 2.013-1.501 2.13l-.218.013H5.013l-.217-.012c-1.075-.118-1.879-1.09-1.502-2.134 1.265-3.498 4.686-6.005 8.706-6.005zm0 1.8c-3.155.0002-5.825 1.902-6.908 4.548h13.816c-1.083-2.646-3.753-4.548-6.908-4.548zm.231-10.672c2.378.12 4.269 2.086 4.269 4.494l-.006.231c-.12 2.378-2.087 4.269-4.494 4.269-2.408-.0002-4.374-1.891-4.494-4.269l-.006-.231c0-2.485 2.015-4.5 4.5-4.5l.231.006zm-.231 1.794c-1.491.0002-2.7 1.209-2.7 2.7s1.209 2.7 2.7 2.7002c1.491-.0001 2.7-1.209 2.7-2.7002 0-1.491-1.209-2.7-2.7-2.7z"/></svg>
+        Présentation
+      </button>
+      <button class="tab-btn" data-tab="ferme" onclick="showTab('ferme')">
+        <svg viewBox="0 0 24 24"><path d="M4.1 6a.9.9 0 0 1 .9-.9H19a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9z"/></svg>
+        Ferme Nabek
+      </button>
+      <button class="tab-btn" data-tab="blog" onclick="showTab('blog')">
+        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+        Blog
+      </button>
+      <button class="tab-btn" data-tab="liens" onclick="showTab('liens')">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        Liens
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="tab-content container">
+
+  <!-- ACCUEIL -->
+  <section id="accueil" class="tab-panel active">
+    <div class="hero">
+      <h1>Nabek</h1>
+      <div class="hero-accent"></div>
+      <p>Ferme régénérative & projets au Québec</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Bienvenue sur mon espace</div>
+      <div class="card-text">
+        Ce site rassemble ma présentation personnelle, mon projet de ferme régénérative au Québec, mes réflexions en blog et les ressources qui m'inspirent. Chaque section est accessible via la navigation ci-dessus.
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">Québec</span>
+      <span class="tag">Agriculture régénérative</span>
+      <span class="tag">Wampum</span>
+      <span class="tag">Sans subventions</span>
+      <span class="tag">CAD</span>
+    </div>
+  </section>
+
+  <!-- PRÉSENTATION -->
+  <section id="presentation" class="tab-panel">
+    <div class="section-title">Qui suis-je ?</div>
+    <div class="section-subtitle">
+      Je m'appelle Nabek. Je vis au Québec, Canada, et je construis un projet de vie autour d'une ferme régénérative.
+    </div>
+    <div class="card">
+      <div class="card-title">Ma vision</div>
+      <div class="card-text">
+        Je crois en une agriculture qui régénère les sols plutôt que de les épuiser. Mon approche s'inspire des principes du Wampum — respect, équilibre et interdépendance avec la nature. Aucune subvention gouvernementale : le projet repose sur son propre mérite économique, exprimé en dollars canadiens (CAD).
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Localisation</div>
+      <div class="card-text">
+        Basé au Québec, Canada. Tous les coûts et données du projet sont exprimés en dollars canadiens (CAD). Le climat québécois, avec ses hivers rigoureux et ses étés fertiles, façonne chaque décision agricole.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Compétences & intérêts</div>
+      <div class="card-text">
+        Débutant en informatique, curieux de tout, passionné par la permaculture, l'agroforesterie et les systèmes vivants. J'apprends un pas à la fois, en documentant chaque étape du chemin.
+      </div>
+    </div>
+  </section>
+
+  <!-- FERME NABEK -->
+  <section id="ferme" class="tab-panel">
+    <div class="section-title">Ferme Nabek</div>
+    <div class="section-subtitle">
+      Un projet de ferme régénérative au Québec, conçu pour être viable sans aide extérieure.
+    </div>
+    <div class="card">
+      <div class="card-title">Philosophie du projet</div>
+      <div class="card-text">
+        La ferme Nabek s'appuie sur le Wampum comme cadre de réflexion : chaque décision agricole doit respecter l'équilibre entre les êtres humains, les animaux, les plantes et le sol. Pas de produits chimiques, pas de subventions — seulement des pratiques qui enrichissent l'écosystème et génèrent des revenus en CAD.
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Objectifs clés</div>
+      <div class="card-text">
+        <ul>
+          <li>Régénérer la biodiversité du sol</li>
+          <li>Produire des aliments sains en circuit court</li>
+          <li>Créer un modèle économique viable en CAD</li>
+          <li>Partager les savoirs avec la communauté</li>
+          <li>Documenter chaque étape pour inspirer d'autres projets</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Données du projet</div>
+      <div class="card-text">
+        Tous les chiffres sont réels, ponctuels et spécifiques au Québec. Le budget est exprimé en dollars canadiens. Le projet est personnel et ne sollicite aucune subvention gouvernementale.
+      </div>
+      <div class="meta">Taux de référence : 1 USD = 1,37 CAD (mai 2026)</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Pratiques envisagées</div>
+      <div class="card-text">
+        <ul>
+          <li>Rotation des cultures et couverts végétaux</li>
+          <li>Compostage et gestion des résidus organiques</li>
+          <li>Agroforesterie intégrée (arbres + cultures)</li>
+          <li>Pâturage rotationnel pour les animaux</li>
+          <li>Culture en no-till (sans labour)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog" class="tab-panel">
+    <div class="section-title">Blog</div>
+    <div class="section-subtitle">
+      Réflexions, mises à jour et apprentissages sur le chemin de la ferme régénérative.
+    </div>
+
+    <article class="card">
+      <div class="card-title">Lancement du projet Nabek</div>
+      <div class="card-text">
+        Aujourd'hui marque le début officiel de la documentation du projet de ferme régénérative. L'objectif est clair : construire un modèle agricole qui régénère le sol tout en étant économiquement viable. Le Wampum guide chaque décision. Les chiffres seront en CAD, les données réelles et le chemin documenté pas à pas.
+      </div>
+      <div class="meta">22 août 2026 · Projet · Nabek</div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">Pourquoi l'agriculture régénérative ?</div>
+      <div class="card-text">
+        L'agriculture conventionnelle épuise les sols. La régénérative les reconstruit. Au Québec, où les hivers sont longs et les sols parfois fragiles, cette approche n'est pas un luxe — c'est une nécessité. Voici ce que j'ai appris en commençant mes recherches sur les pratiques adaptées à notre climat.
+      </div>
+      <div class="meta">15 août 2026 · Réflexion · Agriculture</div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">Premiers calculs de budget</div>
+      <div class="card-text">
+        J'ai commencé à chiffrer les coûts réels du projet. Terres, équipements, semences, infrastructures — tout en dollars canadiens. Le défi : rester viable sans subventions. Les chiffres sont encourageants, mais ils demandent de la rigueur et une planification minutieuse.
+      </div>
+      <div class="meta">10 août 2026 · Finance · Budget</div>
+    </article>
+
+    <article class="card">
+      <div class="card-title">Le Wampum comme guide</div>
+      <div class="card-text">
+        Le Wampum n'est pas seulement un objet culturel — c'est un système de gouvernance fondé sur le respect, l'équilibre et l'interdépendance. Appliqué à l'agriculture, il devient un cadre éthique puissant : chaque action sur la terre doit maintenir l'harmonie entre tous les êtres vivants du territoire.
+      </div>
+      <div class="meta">5 août 2026 · Philosophie · Wampum</div>
+    </article>
+  </section>
+
+  <!-- LIENS -->
+  <section id="liens" class="tab-panel">
+    <div class="section-title">Liens & ressources</div>
+    <div class="section-subtitle">
+      Sites, outils et lectures qui nourrissent le projet Nabek.
+    </div>
+
+    <div class="link-section">
+      <a class="link-row" href="https://fr.wikipedia.org/wiki/Permaculture" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        <span>Permaculture — Wikipédia</span>
+      </a>
+      <a class="link-row" href="https://www.agroforesterie.ca" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        <span>Agroforesterie Canada</span>
+      </a>
+      <a class="link-row" href="https://fr.wikipedia.org/wiki/Wampum" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        <span>Le Wampum — Wikipédia</span>
+      </a>
+      <a class="link-row" href="https://www.mapaq.gouv.qc.ca" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        <span>MAPAQ — Ministère de l'Agriculture du Québec</span>
+      </a>
+      <a class="link-row" href="https://pages.github.com" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
+        <span>GitHub Pages — Hébergement gratuit</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer container">
+  © 2026 Nabek · Québec, Canada · Tous droits réservés
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  document.querySelector('[data-tab="' + id + '"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
