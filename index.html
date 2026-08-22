@@ -520,6 +520,141 @@ body {
   font-size: 14px;
   display: none;
 }
+
+/* Dashboard */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.kpi-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--surface);
+  text-align: center;
+}
+.kpi-value {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--accent);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+.kpi-unit {
+  font-size: 14px;
+  color: var(--text-tertiary);
+}
+.progress-list { margin-top: 8px; }
+.progress-item {
+  margin-bottom: 16px;
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.progress-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.progress-percent {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--surface-muted);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.status-ok {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+}
+.status-warn {
+  background: color-mix(in srgb, #f59e0b 15%, transparent);
+  color: #f59e0b;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.milestone-list {
+  margin-top: 8px;
+}
+.milestone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.milestone-item:last-child {
+  border-bottom: none;
+}
+.milestone-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.milestone-check svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+.milestone-check.pending {
+  background: var(--surface-muted);
+  color: var(--text-quaternary);
+}
+.milestone-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.milestone-text.done {
+  color: var(--text-primary);
+}
+.milestone-date {
+  font-size: 12px;
+  color: var(--text-quaternary);
+  margin-top: 2px;
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -564,6 +699,10 @@ body {
       <button class="tab-btn" data-tab="journal" onclick="showTab('journal')">
         <svg viewBox="0 0 24 24"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h12V4H6zm2 2h8v2H8V6zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
         Journal
+      </button>
+      <button class="tab-btn" data-tab="dashboard" onclick="showTab('dashboard')">
+        <svg viewBox="0 0 24 24"><path d="M3 3h8v10H3V3zm10 0h8v6h-8V3zM3 15h8v6H3v-6zm10-4h8v10h-8V11z"/></svg>
+        Tableau
       </button>
       <button class="tab-btn" data-tab="blog" onclick="showTab('blog')">
         <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
@@ -833,6 +972,181 @@ body {
         <br><br>
         <i>"On apprend plus de ses échecs que de ses succès. Le journal garde trace des deux."</i>
       </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU DE BORD -->
+  <section id="dashboard" class="tab-panel">
+    <div class="section-title">Tableau de bord</div>
+    <div class="section-subtitle">
+      Chiffres clés, progression et jalons du projet Nabek. Toutes les données en CAD.
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">0 <span class="kpi-unit">$</span></div>
+        <div class="kpi-label">Budget dépensé</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">0 <span class="kpi-unit">ha</span></div>
+        <div class="kpi-label">Terrain cultivé</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">0 <span class="kpi-unit">kg</span></div>
+        <div class="kpi-label">Récolte totale</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">3 <span class="kpi-unit">mois</span></div>
+        <div class="kpi-label">Depuis le lancement</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Progression des objectifs</div>
+      <div class="progress-list">
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Planification du terrain</span>
+            <span class="progress-percent">35 %</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 35%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Documentation & apprentissage</span>
+            <span class="progress-percent">60 %</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 60%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Budget & financement</span>
+            <span class="progress-percent">15 %</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 15%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Site web & communication</span>
+            <span class="progress-percent">85 %</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 85%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Premiers semis</span>
+            <span class="progress-percent">0 %</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Jalons du projet</div>
+      <div class="milestone-list">
+        <div class="milestone-item">
+          <div class="milestone-check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div>
+            <div class="milestone-text done">Lancement du projet Nabek</div>
+            <div class="milestone-date">Juin 2026</div>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-check">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <div>
+            <div class="milestone-text done">Création du site web</div>
+            <div class="milestone-date">Août 2026</div>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-check pending">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          </div>
+          <div>
+            <div class="milestone-text">Acquisition du terrain</div>
+            <div class="milestone-date">Objectif : 2027</div>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-check pending">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          </div>
+          <div>
+            <div class="milestone-text">Premiers semis sur le terrain</div>
+            <div class="milestone-date">Objectif : Printemps 2027</div>
+          </div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-check pending">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+          </div>
+          <div>
+            <div class="milestone-text">Première récolte</div>
+            <div class="milestone-date">Objectif : Automne 2027</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Budget prévisionnel (CAD)</div>
+      <div class="card-text">
+        Ce tableau est indicatif et évoluera avec le projet. Tous les montants sont en dollars canadiens.
+      </div>
+      <div class="progress-list" style="margin-top: 14px;">
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Semences & plants</span>
+            <span class="progress-percent">150 $CAD</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 10%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Outils & équipements</span>
+            <span class="progress-percent">200 $CAD</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 15%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Infrastructures (serre, compost)</span>
+            <span class="progress-percent">500 $CAD</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 35%"></div>
+          </div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header">
+            <span class="progress-title">Terrain & aménagement</span>
+            <span class="progress-percent">À déterminer</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="meta" style="margin-top: 12px;">Dernière mise à jour : août 2026 · Données provisoires</div>
     </div>
   </section>
 
