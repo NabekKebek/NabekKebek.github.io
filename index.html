@@ -705,6 +705,89 @@ body {
 .testimonial-form {
   margin-top: 8px;
 }
+
+/* Calendrier */
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 8px;
+}
+.event-item {
+  display: flex;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  background: var(--surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.event-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.event-item.past {
+  opacity: 0.7;
+}
+.event-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.event-date-day {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1;
+}
+.event-date-month {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.event-content {
+  flex: 1;
+  min-width: 0;
+}
+.event-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.event-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+.event-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.event-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  margin-left: 8px;
+}
+.event-status.upcoming {
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+}
+.event-status.past {
+  background: var(--surface-muted);
+  color: var(--text-quaternary);
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -777,6 +860,10 @@ body {
       <button class="tab-btn" data-tab="temoignages" onclick="showTab('temoignages')">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
         Témoignages
+      </button>
+      <button class="tab-btn" data-tab="calendrier" onclick="showTab('calendrier')">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+        Calendrier
       </button>
       <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
         <svg viewBox="0 0 24 24"><path d="M20.704 18.883A9.9 9.9 0 0 0 12 12.878a9.9 9.9 0 0 0-8.704 6.005c-.376 1.04.427 2.013 1.501 2.13l.218.013h13.973l.217-.013c1.075-.117 1.879-1.09 1.502-2.134zM12 14.678a6.9 6.9 0 0 0-6.908 4.548h13.816A6.9 6.9 0 0 0 12 14.678zm.231-10.672a4.5 4.5 0 0 1 4.269 4.494l-.006.231a4.5 4.5 0 0 1-4.494 4.269 4.5 4.5 0 0 1-4.494-4.269l-.006-.231a4.5 4.5 0 0 1 4.5-4.5l.231.006zm-.231 1.794a2.7 2.7 0 1 0 0 5.4002 2.7 2.7 0 0 0 0-5.4002z"/></svg>
@@ -1514,6 +1601,110 @@ body {
         <div class="contact-alt-text">
           <i>Si le formulaire ne fonctionne pas, tu peux aussi envoyer ton témoignage par courriel à <a href="mailto:NabekTrappeur@proton.me?subject=Temoignage">NabekTrappeur@proton.me</a> avec le sujet "Temoignage".</i>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDRIER -->
+  <section id="calendrier" class="tab-panel">
+    <div class="section-title">Calendrier des événements</div>
+    <div class="section-subtitle">
+      Dates importantes, rencontres et moments clés du projet Nabek.
+    </div>
+
+    <div class="event-list">
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">15</div>
+          <div class="event-date-month">Sept</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            Première visite de terrain
+            <span class="event-status upcoming">À venir</span>
+          </div>
+          <div class="event-meta">Québec, QC · En plein air</div>
+          <div class="event-desc">
+            Visite préliminaire du terrain envisagé pour la ferme. Objectif : évaluer l'exposition au soleil, le drainage naturel et l'accès à l'eau. Apporter des bottes et un carnet de notes.
+          </div>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">01</div>
+          <div class="event-date-month">Oct</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            Analyse du sol — Laboratoire
+            <span class="event-status upcoming">À venir</span>
+          </div>
+          <div class="event-meta">En ligne / Par la poste</div>
+          <div class="event-desc">
+            Envoi des échantillons de sol à un laboratoire agricole québécois pour analyse complète (pH, matière organique, nutriments). Résultats attendus sous 2 semaines.
+          </div>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">22</div>
+          <div class="event-date-month">Août</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            Mise en ligne du site web
+            <span class="event-status past">Passé</span>
+          </div>
+          <div class="event-meta">En ligne · nabekkebek.github.io</div>
+          <div class="event-desc">
+            Lancement officiel du site web Nabek sur GitHub Pages. Le site comprend désormais 14 sections : Accueil, Présentation, Ferme, Wampum, Journal, Tableau de bord, Blog, Liens, Ressources, Galerie, Projets, Témoignages, Calendrier et Contact.
+          </div>
+        </div>
+      </div>
+
+      <div class="event-item past">
+        <div class="event-date-badge">
+          <div class="event-date-day">10</div>
+          <div class="event-date-month">Août</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            Premiers calculs de budget
+            <span class="event-status past">Passé</span>
+          </div>
+          <div class="event-meta">Bureau · En CAD</div>
+          <div class="event-desc">
+            Session de chiffrage des coûts de démarrage du projet. Évaluation des besoins en semences, outils, infrastructures et aménagement du terrain. Budget prévisionnel initial établi.
+          </div>
+        </div>
+      </div>
+
+      <div class="event-item past">
+        <div class="event-date-badge">
+          <div class="event-date-day">15</div>
+          <div class="event-date-month">Juil</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            Début des lectures sur la permaculture
+            <span class="event-status past">Passé</span>
+          </div>
+          <div class="event-meta">À domicile · Bibliothèque</div>
+          <div class="event-desc">
+            Démarrage de l'apprentissage théorique. Lecture des ouvrages fondateurs de Bill Mollison et étude des guides du MAPAQ sur les cultures adaptées au Québec.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-title">Proposer un événement</div>
+      <div class="card-text">
+        Tu organises un atelier, une conférence ou une rencontre autour de l'agriculture régénérative au Québec ? Écris-moi et je l'ajouterai au calendrier.
+        <br><br>
+        <a href="mailto:NabekTrappeur@proton.me?subject=Proposition%20d%27evenement" style="color: var(--accent); text-decoration: none;">NabekTrappeur@proton.me</a>
       </div>
     </div>
   </section>
