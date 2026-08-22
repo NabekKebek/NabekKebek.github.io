@@ -471,6 +471,55 @@ body {
   color: var(--text-quaternary);
   cursor: not-allowed;
 }
+
+/* Search Bar */
+.search-bar {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+.search-wrapper {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.search-wrapper svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-quaternary);
+  fill: currentColor;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+.search-input::placeholder {
+  color: var(--text-quaternary);
+}
+.no-results {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  display: none;
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -543,6 +592,15 @@ body {
     </div>
   </div>
 </nav>
+
+<div class="search-bar">
+  <div class="container">
+    <div class="search-wrapper">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm-7 7a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" fill="currentColor"/><path d="M15.536 15.536a1 1 0 0 1 1.414 0l4.95 4.95a1 1 0 0 1-1.414 1.414l-4.95-4.95a1 1 0 0 1 0-1.414z" fill="currentColor"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Rechercher dans le blog, le journal..." oninput="filterCards(this.value)">
+    </div>
+  </div>
+</div>
 
 <main class="tab-content container">
 
@@ -717,6 +775,7 @@ body {
     <div class="section-subtitle">
       Chronique mensuelle de l'évolution du terrain, des cultures et des apprentissages.
     </div>
+    <div class="no-results" id="noResultsJournal">Aucune entrée ne correspond à ta recherche.</div>
 
     <article class="card">
       <div class="card-title">Août 2026 — Les premiers pas</div>
@@ -783,6 +842,7 @@ body {
     <div class="section-subtitle">
       Réflexions, mises à jour et apprentissages sur le chemin de la ferme régénérative.
     </div>
+    <div class="no-results" id="noResultsBlog">Aucun article ne correspond à ta recherche.</div>
 
     <article class="card">
       <div class="card-title">Lancement du projet Nabek</div>
@@ -1092,6 +1152,32 @@ function showTab(id) {
   document.getElementById(id).classList.add('active');
   document.querySelector('[data-tab="' + id + '"]').classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('searchInput').value = '';
+  filterCards('');
+}
+
+function filterCards(query) {
+  var activePanel = document.querySelector('.tab-panel.active');
+  if (!activePanel) return;
+  var cards = activePanel.querySelectorAll('.card, .resource-card, .gallery-item');
+  var visibleCount = 0;
+  query = query.toLowerCase().trim();
+  cards.forEach(function(card) {
+    var text = card.textContent.toLowerCase();
+    if (query === '' || text.indexOf(query) !== -1) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  var noResId = activePanel.id === 'blog' ? 'noResultsBlog' : (activePanel.id === 'journal' ? 'noResultsJournal' : null);
+  if (noResId) {
+    var noResults = document.getElementById(noResId);
+    if (noResults) {
+      noResults.style.display = (query !== '' && visibleCount === 0) ? 'block' : 'none';
+    }
+  }
 }
 </script>
 
