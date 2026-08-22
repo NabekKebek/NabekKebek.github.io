@@ -655,6 +655,56 @@ body {
   color: var(--text-quaternary);
   margin-top: 2px;
 }
+
+/* Temoignages */
+.testimonial-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+.testimonial-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  background: var(--surface);
+}
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.testimonial-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.testimonial-date {
+  font-size: 12px;
+  color: var(--text-quaternary);
+}
+.testimonial-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-style: italic;
+}
+.testimonial-form {
+  margin-top: 8px;
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -723,6 +773,10 @@ body {
       <button class="tab-btn" data-tab="ressources" onclick="showTab('ressources')">
         <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
         Ressources
+      </button>
+      <button class="tab-btn" data-tab="temoignages" onclick="showTab('temoignages')">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+        Témoignages
       </button>
       <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
         <svg viewBox="0 0 24 24"><path d="M20.704 18.883A9.9 9.9 0 0 0 12 12.878a9.9 9.9 0 0 0-8.704 6.005c-.376 1.04.427 2.013 1.501 2.13l.218.013h13.973l.217-.013c1.075-.117 1.879-1.09 1.502-2.134zM12 14.678a6.9 6.9 0 0 0-6.908 4.548h13.816A6.9 6.9 0 0 0 12 14.678zm.231-10.672a4.5 4.5 0 0 1 4.269 4.494l-.006.231a4.5 4.5 0 0 1-4.494 4.269 4.5 4.5 0 0 1-4.494-4.269l-.006-.231a4.5 4.5 0 0 1 4.5-4.5l.231.006zm-.231 1.794a2.7 2.7 0 1 0 0 5.4002 2.7 2.7 0 0 0 0-5.4002z"/></svg>
@@ -1384,6 +1438,82 @@ body {
           <li>Le lien ressemblera à : <code>href="mon-document.pdf"</code></li>
         </ul>
         Les visiteurs pourront alors cliquer et télécharger directement.
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMOIGNAGES -->
+  <section id="temoignages" class="tab-panel">
+    <div class="section-title">Témoignages</div>
+    <div class="section-subtitle">
+      Messages et retours des visiteurs. Merci à tous ceux qui partagent un mot.
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Marie</div>
+            <div class="testimonial-date">15 août 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text">
+          "J'adore l'approche du Wampum appliquée à l'agriculture. C'est rare de voir un projet qui part d'une philosophie aussi profonde. Bon courage pour la suite, Nabek !"
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jean-François</div>
+            <div class="testimonial-date">10 août 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text">
+          "Le journal de la ferme est une excellente idée. Documenter chaque étape, même les échecs, c'est ce qui fera la différence. Continue de partager !"
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sophie</div>
+            <div class="testimonial-date">5 août 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text">
+          "J'ai découvert ce site par hasard et je suis restée. La simplicité du design et la clarté des idées sont rafraîchissantes. Hâte de voir la première récolte."
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <div class="card-title">Laisser un témoignage</div>
+      <div class="card-text">
+        Tu as un mot à partager ? Une idée, un encouragement, une question ? Écris-le ci-dessous. Ton message apparaîtra ici après validation.
+      </div>
+      <form class="testimonial-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" style="margin-top: 14px;">
+        <input type="hidden" name="sujet" value="temoignage">
+        <div class="form-group">
+          <label for="temoignage-nom">Nom ou pseudo</label>
+          <input type="text" id="temoignage-nom" name="nom" placeholder="Ton nom" required>
+        </div>
+        <div class="form-group">
+          <label for="temoignage-message">Message</label>
+          <textarea id="temoignage-message" name="message" placeholder="Écris ton témoignage ici..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.1 12c0-1.893.809-3.163 1.874-3.93 1.019-.734 2.215-.97 3.026-.97h2a.9.9 0 0 1 0 1.8H7c-.522 0-1.326.164-1.974.53-.602.434-1.126 1.164-1.126 2.47s.524 2.036 1.126 2.47c.648.366 1.452.53 1.974.53h2a.9.9 0 0 1 0 1.8H7c-.81 0-2.007-.236-3.026-.97C2.909 15.164 2.1 13.893 2.1 12zm14-.9a.9.9 0 0 1 .9-.9h2c.81 0 2.007.236 3.026.97 1.065.767 1.874 2.037 1.874 3.93s-.809 3.163-1.874 3.93c-1.019.734-2.215.97-3.026.97h-2a.9.9 0 0 1 0-1.8h2c.522 0 1.326-.164 1.974-.53.602-.434 1.126-1.164 1.126-2.47s-.524-2.036-1.126-2.47c-.648-.366-1.452-.53-1.974-.53h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z" fill="currentColor"/></svg>
+          Envoyer le témoignage
+        </button>
+      </form>
+      <div class="contact-alt" style="margin-top: 16px; padding-top: 14px;">
+        <div class="contact-alt-text">
+          <i>Si le formulaire ne fonctionne pas, tu peux aussi envoyer ton témoignage par courriel à <a href="mailto:NabekTrappeur@proton.me?subject=Temoignage">NabekTrappeur@proton.me</a> avec le sujet "Temoignage".</i>
+        </div>
       </div>
     </div>
   </section>
