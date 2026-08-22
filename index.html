@@ -788,6 +788,70 @@ body {
   background: var(--surface-muted);
   color: var(--text-quaternary);
 }
+
+/* Carte */
+.map-wrapper {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+  margin-bottom: 14px;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  display: block;
+}
+.map-placeholder {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-muted);
+  color: var(--text-quaternary);
+  text-align: center;
+  padding: 24px;
+}
+.map-placeholder svg {
+  width: 48px;
+  height: 48px;
+  fill: currentColor;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+.map-placeholder-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 400px;
+  line-height: 1.6;
+}
+.map-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.map-info-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--surface);
+}
+.map-info-label {
+  font-size: 12px;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+.map-info-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
 /* Footer */
 .footer {
   text-align: center;
@@ -824,6 +888,10 @@ body {
       <button class="tab-btn" data-tab="ferme" onclick="showTab('ferme')">
         <svg viewBox="0 0 24 24"><path d="M4.1 6a.9.9 0 0 1 .9-.9H19a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9z"/></svg>
         Ferme Nabek
+      </button>
+      <button class="tab-btn" data-tab="carte" onclick="showTab('carte')">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        Carte
       </button>
       <button class="tab-btn" data-tab="wampum" onclick="showTab('wampum')">
         <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg>
@@ -973,6 +1041,58 @@ body {
           <li>Pâturage rotationnel pour les animaux</li>
           <li>Culture en no-till (sans labour)</li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTE -->
+  <section id="carte" class="tab-panel">
+    <div class="section-title">Carte</div>
+    <div class="section-subtitle">
+      Localisation du projet Nabek au Québec.
+    </div>
+
+    <div class="map-wrapper">
+      <div class="map-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+        <div class="map-placeholder-text">
+          <b>Carte interactive</b><br><br>
+          Le terrain exact de la ferme Nabek n'est pas encore déterminé.<br><br>
+          Quand le terrain sera acquis, une carte Google Maps sera intégrée ici pour montrer l'emplacement précis au Québec.
+        </div>
+      </div>
+    </div>
+
+    <div class="map-info-grid">
+      <div class="map-info-item">
+        <div class="map-info-label">Région</div>
+        <div class="map-info-value">Québec, Canada</div>
+      </div>
+      <div class="map-info-item">
+        <div class="map-info-label">Zone climatique</div>
+        <div class="map-info-value">Zone 4b — 5a (USDA)</div>
+      </div>
+      <div class="map-info-item">
+        <div class="map-info-label">Saison de culture</div>
+        <div class="map-info-value">Mai à octobre</div>
+      </div>
+      <div class="map-info-item">
+        <div class="map-info-label">Statut du terrain</div>
+        <div class="map-info-value">En recherche</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 14px;">
+      <div class="card-title">Comment intégrer une vraie carte</div>
+      <div class="card-text">
+        Quand tu auras un terrain précis :
+        <ul>
+          <li>Va sur <b>Google Maps</b> et cherche l'adresse</li>
+          <li>Clique sur <b>"Partager"</b> puis <b>"Intégrer une carte"</b></li>
+          <li>Copie le code HTML fourni (une balise &lt;iframe&gt;)</li>
+          <li>Dans le code de cette page, remplace le bloc <b>map-placeholder</b> par ce &lt;iframe&gt;</li>
+        </ul>
+        La carte sera alors interactive — les visiteurs pourront zoomer, déplacer et voir le satellite.
       </div>
     </div>
   </section>
