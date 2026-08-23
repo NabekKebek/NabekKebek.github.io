@@ -986,6 +986,14 @@ body {
 }
 </style>
 <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAC/UlEQVR4nO2bzWsTQRjGn83mo21sbZoYDRaxlSoeAh4qQvEDtV48eVHoRS9aEIvFY8/+Ay0FERRPgoKISG+ttAUpFlFQpEUFe1BpNE3td4ltk/U0Ibuzmw/ZzLuZ7HPKTnbzPu9v39md3ckomqahluWhNkAtbzk7Jz7dqJpyicUfKKXsp5TSBaopcaOKgSgIwJh4LBaxyVbllUikdNtWICwB5CdfTYkblQ/CDILpRVCW5AG9f7OuzAGQKXmmQhAsb4OyJM9klY8OAKMjW/JMLK/8Kqj5gVAOgOxnn8lYBW4FUBuglguA2gC1XADUBqjlAqA2QC0XALUBarkAqA1Qq+YBlPVavBT1P/mJic9rpt+pHgUv+9pxIOwv+Bt3R37h2bslrv1QNIAXt9pt8ckktAIyWQ3D4wsiQxaV8C4wOrOK2fm06LCWEg5A04DBsaTosJYiuQhOz21gem6DIjQnsrvA4FgSTpiYJgMwO5/G6MwqVficSMcBw+MLyGRpy0AYgLaIHz5VPzX3fXELz98vi7JgKmEAYs0+XO4Mce33J1NIb2dF2eAktAv0ngmjwa8PmVrfweM3f0Ta0EkogJagF9e6Wrj2R1OLWN7MiLSSk/CL4NWuMEJBVde2ns7i4euUxRGVlXAAwYAHvaf56benb5eQWNkWbYfmNnjleAj7Qz5d29aOhnsT4h+USAD4VAV95/Zw7SMfVvAt+VeoF7KB0MX4bhzZV6dry2rA0CuxVUAGQFGA/m6+Cia/rOHjj01hPkiHwic7dqHzYAPX/vW3uG5A/k7wzoUoaXxyAPHWepw/2kgS2xEAAODm2QgC3pL+4G2rHANgb5MPPSf4B6VKyzEAAOD6qTAa69TiO9oo22eGhnpa//vYpnoVUwOHbXRTXI6qAAq5ANgHtpjAuNJCNrH8WL5uBeRvyF4FxrMPFKgA2SBY5cMByKcjC4RCC6dMK0AmCMVWjbnrBt2Vo2VM0lcTCFvXDsusf6qo7+mxi95yAAAAAElFTkSuQmCC">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WCYLV4WNW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WCYLV4WNW');
+</script>
 </head>
 <body class="lang-fr">
 
@@ -2177,20 +2185,22 @@ body {
       </a>
     </div>
 
-    <form class="contact-form" onsubmit="handleContact(event)">
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_CONTACT_ID" method="POST">
+      <input type="hidden" name="_subject" value="Contact — Projet Nabek">
+      <input type="hidden" name="form_type" value="contact">
       <div class="form-group">
         <label class="fr-content">Nom</label>
         <label class="en-content">Name</label>
-        <input type="text" id="contactName" required>
+        <input type="text" name="name" id="contactName" required>
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" id="contactEmail" required>
+        <input type="email" name="email" id="contactEmail" required>
       </div>
       <div class="form-group">
         <label class="fr-content">Sujet</label>
         <label class="en-content">Subject</label>
-        <select id="contactSubject">
+        <select name="subject" id="contactSubject">
           <option class="fr-content" value="general">Question générale</option>
           <option class="fr-content" value="partnership">Partenariat</option>
           <option class="fr-content" value="investment">Investissement</option>
@@ -2206,13 +2216,17 @@ body {
       <div class="form-group">
         <label class="fr-content">Message</label>
         <label class="en-content">Message</label>
-        <textarea id="contactMessage" required></textarea>
+        <textarea name="message" id="contactMessage" required></textarea>
       </div>
       <button type="submit" class="btn-submit">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         <span class="fr-content">Envoyer</span>
         <span class="en-content">Send</span>
       </button>
+      <p style="margin-top:12px;font-size:12px;color:var(--text-tertiary);">
+        <span class="fr-content">🔧 Remplace <code>YOUR_FORMSPREE_CONTACT_ID</code> par ton vrai ID Formspree. <a href="https://formspree.io/" target="_blank" rel="noopener" style="color:var(--accent);">Créer un compte Formspree</a></span>
+        <span class="en-content">🔧 Replace <code>YOUR_FORMSPREE_CONTACT_ID</code> with your real Formspree ID. <a href="https://formspree.io/" target="_blank" rel="noopener" style="color:var(--accent);">Create a Formspree account</a></span>
+      </p>
     </form>
 
     <div class="contact-alt">
@@ -2248,16 +2262,18 @@ body {
     </div>
 
     <div class="newsletter-form-card">
-      <form onsubmit="handleNewsletter(event)">
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_NEWSLETTER_ID" method="POST">
         <div class="form-group">
           <label class="fr-content">Votre adresse courriel</label>
           <label class="en-content">Your email address</label>
-          <input type="email" id="newsletterEmail" placeholder="nom@exemple.com" required>
+          <input type="hidden" name="_subject" value="Abonnement infolettre — Nabek">
+          <input type="hidden" name="form_type" value="newsletter">
+          <input type="email" name="email" id="newsletterEmail" placeholder="nom@exemple.com / name@example.com" required>
         </div>
         <div class="form-group">
           <label class="fr-content">Langue préférée</label>
           <label class="en-content">Preferred language</label>
-          <select id="newsletterLang">
+          <select name="preferred_language" id="newsletterLang">
             <option value="fr">Français</option>
             <option value="en">English</option>
             <option value="both" class="fr-content">Les deux / Both</option>
@@ -2269,6 +2285,10 @@ body {
           <span class="fr-content">S'abonner</span>
           <span class="en-content">Subscribe</span>
         </button>
+        <p style="margin-top:12px;font-size:12px;color:var(--text-tertiary);text-align:center;">
+          <span class="fr-content">🔧 Remplace <code>YOUR_FORMSPREE_NEWSLETTER_ID</code> par ton ID Formspree dédié à l'infolettre.</span>
+          <span class="en-content">🔧 Replace <code>YOUR_FORMSPREE_NEWSLETTER_ID</code> with your Formspree ID dedicated to the newsletter.</span>
+        </p>
       </form>
     </div>
 
@@ -2377,21 +2397,27 @@ body {
       <div class="card-text en-content">
         If you have met the Nabek team, visited the project, or exchanged with us, your testimonial matters. It feeds trust and transparency.
       </div>
-      <form class="testimonial-form" onsubmit="handleTestimonial(event)">
+      <form class="testimonial-form" action="https://formspree.io/f/YOUR_FORMSPREE_TESTIMONIAL_ID" method="POST">
         <div class="form-group">
           <label class="fr-content">Votre nom</label>
           <label class="en-content">Your name</label>
-          <input type="text" id="testimonialName" required>
+          <input type="hidden" name="_subject" value="Témoignage — Projet Nabek">
+        <input type="hidden" name="form_type" value="testimonial">
+        <input type="text" name="name" id="testimonialName" required>
         </div>
         <div class="form-group">
           <label class="fr-content">Votre témoignage</label>
           <label class="en-content">Your testimonial</label>
-          <textarea id="testimonialText" required></textarea>
+          <textarea name="testimonial" id="testimonialText" required></textarea>
         </div>
         <button type="submit" class="btn-submit">
           <span class="fr-content">Publier</span>
           <span class="en-content">Publish</span>
         </button>
+        <p style="margin-top:12px;font-size:12px;color:var(--text-tertiary);">
+          <span class="fr-content">🔧 Remplace <code>YOUR_FORMSPREE_TESTIMONIAL_ID</code> par ton ID Formspree dédié aux témoignages.</span>
+          <span class="en-content">🔧 Replace <code>YOUR_FORMSPREE_TESTIMONIAL_ID</code> with your Formspree ID dedicated to testimonials.</span>
+        </p>
       </form>
     </div>
   </div>
@@ -2609,7 +2635,11 @@ function filterLinks() {
 }
 
 // ============================================================
-// CONTACT FORM
+// CONTACT FORM — CONNECTÉ À FORMSPREE
+// ============================================================
+// Les formulaires utilisent action="https://formspree.io/f/ID"
+// Remplace les 3 IDs YOUR_FORMSPREE_*_ID par tes vrais IDs.
+// Crée un compte gratuit sur https://formspree.io/
 // ============================================================
 function handleContact(e) {
   e.preventDefault();
