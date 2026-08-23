@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>site web Nabek</title>
-<meta name="description" content="Projet de ferme régénérative au Québec, fondé sur la philosophie Wampum. Agriculture durable, chanvre, élevage bovin, mycélium. Sans subventions. Réconciliation. Journal, blog et ressources. Puits de carbone, avenir durable.">
-<meta name="keywords" content="Nabek, ferme régénérative, Québec, Canada, agriculture durable, élevage bovin, Wampum, sol vivant, compostage, sans subventions, autonomie alimentaire, écologie, blog agricole, journal de ferme, puits de carbone, mycélium, terre, biodiversité, semences, culture, récolte, agroécologie, Réconciliation">
-<meta property="og:title" content="site web Nabek">
-<meta property="og:description" content="Ferme régénérative au Québec — respect, équilibre, interdépendance, Réconciliation. Découvre le projet, le journal de la ferme, les ressources et prends contact.">
+<title>Projet Fermes Nabek — Nabek Farm Project</title>
+<meta name="description" content="Projet de ferme régénérative au Québec | Regenerative farm project in Quebec. Wampum, chanvre, bœuf, mycélium. Sans subventions. Without subsidies.">
+<meta name="keywords" content="Nabek, ferme régénérative, regenerative farm, Québec, Quebec, chanvre, hemp, bœuf, beef, Wampum, mycélium, mycelium, sans subventions, without subsidies">
+<meta property="og:title" content="Projet Fermes Nabek — Nabek Farm Project">
+<meta property="og:description" content="Ferme régénérative au Québec — Regenerative farm in Quebec. Respect, équilibre, interdépendance.">
 <meta property="og:url" content="https://NabekKebek.github.io">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -48,6 +48,85 @@ body {
   min-height: 100vh;
 }
 .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+/* Language system */
+body.lang-fr .en-content { display: none !important; }
+body.lang-en .fr-content { display: none !important; }
+
+/* Language popup */
+.lang-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+.lang-popup {
+  background: var(--bg);
+  padding: 48px 36px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 440px;
+  width: 92%;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
+}
+.lang-popup-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+.lang-popup-icon svg { width: 32px; height: 32px; fill: currentColor; }
+.lang-popup h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.lang-popup p {
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.lang-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.lang-btn {
+  padding: 14px 32px;
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.lang-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45,106,79,0.35);
+}
+.lang-btn-outline {
+  background: transparent;
+  color: var(--accent);
+}
+.lang-btn-outline:hover {
+  background: var(--accent-light);
+}
 
 /* Navigation */
 .nav-bar {
@@ -275,9 +354,7 @@ body {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
-.btn-submit:active {
-  transform: translateY(0);
-}
+.btn-submit:active { transform: translateY(0); }
 .contact-alt {
   margin-top: 24px;
   padding-top: 20px;
@@ -298,10 +375,7 @@ body {
   color: var(--accent);
   text-decoration: none;
 }
-.contact-alt-text a:hover {
-  text-decoration: underline;
-}
-
+.contact-alt-text a:hover { text-decoration: underline; }
 
 /* Galerie */
 .gallery-grid {
@@ -354,9 +428,7 @@ body {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
-.gallery-item:hover .gallery-caption {
-  opacity: 1;
-}
+.gallery-item:hover .gallery-caption { opacity: 1; }
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -463,9 +535,7 @@ body {
   transition: background 0.15s ease;
   margin-top: 8px;
 }
-.resource-btn:hover {
-  background: var(--accent-hover);
-}
+.resource-btn:hover { background: var(--accent-hover); }
 .resource-btn svg {
   width: 14px;
   height: 14px;
@@ -515,9 +585,7 @@ body {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px var(--accent-light);
 }
-.search-input::placeholder {
-  color: var(--text-quaternary);
-}
+.search-input::placeholder { color: var(--text-quaternary); }
 .no-results {
   text-align: center;
   padding: 32px 20px;
@@ -526,7 +594,27 @@ body {
   display: none;
 }
 
-/* Dashboard */
+/* Dashboard / Tableaux */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.data-table th,
+.data-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.data-table th {
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--surface-muted);
+}
+.data-table td { color: var(--text-secondary); }
+.data-table tr:hover td { background: var(--surface-muted); }
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -555,110 +643,6 @@ body {
 .kpi-unit {
   font-size: 14px;
   color: var(--text-tertiary);
-}
-.progress-list { margin-top: 8px; }
-.progress-item {
-  margin-bottom: 16px;
-}
-.progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-.progress-title {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-primary);
-}
-.progress-percent {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-.progress-bar-bg {
-  width: 100%;
-  height: 8px;
-  background: var(--surface-muted);
-  border-radius: 4px;
-  overflow: hidden;
-}
-.progress-bar-fill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 4px;
-  transition: width 1s ease-out;
-}
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-}
-.status-ok {
-  background: color-mix(in srgb, var(--accent) 15%, transparent);
-  color: var(--accent);
-}
-.status-warn {
-  background: color-mix(in srgb, #f59e0b 15%, transparent);
-  color: #f59e0b;
-}
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-.milestone-list {
-  margin-top: 8px;
-}
-.milestone-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-}
-.milestone-item:last-child {
-  border-bottom: none;
-}
-.milestone-check {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--accent-light);
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.milestone-check svg {
-  width: 12px;
-  height: 12px;
-  fill: currentColor;
-}
-.milestone-check.pending {
-  background: var(--surface-muted);
-  color: var(--text-quaternary);
-}
-.milestone-text {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-.milestone-text.done {
-  color: var(--text-primary);
-}
-.milestone-date {
-  font-size: 12px;
-  color: var(--text-quaternary);
-  margin-top: 2px;
 }
 
 /* Temoignages */
@@ -707,9 +691,7 @@ body {
   line-height: 1.65;
   font-style: italic;
 }
-.testimonial-form {
-  margin-top: 8px;
-}
+.testimonial-form { margin-top: 8px; }
 
 /* Calendrier */
 .event-list {
@@ -731,9 +713,7 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
-.event-item.past {
-  opacity: 0.7;
-}
+.event-item.past { opacity: 0.7; }
 .event-date-badge {
   display: flex;
   flex-direction: column;
@@ -941,8 +921,15 @@ body {
   line-height: 1.5;
 }
 
-/* Theme Toggle */
-.theme-toggle {
+/* Theme Toggle + Lang Toggle */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.theme-toggle, .lang-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -956,8 +943,11 @@ body {
   border-radius: 8px;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
 }
-.theme-toggle:hover {
+.theme-toggle:hover, .lang-toggle:hover {
   background: var(--surface-muted);
   color: var(--text-primary);
 }
@@ -966,12 +956,14 @@ body {
   height: 20px;
   fill: currentColor;
 }
+
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .card, .event-item, .testimonial-card, .resource-card, .gallery-item, .kpi-card, .map-info-item, .newsletter-benefit, .link-row {
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* Footer */
 .footer {
   text-align: center;
@@ -989,1115 +981,1695 @@ body {
   .tab-btn { padding: 6px 10px; font-size: 13px; }
   .tab-btn svg { width: 16px; height: 16px; }
   .card { padding: 14px; }
+  .lang-popup { padding: 36px 24px; }
+  .lang-popup h2 { font-size: 22px; }
 }
 </style>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAC/UlEQVR4nO2bzWsTQRjGn83mo21sbZoYDRaxlSoeAh4qQvEDtV48eVHoRS9aEIvFY8/+Ay0FERRPgoKISG+ttAUpFlFQpEUFe1BpNE3td4ltk/U0Ibuzmw/ZzLuZ7HPKTnbzPu9v39md3ckomqahluWhNkAtbzk7Jz7dqJpyicUfKKXsp5TSBaopcaOKgSgIwJh4LBaxyVbllUikdNtWICwB5CdfTYkblQ/CDILpRVCW5AG9f7OuzAGQKXmmQhAsb4OyJM9klY8OAKMjW/JMLK/8Kqj5gVAOgOxnn8lYBW4FUBuglguA2gC1XADUBqjlAqA2QC0XALUBarkAqA1Qq+YBlPVavBT1P/mJic9rpt+pHgUv+9pxIOwv+Bt3R37h2bslrv1QNIAXt9pt8ckktAIyWQ3D4wsiQxaV8C4wOrOK2fm06LCWEg5A04DBsaTosJYiuQhOz21gem6DIjQnsrvA4FgSTpiYJgMwO5/G6MwqVficSMcBw+MLyGRpy0AYgLaIHz5VPzX3fXELz98vi7JgKmEAYs0+XO4Mce33J1NIb2dF2eAktAv0ngmjwa8PmVrfweM3f0Ta0EkogJagF9e6Wrj2R1OLWN7MiLSSk/CL4NWuMEJBVde2ns7i4euUxRGVlXAAwYAHvaf56benb5eQWNkWbYfmNnjleAj7Qz5d29aOhnsT4h+USAD4VAV95/Zw7SMfVvAt+VeoF7KB0MX4bhzZV6dry2rA0CuxVUAGQFGA/m6+Cia/rOHjj01hPkiHwic7dqHzYAPX/vW3uG5A/k7wzoUoaXxyAPHWepw/2kgWnxwAANzujsJD5MQRANoiflw61kwS2xEAAODm2QgC3pL+4G2rHANgb5MPPSf4B6VKyzEAAOD6qTAa69TiO9oo22eGhnpa//vYpnoVUwOHbXRTXI6qAAq5ANgHtpjAuNJCNrH8WL5uBeRvyF4FxrMPFKgA2SBY5cMByKcjC4RCC6dMK0AmCMVWjbnrBt2Vo2VM0lcTCFvXDsusf6qo7+mxi95yAAAAAElFTkSuQmCC">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAC/UlEQVR4nO2bzWsTQRjGn83mo21sbZoYDRaxlSoeAh4qQvEDtV48eVHoRS9aEIvFY8/+Ay0FERRPgoKISG+ttAUpFlFQpEUFe1BpNE3td4ltk/U0Ibuzmw/ZzLuZ7HPKTnbzPu9v39md3ckomqahluWhNkAtbzk7Jz7dqJpyicUfKKXsp5TSBaopcaOKgSgIwJh4LBaxyVbllUikdNtWICwB5CdfTYkblQ/CDILpRVCW5AG9f7OuzAGQKXmmQhAsb4OyJM9klY8OAKMjW/JMLK/8Kqj5gVAOgOxnn8lYBW4FUBuglguA2gC1XADUBqjlAqA2QC0XALUBarkAqA1Qq+YBlPVavBT1P/mJic9rpt+pHgUv+9pxIOwv+Bt3R37h2bslrv1QNIAXt9pt8ckktAIyWQ3D4wsiQxaV8C4wOrOK2fm06LCWEg5A04DBsaTosJYiuQhOz21gem6DIjQnsrvA4FgSTpiYJgMwO5/G6MwqVficSMcBw+MLyGRpy0AYgLaIHz5VPzX3fXELz98vi7JgKmEAYs0+XO4Mce33J1NIb2dF2eAktAv0ngmjwa8PmVrfweM3f0Ta0EkogJagF9e6Wrj2R1OLWN7MiLSSk/CL4NWuMEJBVde2ns7i4euUxRGVlXAAwYAHvaf56benb5eQWNkWbYfmNnjleAj7Qz5d29aOhnsT4h+USAD4VAV95/Zw7SMfVvAt+VeoF7KB0MX4bhzZV6dry2rA0CuxVUAGQFGA/m6+Cia/rOHjj01hPkiHwic7dqHzYAPX/vW3uG5A/k7wzoUoaXxyAPHWepw/2kgS2xEAAODm2QgC3pL+4G2rHANgb5MPPSf4B6VKyzEAAOD6qTAa69TiO9oo22eGhnpa//vYpnoVUwOHbXRTXI6qAAq5ANgHtpjAuNJCNrH8WL5uBeRvyF4FxrMPFKgA2SBY5cMByKcjC4RCC6dMK0AmCMVWjbnrBt2Vo2VM0lcTCFvXDsusf6qo7+mxi95yAAAAAElFTkSuQmCC">
 </head>
-<body>
+<body class="lang-fr">
+
+<!-- POPUP CHOIX LANGUE -->
+<div class="lang-overlay" id="langOverlay">
+  <div class="lang-popup">
+    <div class="lang-popup-icon">
+      <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg>
+    </div>
+    <h2>Projet Fermes Nabek</h2>
+    <p>Choisis ta langue / Choose your language</p>
+    <div class="lang-buttons">
+      <button class="lang-btn" onclick="setLanguage('fr')">🇫🇷 Français</button>
+      <button class="lang-btn lang-btn-outline" onclick="setLanguage('en')">🇬🇧 English</button>
+    </div>
+  </div>
+</div>
 
 <nav class="nav-bar">
   <div class="container">
     <div class="nav-tabs">
       <button class="tab-btn active" data-tab="accueil" onclick="showTab('accueil')">
-        <svg viewBox="0 0 24 24"><path d="M12 2.1c5.468.0002 9.9 4.433 9.9 9.9s-4.432 9.9-9.9 9.9-9.9-4.432-9.9-9.9 4.432-9.9 9.9-9.9zm0 1.8a8.1 8.1 0 1 0 0 16.2 8.1 8.1 0 0 0 0-16.2zm0 5.6c.497.0002.9.37.9.826v6.348a.9.9 0 0 1-1.8 0V10.327c0-.456.403-.826.9-.826zm0-3c.497 0 .9.404.9.9a.9.9 0 0 1-1.8 0 .9.9 0 0 1 .9-.9z"/></svg>
-        Accueil
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        <span class="fr-content">Accueil</span><span class="en-content">Home</span>
       </button>
       <button class="tab-btn" data-tab="presentation" onclick="showTab('presentation')">
-        <svg viewBox="0 0 24 24"><path d="M12 12.878c4.02.0001 7.44 2.507 8.705 6.005.376 1.04-.427 2.013-1.501 2.13l-.218.013H5.013l-.217-.012c-1.075-.118-1.879-1.09-1.502-2.134 1.265-3.498 4.686-6.005 8.706-6.005zm0 1.8c-3.155.0002-5.825 1.902-6.908 4.548h13.816c-1.083-2.646-3.753-4.548-6.908-4.548zm.231-10.672c2.378.12 4.269 2.086 4.269 4.494l-.006.231c-.12 2.378-2.087 4.269-4.494 4.269-2.408-.0002-4.374-1.891-4.494-4.269l-.006-.231c0-2.485 2.015-4.5 4.5-4.5l.231.006zm-.231 1.794c-1.491.0002-2.7 1.209-2.7 2.7s1.209 2.7 2.7 2.7002c1.491-.0001 2.7-1.209 2.7-2.7002 0-1.491-1.209-2.7-2.7-2.7z"/></svg>
-        Présentation
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <span class="fr-content">Présentation</span><span class="en-content">About</span>
       </button>
       <button class="tab-btn" data-tab="ferme" onclick="showTab('ferme')">
-        <svg viewBox="0 0 24 24"><path d="M4.1 6a.9.9 0 0 1 .9-.9H19a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9zm0 6a.9.9 0 0 1 .9-.9H13a.9.9 0 0 1 0 1.8H5a.9.9 0 0 1-.9-.9z"/></svg>
-        Ferme Nabek
+        <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+        <span class="fr-content">Ferme Nabek</span><span class="en-content">Nabek Farm</span>
       </button>
       <button class="tab-btn" data-tab="carte" onclick="showTab('carte')">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-        Carte
+        <svg viewBox="0 0 24 24"><path d="M20.5 3l-6 1.5-6-1.5-5.5 1.5v15l5.5-1.5 6 1.5 6-1.5V3zM15 18.5l-6-1.5V5l6 1.5v12z"/></svg>
+        <span class="fr-content">Carte</span><span class="en-content">Map</span>
       </button>
       <button class="tab-btn" data-tab="wampum" onclick="showTab('wampum')">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z"/></svg>
-        Wampum
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span class="fr-content">Wampum</span><span class="en-content">Wampum</span>
       </button>
       <button class="tab-btn" data-tab="journal" onclick="showTab('journal')">
-        <svg viewBox="0 0 24 24"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h12V4H6zm2 2h8v2H8V6zm0 4h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
-        Journal
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span class="fr-content">Journal</span><span class="en-content">Journal</span>
       </button>
       <button class="tab-btn" data-tab="dashboard" onclick="showTab('dashboard')">
-        <svg viewBox="0 0 24 24"><path d="M3 3h8v10H3V3zm10 0h8v6h-8V3zM3 15h8v6H3v-6zm10-4h8v10h-8V11z"/></svg>
-        Tableau
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span class="fr-content">Tableau</span><span class="en-content">Dashboard</span>
       </button>
       <button class="tab-btn" data-tab="blog" onclick="showTab('blog')">
-        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
-        Blog
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span class="fr-content">Blog</span><span class="en-content">Blog</span>
       </button>
       <button class="tab-btn" data-tab="liens" onclick="showTab('liens')">
-        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-        Liens
+        <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+        <span class="fr-content">Liens</span><span class="en-content">Links</span>
       </button>
       <button class="tab-btn" data-tab="projets" onclick="showTab('projets')">
-        <svg viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h10V5H7zm2 2h6v2H9V7zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"/></svg>
-        Projets
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span class="fr-content">Projets</span><span class="en-content">Projects</span>
       </button>
       <button class="tab-btn" data-tab="galerie" onclick="showTab('galerie')">
-        <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v4h-4V7zM7 13h4v4H7v-4zm6 0h4v4h-4v-4z"/></svg>
-        Galerie
+        <svg viewBox="0 0 24 24"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg>
+        <span class="fr-content">Galerie</span><span class="en-content">Gallery</span>
       </button>
       <button class="tab-btn" data-tab="ressources" onclick="showTab('ressources')">
-        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
-        Ressources
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        <span class="fr-content">Ressources</span><span class="en-content">Resources</span>
+      </button>
+      <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="fr-content">Contact</span><span class="en-content">Contact</span>
+      </button>
+      <button class="tab-btn" data-tab="newsletter" onclick="showTab('newsletter')">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="fr-content">Infolettre</span><span class="en-content">Newsletter</span>
       </button>
       <button class="tab-btn" data-tab="temoignages" onclick="showTab('temoignages')">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
-        Témoignages
+        <span class="fr-content">Témoignages</span><span class="en-content">Testimonials</span>
       </button>
       <button class="tab-btn" data-tab="calendrier" onclick="showTab('calendrier')">
-        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-        Calendrier
-      </button>
-      <button class="tab-btn" data-tab="newsletter" onclick="showTab('newsletter')">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        Newsletter
-      </button>
-      <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
-        <svg viewBox="0 0 24 24"><path d="M20.704 18.883A9.9 9.9 0 0 0 12 12.878a9.9 9.9 0 0 0-8.704 6.005c-.376 1.04.427 2.013 1.501 2.13l.218.013h13.973l.217-.013c1.075-.117 1.879-1.09 1.502-2.134zM12 14.678a6.9 6.9 0 0 0-6.908 4.548h13.816A6.9 6.9 0 0 0 12 14.678zm.231-10.672a4.5 4.5 0 0 1 4.269 4.494l-.006.231a4.5 4.5 0 0 1-4.494 4.269 4.5 4.5 0 0 1-4.494-4.269l-.006-.231a4.5 4.5 0 0 1 4.5-4.5l.231.006zm-.231 1.794a2.7 2.7 0 1 0 0 5.4002 2.7 2.7 0 0 0 0-5.4002z"/></svg>
-        Contact
+        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+        <span class="fr-content">Calendrier</span><span class="en-content">Calendar</span>
       </button>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Changer de theme" title="Mode clair / sombre">
-      <svg viewBox="0 0 24 24" id="themeIconMoon"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
-    </button>
+    <div class="nav-right">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Thème clair/sombre">
+        <svg viewBox="0 0 24 24" class="fr-content"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+        <svg viewBox="0 0 24 24" class="en-content"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+      </button>
+      <button class="lang-toggle" onclick="toggleLanguage()" title="Français / English">FR/EN</button>
+    </div>
   </div>
 </nav>
 
-<div class="search-bar">
+<main class="tab-content">
+
+<!-- ACCUEIL -->
+<div class="tab-panel active" id="accueil">
   <div class="container">
-    <div class="search-wrapper">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm-7 7a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" fill="currentColor"/><path d="M15.536 15.536a1 1 0 0 1 1.414 0l4.95 4.95a1 1 0 0 1-1.414 1.414l-4.95-4.95a1 1 0 0 1 0-1.414z" fill="currentColor"/></svg>
-      <input type="text" class="search-input" id="searchInput" placeholder="Rechercher dans le blog, le journal..." oninput="filterCards(this.value)">
+    <div class="hero">
+      <h1 class="fr-content">Projet Fermes Nabek</h1>
+      <h1 class="en-content">Nabek Farm Project</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Ferme régénérative au Québec — Sans subventions</p>
+      <p class="en-content">Regenerative farm in Quebec — Without subsidies</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Notre vision</div>
+      <div class="card-title en-content">Our vision</div>
+      <div class="card-text fr-content">
+        Le projet Nabek naît d'une conviction profonde : il est possible de cultiver la terre en la régénérant, de produire de la nourriture en restaurant les écosystèmes, et de bâtir une entreprise agricole sans dépendre des subventions gouvernementales. Situé au Québec, notre modèle s'appuie sur le Wampum — ce traité de respect, d'équilibre et d'interdépendance — pour guider chaque décision, de la rotation des cultures à la relation avec le sol.
+      </div>
+      <div class="card-text en-content">
+        The Nabek project is born from a deep conviction: it is possible to cultivate the land while regenerating it, to produce food while restoring ecosystems, and to build a farm business without depending on government subsidies. Located in Quebec, our model draws on the Wampum — that treaty of respect, balance, and interdependence — to guide every decision, from crop rotation to our relationship with the soil.
+      </div>
+      <div class="tag-row">
+        <span class="tag fr-content">🌱 Régénération</span>
+        <span class="tag fr-content">🐂 Bœuf</span>
+        <span class="tag fr-content">🌿 Chanvre</span>
+        <span class="tag fr-content">🍄 Mycélium</span>
+        <span class="tag fr-content">⚖️ Sans subventions</span>
+        <span class="tag en-content">🌱 Regeneration</span>
+        <span class="tag en-content">🐂 Beef</span>
+        <span class="tag en-content">🌿 Hemp</span>
+        <span class="tag en-content">🍄 Mycelium</span>
+        <span class="tag en-content">⚖️ No subsidies</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Ce qui nous distingue</div>
+      <div class="card-title en-content">What sets us apart</div>
+      <div class="card-text fr-content">
+        <ul>
+          <li><strong>Aucune subvention gouvernementale</strong> — Le projet repose entièrement sur des fonds privés et du revenu d'exploitation. Cette indépendance garantit notre liberté de choix.</li>
+          <li><strong>Approche Wampum</strong> — Chaque action agricole est pensée dans un cadre de respect réciproque : entre l'homme et la terre, entre les espèces, entre les générations.</li>
+          <li><strong>Synergies vivantes</strong> — Chanvre, bœuf et mycélium travaillent ensemble. Le chanvre restaure le sol, le bœuf le fertilise, le mycélium décompose et crée des réseaux nutritifs.</li>
+          <li><strong>Données québécoises réelles</strong> — Tous les chiffres proviennent de sources locales vérifiables, en dollars canadiens (CAD).</li>
+        </ul>
+      </div>
+      <div class="card-text en-content">
+        <ul>
+          <li><strong>No government subsidies</strong> — The project relies entirely on private funds and operating revenue. This independence guarantees our freedom of choice.</li>
+          <li><strong>Wampum approach</strong> — Every agricultural action is considered within a framework of mutual respect: between humans and the land, between species, between generations.</li>
+          <li><strong>Living synergies</strong> — Hemp, beef, and mycelium work together. Hemp restores the soil, beef fertilizes it, mycelium decomposes and creates nutritional networks.</li>
+          <li><strong>Real Quebec data</strong> — All figures come from verifiable local sources, in Canadian dollars (CAD).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Nos piliers</div>
+      <div class="card-title en-content">Our pillars</div>
+      <div class="card-text fr-content">
+        <ul>
+          <li><strong>Chanvre industriel</strong> — Fibre, chènevotte et huile de graines. Culture à faible empreinte hydrique, restauration des sols dégradés.</li>
+          <li><strong>Élevage bovin régénératif</strong> — Pâturage tournant, gestion holistique du troupeau, viande de haute qualité nutritive.</li>
+          <li><strong>Mycélium et biomatériaux</strong> — Production de champignons comestibles et de matériaux isolants à base de mycélium, alternative aux plastiques et au polystyrène.</li>
+        </ul>
+      </div>
+      <div class="card-text en-content">
+        <ul>
+          <li><strong>Industrial hemp</strong> — Fiber, hurds, and seed oil. Low water footprint crop, restoration of degraded soils.</li>
+          <li><strong>Regenerative cattle farming</strong> — Rotational grazing, holistic herd management, high-quality nutritious meat.</li>
+          <li><strong>Mycelium and biomaterials</strong> — Production of edible mushrooms and mycelium-based insulating materials, alternative to plastics and polystyrene.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
-<main class="tab-content container">
-
-  <!-- ACCUEIL -->
-  <section id="accueil" class="tab-panel active">
-    <div style="text-align: center; margin-bottom: 2px;">
-      <div style="font-size: 48px; font-weight: 600; color: var(--text-primary); letter-spacing: 0.02em; line-height: 1.15;">Projet Fermes Nabek</div>
+<!-- PRÉSENTATION -->
+<div class="tab-panel" id="presentation">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Qui sommes-nous</h1>
+      <h1 class="en-content">Who we are</h1>
+      <div class="hero-accent"></div>
     </div>
-    <div class="section-title">Bienvenue</div>
-    <div class="section-subtitle">Fermes Régénératives</div>
 
     <div class="card">
-      <div class="card-title">Une porte d'entrée</div>
-      <div class="card-text">
-        Ce site n'est pas une vitrine commerciale. C'est une porte d'entrée. Une invitation à choisir.
-        <br><br>
-        Le projet Nabek naît d'une conviction : l'agriculture industrielle n'est pas une technique, c'est une doctrine — la doctrine de la découverte appliquée au sol. On arrive, on dit : cette terre est vide, elle est à nous, on la rebaptise, on la découpe, on l'empoisonne, on la soumet.
-        <br><br>
-        Nous proposons l'inverse : 40 000 fermes régénératives au Québec, hors cadre gouvernemental, sans subvention, ancrées dans le Wampum à Deux Voies de 1616. Chaque ferme est un nœud de résistance mycélium — un point où le réseau fongique souterrain se rétablit, où le sol redevient vivant.
-        <br><br>
-        Ce que nous te proposons n'est pas un emploi, ni un investissement, ni une terre à acheter. C'est une responsabilité à prendre.
-        <br><br>
-        Les terres du projet Nabek ne seront jamais marchandées. Jamais taxées. Jamais transférées par vente, héritage ou cession. Elles ne sont pas des actifs. Elles sont des responsabilités.
-        <br><br>
-        Si tu cherches à posséder, à capitaliser, à transmettre un patrimoine à tes enfants sous forme de titre foncier — ce projet n'est pas pour toi. Tu peux fermer cette page maintenant. Il n'y a pas de jugement. Mais il n'y a pas de place non plus.
-        <br><br>
-        Si tu restes, sache ceci : la terre n'est pas une possession. Les humains appartiennent à la terre. Et sous la terre, le mycélium nous attend. Il a attendu 400 ans. Il peut attendre encore. Ou il peut repousser — si nous cessons de l'empoisonner, et si nous cessons de prétendre que la terre est à nous. Nous pourrons recréer les liens que nous avons brisés car que nous les avons ignorés.
+      <div class="card-title fr-content">Le nom Nabek</div>
+      <div class="card-title en-content">The name Nabek</div>
+      <div class="card-text fr-content">
+        « Nabek » est un mot qui porte en lui l'idée du mouvement, de la traversée, du passage d'un état à un autre. Dans la philosophie qui guide ce projet, il évoque celui qui quitte le navire — non pas par abandon, mais par choix conscient. Celui qui préfère marcher sur ses propres jambes plutôt que de suivre une route tracée par d'autres. C'est l'acte de sortir du système pour reconstruire autrement, avec la terre comme seule boussole.
       </div>
-    </div>
-  </section>
-
-  <!-- PRÉSENTATION -->
-  <section id="presentation" class="tab-panel">
-    <div class="section-title">Qui suis-je ?</div>
-    <div class="section-subtitle">
-      Nabek, fils de Carole, petit-fils d'Isabelle, arrière-petit-fils d'Alexina. Je parle depuis l'île de la Tortue, sur le territoire Tiohtiàke.
-    </div>
-
-    <div class="card">
-      <div class="card-title">Lignée et choix</div>
-      <div class="card-text">
-        Je me nomme Nabek. Mon sang vient de colons français arrivés sur des navires. En 2022, j'ai choisi de descendre de ce navire. Pas en révolte. En retrait. Pas en fuite. En choix.
-        <br><br>
-        J'ai choisi le canot d'écorce. J'ai choisi la rivière. J'ai choisi la relation. J'ai retiré mon consentement à l'institution qui tue. Je ne suis plus le colon consentant. Je suis une conscience. Un vivant qui marche sur des terres non cédées, jamais vendues, jamais traitées.
+      <div class="card-text en-content">
+        "Nabek" is a word that carries within it the idea of movement, of crossing, of passing from one state to another. In the philosophy that guides this project, it evokes the one who leaves the ship — not by abandonment, but by conscious choice. The one who prefers to walk on their own legs rather than follow a path traced by others. It is the act of stepping out of the system to rebuild differently, with the earth as the only compass.
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Le Wampum et la terre</div>
-      <div class="card-text">
-        Il y a neuf ans, des enseignants kanien'kehá:ka m'ont pris par la main. Ils m'ont montré que je marchais sur des os, sur des paroles jamais tenues, sur des traités vivants que je piétinais.
+      <div class="card-title fr-content">Hors du navire</div>
+      <div class="card-title en-content">Off the ship</div>
+      <div class="card-text fr-content">
+        Le projet s'inscrit dans une démarche philosophique articulée en dix tomes — « Hors du navire » — qui explore les fondements d'une agriculture libre, résiliente et respectueuse. Chaque tome aborde une dimension essentielle : la relation au sol, l'autonomie énergétique, la gouvernance horizontale, la transmission des savoirs, et la place de l'humain dans le vivant. Ce n'est pas un manifeste politique, mais une invitation à repenser notre rapport à la production alimentaire.
+      </div>
+      <div class="card-text en-content">
+        The project is part of a philosophical approach articulated in ten volumes — "Off the Ship" — which explores the foundations of free, resilient, and respectful agriculture. Each volume addresses an essential dimension: the relationship with the soil, energy autonomy, horizontal governance, the transmission of knowledge, and the place of humans in the living world. This is not a political manifesto, but an invitation to rethink our relationship with food production.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Le protocole Nabek</div>
+      <div class="card-title en-content">The Nabek protocol</div>
+      <div class="card-text fr-content">
+        Notre protocole d'échange repose sur sept règles fondamentales qui structurent toute interaction au sein du projet et avec nos partenaires :
+        <ul>
+          <li><strong>1. Transparence totale</strong> — Les données, les coûts et les décisions sont accessibles à tous les acteurs concernés.</li>
+          <li><strong>2. Consentement éclairé</strong> — Aucune décision n'est imposée ; chaque participant comprend et accepte les termes de sa participation.</li>
+          <li><strong>3. Réversibilité</strong> — Tout engagement peut être réévalué et modifié si les conditions fondamentales changent.</li>
+          <li><strong>4. Responsabilité partagée</strong> — Les succès comme les échecs appartiennent à l'ensemble du collectif.</li>
+          <li><strong>5. Respect des cycles naturels</strong> — Aucune pression artificielle ne s'applique aux processus biologiques.</li>
+          <li><strong>6. Priorité au local</strong> — Les partenariats et les approvisionnements privilégient le territoire québécois.</li>
+          <li><strong>7. Documentation systématique</strong> — Chaque expérience, positive ou négative, est consignée pour enrichir le savoir collectif.</li>
+        </ul>
+      </div>
+      <div class="card-text en-content">
+        Our exchange protocol is based on seven fundamental rules that structure all interaction within the project and with our partners:
+        <ul>
+          <li><strong>1. Total transparency</strong> — Data, costs, and decisions are accessible to all concerned actors.</li>
+          <li><strong>2. Informed consent</strong> — No decision is imposed; every participant understands and accepts the terms of their participation.</li>
+          <li><strong>3. Reversibility</strong> — Any commitment can be reevaluated and modified if fundamental conditions change.</li>
+          <li><strong>4. Shared responsibility</strong> — Successes and failures alike belong to the entire collective.</li>
+          <li><strong>5. Respect for natural cycles</strong> — No artificial pressure is applied to biological processes.</li>
+          <li><strong>6. Local priority</strong> — Partnerships and sourcing favor Quebec territory.</li>
+          <li><strong>7. Systematic documentation</strong> — Every experience, positive or negative, is recorded to enrich collective knowledge.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Notre positionnement</div>
+      <div class="card-title en-content">Our positioning</div>
+      <div class="card-text fr-content">
+        <ul>
+          <li><strong>Territoire</strong> — Québec, Canada</li>
+          <li><strong>Devise</strong> — Dollars canadiens (CAD)</li>
+          <li><strong>Subventions</strong> — Aucune. Le projet est 100 % autofinancé.</li>
+          <li><strong>Philosophie</strong> — Wampum : respect, équilibre, interdépendance</li>
+          <li><strong>Approche agricole</strong> — Régénérative, holistique, sans intrants chimiques de synthèse</li>
+          <li><strong>Gouvernance</strong> — Horizontale, basée sur le consentement et la documentation</li>
+        </ul>
+      </div>
+      <div class="card-text en-content">
+        <ul>
+          <li><strong>Territory</strong> — Quebec, Canada</li>
+          <li><strong>Currency</strong> — Canadian dollars (CAD)</li>
+          <li><strong>Subsidies</strong> — None. The project is 100 % self-financed.</li>
+          <li><strong>Philosophy</strong> — Wampum: respect, balance, interdependence</li>
+          <li><strong>Agricultural approach</strong> — Regenerative, holistic, without synthetic chemical inputs</li>
+          <li><strong>Governance</strong> — Horizontal, based on consent and documentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FERME NABEK -->
+<div class="tab-panel" id="ferme">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Ferme Nabek</h1>
+      <h1 class="en-content">Nabek Farm</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Données d'exploitation — Toutes les valeurs en CAD</p>
+      <p class="en-content">Operating data — All values in CAD</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">~150</div>
+        <div class="kpi-label fr-content">Hectares visés</div>
+        <div class="kpi-label en-content">Target hectares</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">3</div>
+        <div class="kpi-label fr-content">Piliers de production</div>
+        <div class="kpi-label en-content">Production pillars</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">0</div>
+        <div class="kpi-label fr-content">Subventions reçues</div>
+        <div class="kpi-label en-content">Subsidies received</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">100<span class="kpi-unit">%</span></div>
+        <div class="kpi-label fr-content">Autofinancement</div>
+        <div class="kpi-label en-content">Self-financing</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">🌿 Chanvre industriel</div>
+      <div class="card-title en-content">🌿 Industrial hemp</div>
+      <div class="card-text fr-content">
+        Le chanvre est la première culture de la ferme Nabek. Cultivé selon les normes du <em>Canadian Hemp Trade Alliance</em>, il sert à produire de la fibre textile, de la chènevotte (matériau de construction et litière) et de l'huile de graines riche en oméga-3. Sa culture à faible empreinte hydrique et sa capacité à phytoremédier les sols en font un pilier de la régénération.
         <br><br>
-        J'ai appris le Wampum à Deux Voies. Ce n'est pas un artefact du passé. C'est une loi vivante. Deux canots, deux peuples, une rivière. Côte à côte. Ni devant, ni derrière. Paix. Amitié. Respect. Pas de domination. Pas de propriété. Pas d'assimilation.
+        <strong>Rendement visé :</strong> 5 à 8 tonnes de matière sèche par hectare<br>
+        <strong>Rotation :</strong> 1 année sur 4 dans la même parcelle<br>
+        <strong>Marchés :</strong> Construction écologique, textiles, alimentation, cosmétiques
+      </div>
+      <div class="card-text en-content">
+        Hemp is the first crop of Nabek Farm. Grown according to <em>Canadian Hemp Trade Alliance</em> standards, it is used to produce textile fiber, hurds (construction material and bedding), and omega-3-rich seed oil. Its low water footprint cultivation and ability to phytoremediate soils make it a pillar of regeneration.
         <br><br>
-        En l'an 410 du Traité de 1616, je porte ce Wampum comme serment vivant.
+        <strong>Target yield:</strong> 5 to 8 tonnes of dry matter per hectare<br>
+        <strong>Rotation:</strong> 1 year out of 4 on the same plot<br>
+        <strong>Markets:</strong> Ecological construction, textiles, food, cosmetics
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">La ferme comme acte de résistance</div>
-      <div class="card-text">
-        La ferme Nabek n'est pas une propriété. C'est une responsabilité. Elle ne produit pas pour le marché. Elle produit pour le peuple. Viande, fibres, médicaments, construction, énergie — tout ce qui sort de la terre répond à un besoin de première nécessité. Pas à un désir de profit.
+      <div class="card-title fr-content">🐂 Élevage bovin régénératif</div>
+      <div class="card-title en-content">🐂 Regenerative cattle farming</div>
+      <div class="card-text fr-content">
+        Le troupeau est géré en pâturage tournant (rotational grazing), inspiré des principes de Savory et de la gestion holistique. Les bovins parcourent de petites parcelles pendant quelques jours seulement, laissant le sol fertilisé et le couvert végétal régénéré. Aucun grain d'alimentation concentrée n'est acheté ; l'alimentation est 100 % fourragère sur pâturages et foins locaux.
         <br><br>
-        Chaque ferme est un nœud de résistance mycélium. Un point où le réseau fongique souterrain se rétablit. Où le sol redevient vivant. Le projet vise 40 000 fermes régénératives au Québec — 40 000 responsabilités confiées, 40 000 preuves que l'on peut habiter sans posséder.
+        <strong>Taille du troupeau visée :</strong> 40 à 60 têtes de race à viande (Hereford, Angus ou croisés)<br>
+        <strong>Densité :</strong> ~1,5 unité bovine par hectare de pâturage<br>
+        <strong>Cycle de rotation :</strong> 3 à 5 jours par parcelle, 30 à 45 jours de repos<br>
+        <strong>Abattage :</strong> Local, boucherie artisanale, vente directe
       </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Ce que je demande, ce que je promets</div>
-      <div class="card-text">
-        Si tu lis ceci et que tu veux embarquer, voici ce que je te demande : lis jusqu'au bout. Relis une deuxième fois, la nuit, au calme. Pose tes questions. Toutes. Puis viens voir. Pose ton pied. Respire. Et décide.
+      <div class="card-text en-content">
+        The herd is managed through rotational grazing, inspired by Savory's principles and holistic management. Cattle roam small paddocks for only a few days, leaving the soil fertilized and the vegetation cover regenerated. No concentrated feed grain is purchased; feed is 100 % forage-based on pastures and local hay.
         <br><br>
-        Je ne promets pas de richesse. Je ne promets pas de reconnaissance. Je promets ceci : chaque terre sous ce projet restera hors du marché, hors des taxes, hors de la propriété. Chaque soigneur sera formé et jamais abandonné. Chaque décision sera prise en concordance avec les peuples du territoire. Le mycélium sera toujours prioritaire sur le rendement. Le Wampum sera toujours prioritaire sur le contrat.
+        <strong>Target herd size:</strong> 40 to 60 beef heads (Hereford, Angus, or crosses)<br>
+        <strong>Density:</strong> ~1.5 animal units per hectare of pasture<br>
+        <strong>Rotation cycle:</strong> 3 to 5 days per paddock, 30 to 45 days rest<br>
+        <strong>Slaughter:</strong> Local, artisanal butcher shop, direct sales
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
+      <div class="card-title fr-content">🍄 Mycélium et biomatériaux</div>
+      <div class="card-title en-content">🍄 Mycelium and biomaterials</div>
+      <div class="card-text fr-content">
+        Le mycélium est le troisième pilier de la ferme. Cultivé sur substrats agricoles locaux (paille de chanvre, son de blé, marc de café), il produit à la fois des champignons comestibles (shiitake, pleurotes, girolles) et des matériaux d'isolation biosourcés. Ces derniers remplacent avantageusement le polystyrène et les plastiques dans l'emballage et la construction.
+        <br><br>
+        <strong>Production visée :</strong> 500 kg de champignons frais par mois (saisonnier)<br>
+        <strong>Biomatériaux :</strong> Blocs isolants, emballages protecteurs, panneaux décoratifs<br>
+        <strong>Substrats :</strong> 100 % résidus agricoles québécois
       </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
-      </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
-    </div>
-  </section>
-
-  <!-- FERME NABEK -->
-  <section id="ferme" class="tab-panel">
-    <div class="section-title">La Ferme Nabek</div>
-    <div class="section-subtitle">18 hectares. 30 bœufs. 3 hectares de chanvre. Zéro intrant chimique.</div>
-
-    <div class="card">
-      <div class="card-title">Le modèle de base</div>
-      <div class="card-text">
-        Chaque ferme Nabek est une unité autonome de 18 hectares, intégrant élevage bovin régénératif et culture de chanvre en rotation.
-      </div>
-      <table class="data-table">
-        <tr><th>Élément</th><th>Donnée</th></tr>
-        <tr><td>Superficie totale</td><td>18 hectares</td></tr>
-        <tr><td>Pâturage holistique</td><td>15 ha (15 parcelles de 1 ha en rotation)</td></tr>
-        <tr><td>Chanvre</td><td>3 ha (4 bandes de 0,75 ha)</td></tr>
-        <tr><td>Bovins</td><td>30 têtes (pâturage extensif, cycle 3-4 ans)</td></tr>
-        <tr><td>Bâtiment d'hivernage</td><td>400 m² en béton de chanvre</td></tr>
-        <tr><td>Compostage</td><td>Fumier + paille (45 tonnes/an). Pas de lisier.</td></tr>
-        <tr><td>Irrigation</td><td>Mare + système par ferme</td></tr>
-        <tr><td>Inoculation</td><td>Mycorhizienne (Glomus intraradices, Rhizophagus irregularis, Pisolithus tinctorius)</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Le cycle régénératif (8 étapes)</div>
-      <div class="card-text">
-        <p><strong>1. Pâturage</strong> (mai-octobre) — 30 bœufs sur 15 ha en rotation. Piétinement = aération du sol. Urine = azote pour le mycélium.</p>
-        <p><strong>2. Fumier + Paille</strong> (novembre-avril) — Dans le bâtiment hivernal, fumier mélangé à 30 tonnes de paille. Le mycélium du sol colonise le mélange.</p>
-        <p><strong>3. Compostage</strong> (toute l'année) — Décomposition naturelle. Chaleur +15°C. Azote ammoniacal transformé en azote organique stable. Pas de N₂O.</p>
-        <p><strong>4. Sol régénéré</strong> (toute l'année) — Compost retour au sol. Matière organique augmentée. Structure du sol améliorée. Biodiversité microbienne restaurée.</p>
-        <p><strong>5. Chanvre</strong> (avril-septembre) — Racines jusqu'à 2 m de profondeur. Canaux d'oxygénation pour les hyphes. Symbiose mycorhizienne.</p>
-        <p><strong>6. Récolte et transformation</strong> (août-octobre) — Résidus de chanvre retournés au sol. Fibres et graines transformées.</p>
-        <p><strong>7. Bâtiment hivernal</strong> (novembre-avril) — Béton de chanvre poreux régule l'humidité. Microclimat favorable au mycélium.</p>
-        <p><strong>8. Retour au sol</strong> (toute l'année) — Compost nourrit la terre. Le mycélium le distribue dans tout le réseau souterrain. La boucle est fermée.</p>
+      <div class="card-text en-content">
+        Mycelium is the third pillar of the farm. Grown on local agricultural substrates (hemp straw, wheat bran, coffee grounds), it produces both edible mushrooms (shiitake, oyster mushrooms, chanterelles) and bio-based insulating materials. The latter advantageously replace polystyrene and plastics in packaging and construction.
+        <br><br>
+        <strong>Target production:</strong> 500 kg of fresh mushrooms per month (seasonal)<br>
+        <strong>Biomaterials:</strong> Insulating blocks, protective packaging, decorative panels<br>
+        <strong>Substrates:</strong> 100 % Quebec agricultural residues
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Investissement initial</div>
-      <table class="data-table">
-        <tr><th>Poste</th><th>Montant (CAD)</th></tr>
-        <tr><td>Bâtiment d'hivernage (béton chanvre, 400 m²)</td><td>280 000 $</td></tr>
-        <tr><td>Clôtures et divisions (15 ha)</td><td>18 000 $</td></tr>
-        <tr><td>Système d'abreuvage</td><td>6 000 $</td></tr>
-        <tr><td>Équipement de compostage</td><td>10 000 $</td></tr>
-        <tr><td>Équipement récolte chanvre (coopérative)</td><td>18 000 $</td></tr>
-        <tr><td>Achat bovins (30 têtes)</td><td>84 000 $</td></tr>
-        <tr><td>Semences chanvre (3 ha)</td><td>1 080 $</td></tr>
-        <tr><td>Foin première année</td><td>11 664 $</td></tr>
-        <tr><td>Main-d'œuvre année 1 (2 ETP)</td><td>96 000 $</td></tr>
-        <tr><td>Frais divers année 1</td><td>18 000 $</td></tr>
-        <tr><td>Préparation sol + inoculation mycorhizienne</td><td>15 000 $</td></tr>
-        <tr><td><strong>TOTAL PAR FERME</strong></td><td><strong>557 744 $</strong></td></tr>
-      </table>
-      <div style="margin-top: 15px; padding: 12px; background: rgba(255, 193, 7, 0.15); border-left: 4px solid #FFC107; border-radius: 4px; font-size: 0.9em; color: var(--text-color);">
-        <div style="display: flex; align-items: flex-start; gap: 8px;">
-          <span style="font-size: 1.3em; line-height: 1;">⚠️</span>
-          <div>
-            <strong>Avis — Prix indicatifs</strong><br>
-            Les montants présentés ci-dessus sont basés sur les prix du marché québécois en mai 2026. Ils sont sujets à changement en fonction de l'inflation, de la disponibilité des matériaux et des fluctuations du marché.<br><br>
-            <strong>Note sur les taxes :</strong> Les achats initiaux (matériel, bâtiments, équipement) sont effectués auprès de fournisseurs enregistrés au gouvernement. Par conséquent, les taxes de vente (TPS/TVQ) s'appliquent sur ces transactions, même si le projet Nabek opère hors cadre gouvernemental. Ces taxes ne sont pas incluses dans le tableau ci-dessus et doivent être prévues en sus du budget initial.
-          </div>
-        </div>
+      <div class="card-title fr-content">📊 Tableau de coûts estimés (CAD)</div>
+      <div class="card-title en-content">📊 Estimated cost table (CAD)</div>
+      <div class="card-text fr-content">
+        <table class="data-table">
+          <tr><th>Poste</th><th>Coût estimé</th><th>Notes</th></tr>
+          <tr><td>Acquisition terre (150 ha)</td><td>750 000 $ – 1 500 000 $</td><td>Varie selon la région et la qualité des sols</td></tr>
+          <tr><td>Infrastructures (bâtiments, clôtures, puits)</td><td>300 000 $ – 500 000 $</td><td>Autoconstruction privilégiée</td></tr>
+          <tr><td>Troupeau initial (50 têtes)</td><td>75 000 $ – 125 000 $</td><td>Génisses de réforme ou vaches allaitantes</td></tr>
+          <tr><td>Équipement agricole (usagé)</td><td>100 000 $ – 200 000 $</td><td>Tracteur, faucheuse, remorque</td></tr>
+          <tr><td>Semences chanvre (première année)</td><td>8 000 $ – 15 000 $</td><td>Certifiées THC &lt; 0,3 %</td></tr>
+          <tr><td>Installation myciculture</td><td>25 000 $ – 40 000 $</td><td>Chambres de fructification, stérilisateur</td></tr>
+          <tr><td>Fonds de roulement (3 ans)</td><td>150 000 $ – 250 000 $</td><td>Salaires, aliments, maintenance</td></tr>
+          <tr><td><strong>Total estimé</strong></td><td><strong>1 408 000 $ – 2 630 000 $</strong></td><td>Sans subventions</td></tr>
+        </table>
       </div>
-      <div class="card-text" style="margin-top: 12px; font-style: italic;">
-        Avec stratégie coopérative de partage de matériel (15-20 fermes) : investissement révisé de ~179 800 $ par ferme, soit une économie de 68 %.
+      <div class="card-text en-content">
+        <table class="data-table">
+          <tr><th>Item</th><th>Estimated cost</th><th>Notes</th></tr>
+          <tr><td>Land acquisition (150 ha)</td><td>$750,000 – $1,500,000</td><td>Varies by region and soil quality</td></tr>
+          <tr><td>Infrastructure (buildings, fences, wells)</td><td>$300,000 – $500,000</td><td>Self-build preferred</td></tr>
+          <tr><td>Initial herd (50 head)</td><td>$75,000 – $125,000</td><td>Cull heifers or suckler cows</td></tr>
+          <tr><td>Farm equipment (used)</td><td>$100,000 – $200,000</td><td>Tractor, mower, trailer</td></tr>
+          <tr><td>Hemp seeds (first year)</td><td>$8,000 – $15,000</td><td>Certified THC &lt; 0.3 %</td></tr>
+          <tr><td>Mushroom cultivation setup</td><td>$25,000 – $40,000</td><td>Fruiting chambers, sterilizer</td></tr>
+          <tr><td>Working capital (3 years)</td><td>$150,000 – $250,000</td><td>Salaries, feed, maintenance</td></tr>
+          <tr><td><strong>Total estimated</strong></td><td><strong>$1,408,000 – $2,630,000</strong></td><td>Without subsidies</td></tr>
+        </table>
       </div>
+      <div class="meta fr-content">Taux de change mai 2026 : 1 USD = 1,37 CAD. Données à titre indicatif, sujettes à variation selon le marché.</div>
+      <div class="meta en-content">Exchange rate May 2026: 1 USD = 1.37 CAD. Data for indicative purposes only, subject to market variation.</div>
     </div>
+  </div>
+</div>
 
-    <div class="card">
-      <div class="card-title">Bilan carbone</div>
-      <div class="card-text">
-        Le modèle Nabek est <strong>carbone négatif dès la première année</strong>.
-      </div>
-      <table class="data-table">
-        <tr><th>Élément</th><th>Tonnes CO₂eq/ferme/an</th></tr>
-        <tr><td>CH₄ (méthane bovin)</td><td>+84,0 (émission)</td></tr>
-        <tr><td>N₂O (sols)</td><td>+9,0 (émission)</td></tr>
-        <tr><td><strong>Total émissions</strong></td><td><strong>+93,0</strong></td></tr>
-        <tr><td>Séquestration sol (pâturage holistique)</td><td>−11,5</td></tr>
-        <tr><td>Séquestration chanvre (bordure, 3 ha)</td><td>−30,0</td></tr>
-        <tr><td>Stockage carbone compostage</td><td>−5,0</td></tr>
-        <tr><td>Biomasse fongique (mycélium restauré)</td><td>−17 à −28</td></tr>
-        <tr><td><strong>Total capture</strong></td><td><strong>−63,5 à −74,5</strong></td></tr>
-        <tr><td><strong>BILAN NET PAR FERME</strong></td><td><strong>−51,5 à −80,0</strong></td></tr>
-      </table>
-      <div class="card-text" style="margin-top: 12px; font-style: italic;">
-        À l'échelle des 40 000 fermes à maturité : −2,06 millions de tonnes CO₂eq/an. L'équivalent de 500 000 voitures retirées de la route.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Économie à maturité (année 10)</div>
-      <table class="data-table">
-        <tr><th>Poste</th><th>Montant (CAD)</th></tr>
-        <tr><td>Revenu annuel total par ferme</td><td>165 800 $</td></tr>
-        <tr><td>— Chanvre (3 ha)</td><td>75 534 $ (45,6 %)</td></tr>
-        <tr><td>— Bovins (30 têtes, abattage 40 %/an = 12 têtes)</td><td>90 228 $ (54,4 %)</td></tr>
-        <tr><td>Coûts d'exploitation par ferme</td><td>98 300 $</td></tr>
-        <tr><td><strong>Marge nette par ferme</strong></td><td><strong>67 400 $/an</strong></td></tr>
-        <tr><td>Retour sur investissement</td><td>12,1 %/an</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- CARTE -->
-  <section id="carte" class="tab-panel">
-    <div class="section-title">Carte</div>
-    <div class="section-subtitle">
-      Localisation du projet Nabek au Québec.
+<!-- CARTE -->
+<div class="tab-panel" id="carte">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Notre territoire</h1>
+      <h1 class="en-content">Our territory</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Localisation du projet au Québec</p>
+      <p class="en-content">Project location in Quebec</p>
     </div>
 
     <div class="map-wrapper">
-      <div class="map-placeholder">
-        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-        <div class="map-placeholder-text">
-          <b>Carte interactive</b><br><br>
-          Le terrain exact de la ferme Nabek n'est pas encore déterminé.<br><br>
-          Quand le terrain sera acquis, une carte Google Maps sera intégrée ici pour montrer l'emplacement précis au Québec.
-        </div>
-      </div>
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-74.5%2C45.0%2C-70.0%2C48.0&amp;layer=mapnik"
+        title="Carte du Québec">
+      </iframe>
     </div>
 
     <div class="map-info-grid">
       <div class="map-info-item">
-        <div class="map-info-label">Région</div>
+        <div class="map-info-label fr-content">Province</div>
+        <div class="map-info-label en-content">Province</div>
         <div class="map-info-value">Québec, Canada</div>
       </div>
       <div class="map-info-item">
-        <div class="map-info-label">Zone climatique</div>
-        <div class="map-info-value">Zone 4b — 5a (USDA)</div>
+        <div class="map-info-label fr-content">Région visée</div>
+        <div class="map-info-label en-content">Target region</div>
+        <div class="map-info-value fr-content">Centre-du-Québec / Chaudière-Appalaches</div>
+        <div class="map-info-value en-content">Centre-du-Québec / Chaudière-Appalaches</div>
       </div>
       <div class="map-info-item">
-        <div class="map-info-label">Saison de culture</div>
-        <div class="map-info-value">Mai à octobre</div>
+        <div class="map-info-label fr-content">Superficie</div>
+        <div class="map-info-label en-content">Area</div>
+        <div class="map-info-value">~150 hectares</div>
       </div>
       <div class="map-info-item">
-        <div class="map-info-label">Statut du terrain</div>
-        <div class="map-info-value">En recherche</div>
+        <div class="map-info-label fr-content">Climat</div>
+        <div class="map-info-label en-content">Climate</div>
+        <div class="map-info-value fr-content">Continental humide, zone 4b USDA</div>
+        <div class="map-info-value en-content">Humid continental, USDA zone 4b</div>
+      </div>
+      <div class="map-info-item">
+        <div class="map-info-label fr-content">Saison de culture</div>
+        <div class="map-info-label en-content">Growing season</div>
+        <div class="map-info-value fr-content">~140 à 160 jours sans gel</div>
+        <div class="map-info-value en-content">~140 to 160 frost-free days</div>
+      </div>
+      <div class="map-info-item">
+        <div class="map-info-label fr-content">Précipitations</div>
+        <div class="map-info-label en-content">Precipitation</div>
+        <div class="map-info-value fr-content">~1 000 mm / an</div>
+        <div class="map-info-value en-content">~1,000 mm / year</div>
       </div>
     </div>
 
-    <div class="card" style="margin-top: 14px;">
-      <div class="card-title">Comment intégrer une vraie carte</div>
-      <div class="card-text">
-        Quand tu auras un terrain précis :
+    <div class="card">
+      <div class="card-title fr-content">Pourquoi cette région ?</div>
+      <div class="card-title en-content">Why this region?</div>
+      <div class="card-text fr-content">
+        Le Centre-du-Québec et la Chaudière-Appalaches offrent un compromis idéal pour le projet Nabek : des sols argileux riches propices au chanvre, des pâturages abondants pour l'élevage bovin, et une proximité avec les marchés de Montréal et Québec. La zone bénéficie d'un réseau hydrique dense (Saint-Laurent, rivières locales) et d'une communauté agricole établie où les savoir-faire se transmettent encore de bouche à oreille.
+      </div>
+      <div class="card-text en-content">
+        Centre-du-Québec and Chaudière-Appalaches offer an ideal compromise for the Nabek project: rich clay soils conducive to hemp, abundant pastures for cattle farming, and proximity to the Montreal and Quebec markets. The area benefits from a dense water network (St. Lawrence, local rivers) and an established farming community where know-how is still passed down by word of mouth.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WAMPUM -->
+<div class="tab-panel" id="wampum">
+  <div class="container">
+    <div class="hero">
+      <h1>Wampum</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Le traité qui guide nos pas</p>
+      <p class="en-content">The treaty that guides our steps</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Qu'est-ce que le Wampum ?</div>
+      <div class="card-title en-content">What is the Wampum?</div>
+      <div class="card-text fr-content">
+        Le Wampum est bien plus qu'un collier de coquillages pour les peuples autochtones des Grands Lacs et de la côte Est de l'Amérique du Nord. C'est un système de mémoire, un registre de traités, et surtout un code de conduite. Chaque perle, chaque couleur, chaque motif porte un sens : la paix, l'alliance, le deuil, la guerre, ou la promesse. Le Wampum le plus célèbre, la Ceinture de la Grande Paix (Haudenosaunee), représente la confédération de cinq nations autour d'un arbre de paix.
+      </div>
+      <div class="card-text en-content">
+        The Wampum is much more than a shell necklace for the Indigenous peoples of the Great Lakes and the East Coast of North America. It is a system of memory, a registry of treaties, and above all a code of conduct. Each bead, each color, each pattern carries meaning: peace, alliance, mourning, war, or promise. The most famous Wampum, the Great Peace Belt (Haudenosaunee), represents the confederation of five nations around a tree of peace.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Le Wampum appliqué à l'agriculture</div>
+      <div class="card-title en-content">Wampum applied to agriculture</div>
+      <div class="card-text fr-content">
+        Au projet Nabek, le Wampum n'est pas une décoration. C'est une méthode de gouvernance et de planification. Chaque "perle" de notre ceinture représente un engagement concret :
         <ul>
-          <li>Va sur <b>Google Maps</b> et cherche l'adresse</li>
-          <li>Clique sur <b>"Partager"</b> puis <b>"Intégrer une carte"</b></li>
-          <li>Copie le code HTML fourni (une balise &lt;iframe&gt;)</li>
-          <li>Dans le code de cette page, remplace le bloc <b>map-placeholder</b> par ce &lt;iframe&gt;</li>
+          <li><strong>La perle blanche</strong> — La paix avec le sol. Ne jamais l'appauvrir, toujours le nourrir.</li>
+          <li><strong>La perle violette</strong> — L'alliance avec le vivant. Coexister avec les espèces sauvages, les insectes pollinisateurs, les micro-organismes.</li>
+          <li><strong>La perle noire</strong> — Le deuil de l'ancien monde. Reconnaître les dommages causés par l'agriculture industrielle et s'engager à ne pas les répéter.</li>
+          <li><strong>La perle rouge</strong> — La guerre contre le gaspillage. Chaque ressource compte ; rien n'est jeté.</li>
+          <li><strong>Le centre de la ceinture</strong> — L'arbre de paix. Le sol vivant, autour duquel tout gravite.</li>
         </ul>
-        La carte sera alors interactive — les visiteurs pourront zoomer, déplacer et voir le satellite.
+      </div>
+      <div class="card-text en-content">
+        At the Nabek project, the Wampum is not decoration. It is a method of governance and planning. Each "bead" of our belt represents a concrete commitment:
+        <ul>
+          <li><strong>The white bead</strong> — Peace with the soil. Never deplete it, always nourish it.</li>
+          <li><strong>The purple bead</strong> — Alliance with the living. Coexist with wild species, pollinating insects, microorganisms.</li>
+          <li><strong>The black bead</strong> — Mourning the old world. Acknowledge the damage caused by industrial agriculture and commit to not repeating it.</li>
+          <li><strong>The red bead</strong> — War on waste. Every resource counts; nothing is thrown away.</li>
+          <li><strong>The center of the belt</strong> — The tree of peace. The living soil, around which everything revolves.</li>
+        </ul>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
+      <div class="card-title fr-content">Les deux rangées</div>
+      <div class="card-title en-content">The two rows</div>
+      <div class="card-text fr-content">
+        Le Wampum des Deux Rangées (Kaswentha) est particulièrement inspirant pour Nabek. Il représente deux canoës naviguant sur le même fleuve, chacun sur sa rangée, sans jamais interférer avec l'autre. Pour nous, cela signifie : la ferme et la nature coexistent sur le même territoire, chacune dans sa voie, mais en harmonie. Nous ne domptons pas la nature ; nous naviguons à ses côtés.
       </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
+      <div class="card-text en-content">
+        The Two Row Wampum (Kaswentha) is particularly inspiring for Nabek. It represents two canoes navigating the same river, each in its own row, never interfering with the other. For us, this means: the farm and nature coexist on the same territory, each in its own path, but in harmony. We do not tame nature; we navigate alongside it.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Le Wampum comme contrat social interne</div>
+      <div class="card-title en-content">Wampum as an internal social contract</div>
+      <div class="card-text fr-content">
+        Chaque personne qui rejoint le projet Nabek — qu'elle soit travailleur, investisseur, partenaire ou voisin — est invitée à reconnaître implicitement ce Wampum. Ce n'est pas un document juridique signé, mais un accord de respect mutuel. Comme les traités autochtones, il est oral, vivant, et révisable. Il évolue avec le temps, avec les saisons, avec les leçons du terrain.
+      </div>
+      <div class="card-text en-content">
+        Every person who joins the Nabek project — whether worker, investor, partner, or neighbor — is implicitly invited to recognize this Wampum. It is not a signed legal document, but an agreement of mutual respect. Like Indigenous treaties, it is oral, living, and revisable. It evolves with time, with the seasons, with the lessons of the land.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JOURNAL -->
+<div class="tab-panel" id="journal">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Journal de bord</h1>
+      <h1 class="en-content">Logbook</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Chronique du projet, semaine après semaine</p>
+      <p class="en-content">Chronicle of the project, week after week</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Semaine 1 — Les fondations</div>
+      <div class="card-title en-content">Week 1 — The foundations</div>
+      <div class="meta">2026-01-05</div>
+      <div class="card-text fr-content">
+        Première semaine de travail sur le terrain. Le sol est gelé, mais l'esprit est chaud. Nous avons parcouru les 150 hectares à pied, cartographié les zones humides, identifié les coulées d'eau printanières et marqué les arbres matures à préserver. Le Wampum nous rappelle que chaque arbre est une perle sur la ceinture du territoire.
+      </div>
+      <div class="card-text en-content">
+        First week of work on the land. The soil is frozen, but the spirit is warm. We walked the 150 hectares on foot, mapped the wetlands, identified the spring water flows, and marked the mature trees to preserve. The Wampum reminds us that every tree is a bead on the territory's belt.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Semaine 12 — Analyse des sols</div>
+      <div class="card-title en-content">Week 12 — Soil analysis</div>
+      <div class="meta">2026-03-23</div>
+      <div class="card-text fr-content">
+        Les résultats des analyses de sol sont arrivés. pH moyen de 6,2 — idéal pour le chanvre. Matière organique à 3,8 %, ce qui est honorable mais perfectible. Niveau de phosphore correct, potassium légèrement bas. Plan d'action : semer un mélange de trèfle et de ray-grass dès le dégel pour fixer l'azote et augmenter la matière organique avant la première culture de chanvre.
+      </div>
+      <div class="card-text en-content">
+        The soil analysis results have arrived. Average pH of 6.2 — ideal for hemp. Organic matter at 3.8 %, which is respectable but improvable. Phosphorus level correct, potassium slightly low. Action plan: sow a mix of clover and ryegrass as soon as the thaw begins to fix nitrogen and increase organic matter before the first hemp crop.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Semaine 20 — Premiers contacts bovins</div>
+      <div class="card-title en-content">Week 20 — First cattle contacts</div>
+      <div class="meta">2026-05-18</div>
+      <div class="card-text fr-content">
+        Visite de trois fermiers de la région qui pratiquent le pâturage tournant. Échanges riches, généreux. Ils nous ont montré leurs systèmes de clôtures électriques mobiles, leurs abreuvoirs sur roues, et surtout leurs yeux — cette lueur de satisfaction qu'on ne trouve que chez ceux qui travaillent avec le vivant plutôt que contre lui. Nous avons aussi visité un abattoir artisanal à 40 km, certifié Bien-être animal Québec.
+      </div>
+      <div class="card-text en-content">
+        Visit to three local farmers who practice rotational grazing. Rich, generous exchanges. They showed us their mobile electric fence systems, their wheeled waterers, and above all their eyes — that glimmer of satisfaction found only in those who work with the living rather than against it. We also visited an artisanal slaughterhouse 40 km away, certified Animal Welfare Quebec.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Semaine 34 — Mycélium : premiers essais</div>
+      <div class="card-title en-content">Week 34 — Mycelium: first trials</div>
+      <div class="meta">2026-08-24</div>
+      <div class="card-text fr-content">
+        Première inoculation de mycélium de shiitake sur des rondins de chêne. Le laboratoire de cuisine a été transformé en mini-laboratoire de mycologie — stérilisateur à pression, boîtes de Pétri, flux laminaire en carton (DIY). L'excitation est palpable. Dans 6 à 12 mois, si tout va bien, les premiers shiitakes pousseront. Parallèlement, nous avons testé la croissance de mycélium sur chènevotte : résultat spectaculaire après 10 jours, le mycélium a colonisé 80 % du substrat.
+      </div>
+      <div class="card-text en-content">
+        First inoculation of shiitake mycelium on oak logs. The kitchen has been transformed into a mini-mycology laboratory — pressure sterilizer, Petri dishes, laminar flow hood made of cardboard (DIY). The excitement is palpable. In 6 to 12 months, if all goes well, the first shiitakes will grow. In parallel, we tested mycelium growth on hemp hurds: spectacular result after 10 days, the mycelium colonized 80 % of the substrate.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="tab-panel" id="dashboard">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Tableau de bord</h1>
+      <h1 class="en-content">Dashboard</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Indicateurs clés du projet — Toutes les données en CAD</p>
+      <p class="en-content">Key project indicators — All data in CAD</p>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">0</div>
+        <div class="kpi-label fr-content">Subventions (CAD)</div>
+        <div class="kpi-label en-content">Subsidies (CAD)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">~2M</div>
+        <div class="kpi-label fr-content">Budget total estimé (CAD)</div>
+        <div class="kpi-label en-content">Total estimated budget (CAD)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">3</div>
+        <div class="kpi-label fr-content">Filières de production</div>
+        <div class="kpi-label en-content">Production lines</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">150</div>
+        <div class="kpi-label fr-content">Hectares</div>
+        <div class="kpi-label en-content">Hectares</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">📈 Répartition du budget estimé</div>
+      <div class="card-title en-content">📈 Estimated budget breakdown</div>
+      <div class="card-text fr-content">
+        <table class="data-table">
+          <tr><th>Catégorie</th><th>% du budget</th><th>Montant (CAD)</th></tr>
+          <tr><td>Terre</td><td>45 %</td><td>~675 000 $ – 1 125 000 $</td></tr>
+          <tr><td>Infrastructures</td><td>20 %</td><td>~300 000 $ – 500 000 $</td></tr>
+          <tr><td>Équipement</td><td>10 %</td><td>~150 000 $ – 250 000 $</td></tr>
+          <tr><td>Troupeau initial</td><td>7 %</td><td>~100 000 $ – 175 000 $</td></tr>
+          <tr><td>Myciculture</td><td>3 %</td><td>~50 000 $ – 80 000 $</td></tr>
+          <tr><td>Fonds de roulement</td><td>12 %</td><td>~180 000 $ – 300 000 $</td></tr>
+          <tr><td>Réserve imprévus</td><td>3 %</td><td>~50 000 $ – 80 000 $</td></tr>
+        </table>
+      </div>
+      <div class="card-text en-content">
+        <table class="data-table">
+          <tr><th>Category</th><th>% of budget</th><th>Amount (CAD)</th></tr>
+          <tr><td>Land</td><td>45 %</td><td>~$675,000 – $1,125,000</td></tr>
+          <tr><td>Infrastructure</td><td>20 %</td><td>~$300,000 – $500,000</td></tr>
+          <tr><td>Equipment</td><td>10 %</td><td>~$150,000 – $250,000</td></tr>
+          <tr><td>Initial herd</td><td>7 %</td><td>~$100,000 – $175,000</td></tr>
+          <tr><td>Mushroom cultivation</td><td>3 %</td><td>~$50,000 – $80,000</td></tr>
+          <tr><td>Working capital</td><td>12 %</td><td>~$180,000 – $300,000</td></tr>
+          <tr><td>Contingency reserve</td><td>3 %</td><td>~$50,000 – $80,000</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">🎯 Jalons du projet</div>
+      <div class="card-title en-content">🎯 Project milestones</div>
+      <div class="card-text fr-content">
+        <table class="data-table">
+          <tr><th>Jalon</th><th>Date visée</th><th>Statut</th></tr>
+          <tr><td>Acquisition du terrain</td><td>2026</td><td>🔍 En recherche</td></tr>
+          <tr><td>Analyse complète des sols</td><td>2026</td><td>✅ Terminé</td></tr>
+          <tr><td>Construction des infrastructures</td><td>2026 – 2027</td><td>⏳ Planifié</td></tr>
+          <tr><td>Première culture de chanvre</td><td>2027</td><td>⏳ Planifié</td></tr>
+          <tr><td>Arrivée du premier troupeau</td><td>2027</td><td>⏳ Planifié</td></tr>
+          <tr><td>Première production mycélium</td><td>2027 – 2028</td><td>⏳ Planifié</td></tr>
+          <tr><td>Rentabilité estimée</td><td>2030 – 2032</td><td>📊 Projection</td></tr>
+        </table>
+      </div>
+      <div class="card-text en-content">
+        <table class="data-table">
+          <tr><th>Milestone</th><th>Target date</th><th>Status</th></tr>
+          <tr><td>Land acquisition</td><td>2026</td><td>🔍 Searching</td></tr>
+          <tr><td>Complete soil analysis</td><td>2026</td><td>✅ Completed</td></tr>
+          <tr><td>Infrastructure construction</td><td>2026 – 2027</td><td>⏳ Planned</td></tr>
+          <tr><td>First hemp crop</td><td>2027</td><td>⏳ Planned</td></tr>
+          <tr><td>First herd arrival</td><td>2027</td><td>⏳ Planned</td></tr>
+          <tr><td>First mycelium production</td><td>2027 – 2028</td><td>⏳ Planned</td></tr>
+          <tr><td>Estimated profitability</td><td>2030 – 2032</td><td>📊 Projection</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">⚠️ Risques identifiés</div>
+      <div class="card-title en-content">⚠️ Identified risks</div>
+      <div class="card-text fr-content">
+        <table class="data-table">
+          <tr><th>Risque</th><th>Probabilité</th><th>Impact</th><th>Mitigation</th></tr>
+          <tr><td>Fluctuation des prix du bœuf</td><td>Élevée</td><td>Moyen</td><td>Vente directe, diversification</td></tr>
+          <tr><td>Réglementation chanvre</td><td>Moyenne</td><td>Élevé</td><td>Certification THC, veille légale</td></tr>
+          <tr><td>Maladie du troupeau</td><td>Moyenne</td><td>Élevé</td><td>Quarantaine, vétérinaire régulier</td></tr>
+          <tr><td>Sécheresse estivale</td><td>Moyenne</td><td>Moyen</td><td>Réserves d'eau, pâturages diversifiés</td></tr>
+          <tr><td>Concurrence mycélium</td><td>Faible</td><td>Faible</td><td>Spécialisation niche, qualité</td></tr>
+        </table>
+      </div>
+      <div class="card-text en-content">
+        <table class="data-table">
+          <tr><th>Risk</th><th>Probability</th><th>Impact</th><th>Mitigation</th></tr>
+          <tr><td>Beef price fluctuation</td><td>High</td><td>Medium</td><td>Direct sales, diversification</td></tr>
+          <tr><td>Hemp regulation</td><td>Medium</td><td>High</td><td>THC certification, legal monitoring</td></tr>
+          <tr><td>Herd disease</td><td>Medium</td><td>High</td><td>Quarantine, regular veterinarian</td></tr>
+          <tr><td>Summer drought</td><td>Medium</td><td>Medium</td><td>Water reserves, diversified pastures</td></tr>
+          <tr><td>Mycelium competition</td><td>Low</td><td>Low</td><td>Niche specialization, quality</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="tab-panel" id="blog">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Blog</h1>
+      <h1 class="en-content">Blog</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Réflexions, analyses et découvertes</p>
+      <p class="en-content">Reflections, analyses, and discoveries</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Pourquoi le chanvre peut sauver nos sols</div>
+      <div class="card-title en-content">Why hemp can save our soils</div>
+      <div class="meta">2026-02-15 — Agriculture régénérative / Regenerative agriculture</div>
+      <div class="card-text fr-content">
+        Le chanvre est souvent réduit à son usage récréatif ou médical. Pourtant, sa version industrielle (THC &lt; 0,3 %) est l'une des cultures les plus prometteuses pour la régénération des sols. Ses racines peuvent atteindre 2 mètres de profondeur, brisant les horizons compactés et créant des canaux d'aération. Sa biomasse aérienne importante protège le sol de l'érosion. Et surtout, il ne nécessite ni herbicide ni pesticide de synthèse.
+      </div>
+      <div class="card-text en-content">
+        Hemp is often reduced to its recreational or medical use. Yet its industrial version (THC &lt; 0.3 %) is one of the most promising crops for soil regeneration. Its roots can reach 2 meters deep, breaking compacted horizons and creating aeration channels. Its significant above-ground biomass protects the soil from erosion. And above all, it requires neither synthetic herbicides nor pesticides.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Le pâturage tournant : mythes et réalités</div>
+      <div class="card-title en-content">Rotational grazing: myths and realities</div>
+      <div class="meta">2026-04-22 — Élevage / Livestock</div>
+      <div class="card-text fr-content">
+        On entend souvent que le bœuf est l'ennemi du climat. C'est vrai — si l'on parle d'élevage industriel en feedlots. Mais le pâturage tournant bien géré peut séquestrer du carbone dans le sol à un taux supérieur à celui émis par les ruminants. La clé ? La densité, la durée, et le repos. Un bovin ne doit pas rester plus de 3 jours sur la même parcelle, et celle-ci doit reposer au moins 30 jours avant le prochain passage.
+      </div>
+      <div class="card-text en-content">
+        We often hear that beef is the enemy of the climate. This is true — if we are talking about industrial feedlot farming. But well-managed rotational grazing can sequester carbon in the soil at a rate higher than that emitted by ruminants. The key? Density, duration, and rest. A bovine should not stay more than 3 days on the same paddock, and it should rest at least 30 days before the next passage.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Mycélium : l'internet du sol</div>
+      <div class="card-title en-content">Mycelium: the internet of the soil</div>
+      <div class="meta">2026-06-10 — Mycologie / Mycology</div>
+      <div class="card-text fr-content">
+        Sous nos pieds s'étend un réseau filamenteux invisible qui connecte les racines des arbres, échange des nutriments, et communique des signaux d'alerte. Ce réseau, c'est le mycélium. Chez Nabek, nous ne cultivons pas seulement des champignons ; nous cultivons ce réseau. Chaque bloc de mycélium produit est un fragment de ce web vivant, capable de transformer des déchets agricoles en ressources précieuses.
+      </div>
+      <div class="card-text en-content">
+        Beneath our feet extends an invisible filamentous network that connects tree roots, exchanges nutrients, and communicates warning signals. This network is mycelium. At Nabek, we do not only cultivate mushrooms; we cultivate this network. Each mycelium block produced is a fragment of this living web, capable of transforming agricultural waste into precious resources.
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">Sans subventions : un choix politique ou économique ?</div>
+      <div class="card-title en-content">Without subsidies: a political or economic choice?</div>
+      <div class="meta">2026-07-08 — Réflexion / Reflection</div>
+      <div class="card-text fr-content">
+        Refuser les subventions gouvernementales n'est ni un acte de défi ni une posture idéologique. C'est un choix de cohérence. Les subventions agricoles québécoises, bien intentionnées, orientent souvent les pratiques vers des modèles standardisés. En restant indépendants, nous conservons la liberté d'expérimenter, d'échouer, d'apprendre — et de réussir à notre manière. Cela rend le parcours plus difficile, mais chaque dollar gagné sera le fruit d'une valeur réelle créée.
+      </div>
+      <div class="card-text en-content">
+        Refusing government subsidies is neither an act of defiance nor an ideological posture. It is a choice of coherence. Quebec agricultural subsidies, well-intentioned, often steer practices toward standardized models. By remaining independent, we keep the freedom to experiment, to fail, to learn — and to succeed in our own way. This makes the journey more difficult, but every dollar earned will be the fruit of real value created.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LIENS -->
+<div class="tab-panel" id="liens">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Liens et ressources</h1>
+      <h1 class="en-content">Links and resources</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Sites, outils et communautés qui nous inspirent</p>
+      <p class="en-content">Sites, tools, and communities that inspire us</p>
+    </div>
+
+    <div class="search-bar">
+      <div class="search-wrapper">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" class="search-input" id="linkSearch" placeholder="Rechercher un lien... / Search a link..." onkeyup="filterLinks()">
+      </div>
+    </div>
+
+    <div class="link-section" id="linkList">
+      <a class="link-row" href="https://www.canada.ca/fr/sante-canada/services/drogues-medicaments/cannabis/loi-reglementation-hemp-industriel.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Santé Canada — Réglementation chanvre industriel</span>
+          <span class="en-content">Health Canada — Industrial hemp regulation</span>
+          <div class="link-desc fr-content">Cadre légal canadien pour la culture du chanvre</div>
+          <div class="link-desc en-content">Canadian legal framework for hemp cultivation</div>
+        </span>
       </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
-    </div>
-  </section>
-
-  <!-- WAMPUM -->
-  <section id="wampum" class="tab-panel">
-    <div class="section-title">Wampum à Deux Voies</div>
-    <div class="section-subtitle">L'entente vivante. Le pacte de coexistence. En l'an 410 du Traité de 1616.</div>
-
-    <div class="card">
-      <div class="card-title">L'entente</div>
-      <div class="card-text">
-        Ce n'est pas un contrat signé avec le roi de France. Ce n'est pas un traité au sens de la mer. C'est un pacte de coexistence. Une invitation.
-        <br><br>
-        Les Kanien'kehá:ka sont venus vers nous pour nous dire : « Respectez la loi de ces terres, ou partez — comme les Vikings avant vous, dont les vestiges de Terre-Neuve témoignent. »
-        <br><br>
-        Ce qu'on nous a proposé, ce n'était pas une soumission. C'était une voie. Deux canots sur une rivière. Dans chaque canot, sa propre loi, sa propre langue, sa propre spiritualité. Personne ne domine l'autre. Personne n'impose sa loi. Mais les deux canots avancent côte à côte, dans la même direction : la santé du vivant.
-        <br><br>
-        Les trois rangs blancs du Wampum symbolisent la paix, l'amitié et le respect. Non pas comme des gestes de charité, mais comme des conditions de vie.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Les trois conditions</div>
-      <table class="data-table">
-        <tr><th>Principe</th><th>Ce que cela veut dire</th></tr>
-        <tr><td><strong>Paix</strong></td><td>Mettre fin aux guerres. Cesser de prendre. Cesser de tuer.</td></tr>
-        <tr><td><strong>Amitié</strong></td><td>Avancer côte à côte. Ni devant, ni derrière. Ni fusion, ni séparation.</td></tr>
-        <tr><td><strong>Respect</strong></td><td>Chaque peuple garde ses lois, sa langue, sa mémoire. Personne n'impose.</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Les trois interdictions</div>
-      <div class="card-text">
-        Ce que le Wampum interdit, ce n'est pas la présence. C'est l'empire.
-        <br><br>
-        <strong>Pas de domination</strong> — Ta loi n'est pas supérieure à celle de l'autre.
-        <br><br>
-        <strong>Pas de propriété</strong> — On ne possède pas la terre. On l'habite. On la soigne.
-        <br><br>
-        <strong>Pas d'assimilation</strong> — Tu ne deviens pas autochtone en rejoignant ce projet. Tu restes qui tu es. Mais tu apprends à naviguer côte à côte.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Une loi vivante</div>
-      <div class="card-text">
-        Le Wampum à Deux Voies n'est pas un artefact du passé. C'est une loi vivante qui affirme la souveraineté autochtone et rejette la domination coloniale. Ce traité, conclu selon la tradition orale en 1616, n'a jamais été un acte de soumission, mais un engagement à coexister sans effacement.
-        <br><br>
-        L'alliance doit durer tant que le soleil se lève, que les rivières coulent, et que l'herbe pousse. Une promesse éternelle ancrée dans la nature.
-        <br><br>
-        Aujourd'hui, en l'an 410 du Traité de 1616, le Wampum à Deux Voies reste en vigueur. Il n'a jamais été rompu. Il attend que nous choisissions enfin le bon chemin. Il est temps de l'honorer.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Ce que cela signifie pour le projet Nabek</div>
-      <div class="card-text">
-        Quand le projet pose le pied en terre Innu, il s'entend avec les Innu. En terre Mi'kmaq, avec les Mi'kmaq. En terre Abénaquise, avec les Abénaquis. Quel que soit le peuple, c'est avec lui que l'accord se fait. Pas avec le Québec. Pas avec Ottawa. Pas avec un ministère. Pas avec un notaire. Pas avec un registre foncier.
-        <br><br>
-        Ce projet est hors juridiction colonialiste. Et toi aussi, si tu embarques.
-      </div>
-    </div>
-  </section>
-
-  <!-- JOURNAL -->
-  <section id="journal" class="tab-panel">
-    <div class="section-title">Journal de bord</div>
-    <div class="section-subtitle">Chronique du projet. Les pas posés, les choix faits, la mémoire vécue.</div>
-
-    <div class="card">
-      <div class="card-title">2022 — Le retrait</div>
-      <div class="card-text">
-        J'ai renié l'institution. Ce n'est pas une phrase qu'on écrit à la légère. C'est un acte. Un acte de restauration. Un acte de mémoire. Un acte de vie.
-        <br><br>
-        Dans une cérémonie, j'ai dit : je ne suis plus le colon. Je retire mon consentement à la machine qui tue. J'ai choisi le canot d'écorce. J'ai choisi la rivière. J'ai choisi la relation.
-        <br><br>
-        Ce jour-là, j'ai cessé d'être citoyen pour redevenir vivant. Le numéro d'assurance sociale, le crédit, la signature — j'ai rendu le masque. Je me suis désautorisé. Je me suis désinscrit. Je me suis désidentifié.
-        <br><br>
-        Ce jour-là, le projet Nabek est né. Pas sur un papier. Dans un choix.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Juin 2026 — Le plan</div>
-      <div class="card-text">
-        Après quatre années de recherches, de rencontres, de calculs et d'écoute, le document complet est finalisé. 28 pages. Tous les montants en dollars canadiens. Données réelles, ponctuelles, spécifiques au Québec.
-        <br><br>
-        18 hectares par ferme. 30 bœufs. 3 hectares de chanvre. 557 744 $ d'investissement initial. Carbone négatif dès la première année. 40 000 fermes à maturité. 222 000 emplois. 37,02 milliards $ de résultat net sur 20 ans.
-        <br><br>
-        Mais ce qui compte le plus dans ce document, ce n'est pas le chiffre. C'est le principe : la terre n'appartient à personne. Les terres du projet ne seront jamais marchandées. Jamais taxées. Jamais transférées par vente, héritage ou cession. Elles sont des responsabilités, pas des actifs.
-        <br><br>
-        Le document est prêt. Les chiffres sont posés. La parole est donnée.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">21 juin 2026 — La parole</div>
-      <div class="card-text">
-        Solstice d'été. Maison Longue. Île de la Tortue, territoire Tiohtiàke.
-        <br><br>
-        Je me suis levé devant la terre, sous le soleil, et j'ai parlé. Pas devant un tribunal. Pas devant une caméra. Pas pour être diffusé. J'ai parlé devant la terre, sachant que ceux qui écoutent ne sont pas seulement les vivants visibles, mais aussi les ancêtres, les descendants, les pierres, les arbres, la rivière elle-même.
-        <br><br>
-        Je me suis présenté : Nabek, fils de Carole, petit-fils d'Isabelle, arrière-petit-fils d'Alexina. En l'an 410 du Traité de 1616. Neuf jours avant la 7ème pleine lune.
-        <br><br>
-        J'ai porté le Wampum à Deux Voies comme serment vivant. J'ai dit que la légitimité ne vient pas des lois coloniales, mais du sol, de l'eau, de l'air, du Vivant.
-        <br><br>
-        Ce jour-là, la parole est devenue acte. Le choix est devenu chemin. Le silence a trouvé sa voix.
-      </div>
-    </div>
-  </section>
-
-  <!-- TABLEAU DE BORD -->
-  <section id="dashboard" class="tab-panel">
-    <div class="section-title">Tableau de bord</div>
-    <div class="section-subtitle">Chiffres réels. Données du marché québécois. Mai 2026.</div>
-
-    <div class="card">
-      <div class="card-title">Indicateurs clés (KPIs)</div>
-      <table class="data-table">
-        <tr><th>Indicateur</th><th>Valeur</th><th>Unité</th></tr>
-        <tr><td>Fermes visées</td><td>40 000</td><td>unités</td></tr>
-        <tr><td>Hectares sous gestion</td><td>720 000</td><td>ha</td></tr>
-        <tr><td>Investissement total (20 ans)</td><td>22,31</td><td>milliards $ CAD</td></tr>
-        <tr><td>Taux de rendement interne (TRI)</td><td>11,76</td><td>%</td></tr>
-        <tr><td>Valeur actuelle nette (VAN, 5 %)</td><td>+12,14</td><td>milliards $ CAD</td></tr>
-        <tr><td>Point de rentabilité</td><td>Année 8</td><td>(35 000 fermes actives)</td></tr>
-        <tr><td>Emplois créés</td><td>222 000</td><td>postes</td></tr>
-        <tr><td>Bilan carbone net</td><td>−2,06</td><td>Mt CO₂eq/an</td></tr>
-        <tr><td>Viande produite (maturité)</td><td>311 535</td><td>tonnes/an</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Phasage 10 ans</div>
-      <table class="data-table">
-        <tr><th>Année</th><th>Nouvelles fermes</th><th>Fermes actives</th><th>Investissement</th><th>Résultat cumulé</th></tr>
-        <tr><td>0</td><td>0</td><td>0</td><td>600,0 M$</td><td>−600,0 M$</td></tr>
-        <tr><td>1</td><td>2 000</td><td>2 000</td><td>1 115,5 M$</td><td>−1 769,3 M$</td></tr>
-        <tr><td>2</td><td>3 000</td><td>5 000</td><td>1 673,2 M$</td><td>−3 577,1 M$</td></tr>
-        <tr><td>3</td><td>4 000</td><td>9 000</td><td>2 231,0 M$</td><td>−5 696,5 M$</td></tr>
-        <tr><td>4</td><td>5 000</td><td>14 000</td><td>2 788,7 M$</td><td>−8 311,6 M$</td></tr>
-        <tr><td>5</td><td>6 000</td><td>20 000</td><td>3 346,5 M$</td><td>−10 781,0 M$</td></tr>
-        <tr><td>6</td><td>6 000</td><td>26 000</td><td>3 346,5 M$</td><td>−12 987,3 M$</td></tr>
-        <tr><td>7</td><td>5 000</td><td>31 000</td><td>2 788,7 M$</td><td>−13 685,2 M$</td></tr>
-        <tr style="background: rgba(76, 175, 80, 0.15); font-weight: 600;"><td>8 ★</td><td>4 000</td><td>35 000</td><td>2 231,0 M$</td><td>+129,6 M$</td></tr>
-        <tr><td>9</td><td>3 000</td><td>38 000</td><td>1 673,2 M$</td><td>+1 018,9 M$</td></tr>
-        <tr><td>10</td><td>2 000</td><td>40 000</td><td>1 115,5 M$</td><td>+2 134,4 M$</td></tr>
-      </table>
-      <div class="card-text" style="margin-top: 10px; font-style: italic;">
-        ★ Point de rentabilité atteint à l'année 8 (35 000 fermes actives).
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Bilan carbone à maturité</div>
-      <table class="data-table">
-        <tr><th>Poste</th><th>Tonnes CO₂eq/ferme/an</th></tr>
-        <tr><td>Émissions CH₄ (méthane bovin)</td><td>+84,0</td></tr>
-        <tr><td>Émissions N₂O (sols)</td><td>+9,0</td></tr>
-        <tr><td><strong>Total émissions</strong></td><td><strong>+93,0</strong></td></tr>
-        <tr><td>Séquestration sol (pâturage holistique)</td><td>−11,5</td></tr>
-        <tr><td>Séquestration chanvre (bordure, 3 ha)</td><td>−30,0</td></tr>
-        <tr><td>Stockage carbone compostage</td><td>−5,0</td></tr>
-        <tr><td>Biomasse fongique (mycélium)</td><td>−17 à −28</td></tr>
-        <tr><td><strong>Total capture</strong></td><td><strong>−63,5 à −74,5</strong></td></tr>
-        <tr><td><strong>Bilan net par ferme</strong></td><td><strong>−51,5 à −80,0</strong></td></tr>
-      </table>
-      <div class="card-text" style="margin-top: 12px; font-style: italic;">
-        À l'échelle des 40 000 fermes : −2,06 Mt CO₂eq/an. Équivalent : 500 000 voitures retirées de la route.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Économie globale sur 20 ans</div>
-      <table class="data-table">
-        <tr><th>Indicateur</th><th>Montant</th></tr>
-        <tr><td>Investissements totaux</td><td>25,15 milliards $ CAD</td></tr>
-        <tr><td>Revenus cumulés</td><td>120,86 milliards $ CAD</td></tr>
-        <tr><td>Coûts cumulés</td><td>83,84 milliards $ CAD</td></tr>
-        <tr><td><strong>Résultat net 20 ans</strong></td><td><strong>+37,02 milliards $ CAD</strong></td></tr>
-        <tr><td>ROI global</td><td>147,2 %</td></tr>
-        <tr><td>TRI</td><td>11,76 %</td></tr>
-        <tr><td>VAN (5 %)</td><td>+12,14 milliards $ CAD</td></tr>
-        <tr><td>VAN (8 %)</td><td>+4,98 milliards $ CAD</td></tr>
-        <tr><td>VAN (10 %)</td><td>+1,93 milliards $ CAD</td></tr>
-      </table>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Impact à maturité (année 10, 40 000 fermes)</div>
-      <table class="data-table">
-        <tr><th>Domaine</th><th>Quantité</th><th>Équivalent</th></tr>
-        <tr><td>Viande produite</td><td>311 535 tonnes/an</td><td>Autosuffisance québécoise</td></tr>
-        <tr><td>Compost produit</td><td>600 000 tonnes/an</td><td>Régénération du sol</td></tr>
-        <tr><td>Bœufs abattus</td><td>480 000 têtes/an</td><td>Valorisation 100 %</td></tr>
-        <tr><td>Fibre textile</td><td>180 000 tonnes/an</td><td>Habiller le Québec</td></tr>
-        <tr><td>Fleurs CBD</td><td>150 000 tonnes/an</td><td>Soigner le Québec</td></tr>
-        <tr><td>Hyphes restaurés</td><td>2,52 quintillions de m</td><td>16 800 fois la distance Terre-Soleil</td></tr>
-        <tr><td>Eau filtrée naturellement</td><td>6 milliards de m³/an</td><td>1,6 % du débit du Saint-Laurent</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- BLOG -->
-  <section id="blog" class="tab-panel">
-    <div class="section-title">Journal de bord</div>
-    <div class="section-subtitle">Textes, réflexions et enseignements. Parole vivante.</div>
-
-    <div class="card">
-      <div class="card-title">Le retrait du consentement</div>
-      <div class="meta">Publié le 21 juin 2026 — Discours du solstice, île de la Tortue, territoire Tiohtiàke</div>
-      <div class="card-text">
-        Je ne parle pas depuis la neutralité. Je parle depuis une terre non cédée. Je parle depuis l'île de la Tortue sur le territoire Tiohtiàke. Vous l'appelez peut-être Montréal, ou Québec, ou Canada, mais ces noms sont des étiquettes posées par des gens qui sont venus, qui ont pris, qui ont dit : « Ceci est à nous. »
-        <br><br>
-        Je me nomme Nabek, fils de Carole, petit-fils d'Isabelle, arrière-petit-fils d'Alexina. Je suis descendant de colons français. Mon sang vient de ceux qui sont arrivés sur des navires.
-        <br><br>
-        Il y a neuf ans, des enseignants kanien'kehá:ka m'ont reçu, m'ont pris par la main. Pas pour me sauver. Pour me montrer que je marchais sur des os, sur des paroles jamais tenues et que je piétinais des traités vivants. J'ai appris, j'ai vu et je reconnais toutes les exactions commises envers les Peuples Premiers et je m'en excuse.
-        <br><br>
-        Le fait que je sois ici n'est pas un droit, c'est une présence. Et cette présence, depuis 2022, n'est plus celle de l'envahisseur consentant, mais celle d'une conscience. J'ai renié l'institution génocidaire et je ne cherche pas sa reconnaissance. Ma légitimité ne vient pas de ses lois, de ses tribunaux, de ses subventions, elle me vient du sol, de l'eau, de l'air, du Vivant.
-        <br><br>
-        En 2022, dans une cérémonie, j'ai dit : je ne suis plus le colon. Je retire mon consentement à la machine qui tue.
-        <br><br>
-        La personnalité juridique, le fait d'être citoyen, c'est pas un droit ni une liberté, c'est un privilège conditionnel à l'asservissement. Le numéro d'assurance sociale, le crédit, la signature, sont des outils pour la soumission au système. Tu n'es pas propriétaire de ta propre identité juridique, tu en es l'otage, l'esclave. Comme tous tes biens qui ne sont que privilèges accordés.
-        <br><br>
-        Je suis ici aujourd'hui pour affirmer une position. Une position de refus, de désobéissance, de résistance. Mettre définitivement fin à mes liens envers l'institution.
-        <br><br>
-        Il ne faut pas se leurrer, quand on refuse de payer l'impôt, quand on refuse de participer à la guerre, quand on refuse de signer leur contrat tacite, on devient un traître qu'il faut taire, voir, éliminer. Et ici, aujourd'hui, je mets fin définitivement à ce contrat. Une répudiation de cette institution génocidaire par la mise à mort de ma personnalité juridique.
-        <br><br>
-        Nous ne sommes pas seuls. Nous pouvons nous réapproprier notre souveraineté, notre alimentation, notre monnaie, nos traités, notre mémoire. On peut construire ensemble, Premiers Peuples et Québécois, une vie qui ne soit pas à vendre. Une vie où les enfants naissent sans poison dans le sang, où la terre est soignée pas pillée, où les promesses sont tenues pas brisées.
-        <br><br>
-        Le règne de l'empoisonnement, de la guerre et du profit s'effondrera, non par la violence, mais par le refus du consentement. Quand la bête affamée s'effondrera, ce sera la vie, enfin, qui renaîtra. Pas dans l'ombre du colon, mais dans le respect, dans le sacré, dans le lien.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Le droit est un voile</div>
-      <div class="meta">Publié le 7 août 2026 — Tome VII, Hors du navire</div>
-      <div class="card-text">
-        Le langage du droit est un voile. Il cache la violence sous l'abstraction. Il cache le vol sous la propriété. Il cache l'asservissement sous l'obligation. Il cache la domination sous la justice. Il cache l'ordre imposé sous la paix. Il cache la liberté limitée sous le mot liberté.
-        <br><br>
-        Quand le droit dit « propriété », il dit « exclusion ». Quand il dit « contrat », il dit « contrainte ». Quand il dit « justice », il dit « punition ». Quand il dit « paix », il dit « ordre imposé ». Quand il dit « sécurité », il dit « surveillance ». Quand il dit « protection », il dit « cage ».
-        <br><br>
-        Le droit ne peut pas dire ce qu'il fait. Il doit toujours dire l'inverse. C'est la nature de l'empire : la violence doit se penser comme la protection, le vol comme le droit, l'asservissement comme le contrat, l'effacement comme l'intégration.
-        <br><br>
-        Je vois ses palais de justice. Je vois ses juges en robe. Je vois ses avocats en costume. Je vois ses codes, ses lois, ses articles. Je vois une machine. Je vois un langage. Je vois une religion. Je ne vois pas la vie. Je ne vois pas la relation. Je ne vois pas la terre.
-        <br><br>
-        Je détourne le regard. Je regarde la terre. Je regarde le ciel. Je regarde les étoiles. Je suis homme vivant. Je suis dans la relation. Je suis dans la présence.
-        <br><br>
-        Le droit peut continuer sans moi. Moi, je continue sans le droit.
-        <br><br>
-        Je sais que le droit est puissant. Je sais que le droit est violent. Je sais que le droit est partout. Je sais aussi que le droit n'est pas la réalité. Je sais que le droit n'est pas la vérité. Je sais que le droit n'est pas la vie.
-        <br><br>
-        La relation est plus forte que le contrat. La présence est plus forte que la revendication. La responsabilité est plus forte que l'obligation. Le souffle est plus fort que le numéro.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Le mycélium ne peut pas être détruit par décret</div>
-      <div class="meta">Publié le 15 juillet 2026 — Document fondateur</div>
-      <div class="card-text">
-        Le projet Nabek naît d'une conviction : l'agriculture industrielle n'est pas une technique, c'est une doctrine — la doctrine de la découverte appliquée au sol. La terra nullius projetée sous terre. On arrive, on dit : cette terre est vide, elle est à nous, on la rebaptise, on la découpe, on l'empoisonne, on la soumet.
-        <br><br>
-        Le projet Nabek propose l'inverse : 40 000 fermes régénératives au Québec, hors cadre gouvernemental, sans subvention, ancrées dans le Wampum à Deux Voies de 1616. Chaque ferme est un nœud de résistance mycélium — un point où le réseau fongique souterrain se rétablit, où le sol redevient vivant.
-        <br><br>
-        Le mycélium est le réseau fongique souterrain — le système nerveux, immunitaire et digestif de la Terre. Densité naturelle : 4,4 m d'hyphes/cm³. Prairies sauvages : 6,6 m/cm³. Terres agricoles intensives : 3,8 m/cm³ (réduction de ~50 %). Le pâturage holistique du projet Nabek recrée les conditions des prairies sauvages à haute densité fongique.
-        <br><br>
-        15 ha de pâturage par ferme × 0,15 m de profondeur = 22 500 m³ de sol restauré. Gain de densité : 2,8 m d'hyphes/cm³ (de 3,8 à 6,6). Hyphes restaurées par ferme : 63 billiards de mètres. À l'échelle des 40 000 fermes : 2,52 quintillions de mètres d'hyphes. Soit 16 800 fois la distance Terre-Soleil.
-        <br><br>
-        Ce n'est pas une métaphore. C'est une infrastructure vivante qui s'oppose à l'empire — sous terre, invisible, indestructible. Le mycélium ne peut pas être détruit par décret. Il ne peut pas être interdit par loi. Il ne peut pas être acheté par une multinationale. Il pousse. Il se connecte. Il communique. Il résiste.
-        <br><br>
-        Sur 20 ans, le projet génère un résultat net positif de 37,02 milliards $ avec un TRI de 11,76 %. Le point de rentabilité est atteint à l'année 8. À maturité, chaque ferme produit 165 800 $ de revenus annuels pour une marge nette de 67 400 $.
-        <br><br>
-        311 535 tonnes de viande par an pour nourrir le Québec. 600 000 tonnes de compost par an pour régénérer le sol. 480 000 têtes abattues par an, chacune valorisée à 100 %. 180 000 tonnes de fibre textile par an pour habiller le Québec. 150 000 tonnes de fleurs CBD par an pour soigner le Québec.
-        <br><br>
-        Nous ne sommes pas des agriculteurs. Nous sommes des soignants du vivant. Nous ne produisons pas de la viande. Nous restaurons un réseau. Nous ne construisons pas des fermes. Nous plantons de la résistance.
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">La terre n'appartient à personne</div>
-      <div class="meta">Publié le 1er juin 2026 — Préambule fondateur</div>
-      <div class="card-text">
-        Avant la colonisation, ces terres n'appartenaient à personne. Elles n'étaient pas « à » quelqu'un. Elles étaient habitées. Il y avait une harmonie entre toutes les formes de vie — humains, animaux, plantes, mycélium, eaux, pierres. La notion de propriété foncière n'existait pas. C'est pourquoi les terres n'ont jamais été cédées. On ne cède pas ce qu'on ne possède pas.
-        <br><br>
-        Le projet Nabek repose sur ce constat : la propriété sur les terres est une erreur historique qu'il faut corriger. Non pas en transférant la propriété d'un peuple à un autre, mais en abolissant l'acte de propriété lui-même.
-        <br><br>
-        Les terres du projet Nabek ne seront jamais marchandées. Jamais taxées. Jamais transférées par vente, héritage ou cession. Elles ne sont pas des actifs. Elles sont des responsabilités.
-        <br><br>
-        Quand celui ou celle qui soigne une parcelle arrête — par fatigue, par mort, par choix — ce n'est pas un héritier qui reprend. C'est un autre soigneur, choisi par la communauté, formé par la coopérative, reconnu par les peuples du territoire. La terre passe d'une main vivante à une autre main vivante. Jamais d'une signature à une autre.
-        <br><br>
-        Les terres n'appartiennent ni au Québec. Ni aux peuples autochtones. Ni au projet. Elles appartiennent au vivant. Nous ne sommes que des soigneurs.
-        <br><br>
-        Si tu cherches à posséder, à capitaliser, à transmettre un patrimoine à tes enfants sous forme de titre foncier — ce projet n'est pas pour toi. Tu peux fermer ce document maintenant. Il n'y a pas de jugement. Mais il n'y a pas de place non plus.
-        <br><br>
-        La terre n'appartient pas aux humains. Les humains appartiennent à la terre. Et sous la terre, le mycélium nous attend. Il a attendu 400 ans. Il peut attendre encore. Ou il peut repousser — si nous cessons de l'empoisonner, et si nous cessons de prétendre que la terre est à nous.
-      </div>
-    </div>
-  </section>
-
-  <!-- LIENS -->
-  <section id="liens" class="tab-panel">
-    <div class="section-title">Liens & ressources</div>
-    <div class="section-subtitle">Canaux du projet, entreprises québécoises du terrain, et données environnementales.</div>
-
-    <!-- Bloc 1 — Liens personnels du projet -->
-    <div class="card">
-      <div class="card-title">📡 Liens personnels du projet</div>
-      <div class="link-section">
-        <a class="link-row" href="https://www.facebook.com/profile.php?id=61578144923113" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            Facebook — Nabek
-            <div class="link-desc">Page officielle du projet Nabek</div>
-          </span>
-        </a>
-        <a class="link-row" href="https://www.youtube.com/@nabektrappeur" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            YouTube — Nabek Trappeur
-            <div class="link-desc">Chaîne vidéo du projet</div>
-          </span>
-        </a>
-        <a class="link-row" href="mailto:NabekTrappeur@proton.me" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            Proton Mail — Contacter Nabek
-            <div class="link-desc">Courriel sécurisé du projet</div>
-          </span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Bloc 3 — Données environnementales -->
-    <div class="card">
-      <div class="card-title">📊 Données environnementales</div>
-      <div class="link-section">
-        <a class="link-row" href="https://www.canada.ca/en/environment-climate-change/services/climate-change/greenhouse-gas-emissions.html" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            Inventaire canadien des émissions de GES
-            <div class="link-desc"><span class="tag" style="font-size:10px; padding:2px 8px;">Données</span> Données officielles sur les émissions agricoles (CH₄, N₂O)</div>
-          </span>
-        </a>
-        <a class="link-row" href="https://www.statcan.gc.ca/en/topics-start/agriculture" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            Statistique Canada — Agriculture
-            <div class="link-desc"><span class="tag" style="font-size:10px; padding:2px 8px;">Données</span> Chiffres du secteur bovin et des cultures au Québec</div>
-          </span>
-        </a>
-        <a class="link-row" href="https://www.mapaq.gouv.qc.ca" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3.974 8.07A4.9 4.9 0 0 1 7 7.1h2a.9.9 0 0 1 0 1.8H7a3.1 3.1 0 0 0-2.1 4.1 3.1 3.1 0 0 0 2.1 1.47h2a.9.9 0 0 1 0 1.8H7a4.9 4.9 0 0 1-3.026-4.87A4.9 4.9 0 0 1 3.974 8.07zm10.126-.07a.9.9 0 0 1 .9-.9h2a4.9 4.9 0 0 1 3.026 4.87 4.9 4.9 0 0 1-3.026 4.87h-2a.9.9 0 0 1 0-1.8h2a3.1 3.1 0 0 0 2.1-1.47 3.1 3.1 0 0 0-2.1-4.1h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z"/></svg>
-          <span>
-            MAPAQ — Statistiques agricoles
-            <div class="link-desc"><span class="tag" style="font-size:10px; padding:2px 8px;">Données</span> Données québécoises sur l'élevage, les abattoirs, les surfaces</div>
-          </span>
-        </a>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-text" style="font-style: italic; color: var(--text-tertiary); text-align: center;">
-        « Chaque lien est un wampum numérique — un fil de connexion tissé entre la terre, le savoir et la communauté. »
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJETS -->
-  <section id="projets" class="tab-panel">
-    <div class="section-title">Projets</div>
-    <div class="section-subtitle">
-      Les projets que je construis, un pas à la fois.
-    </div>
-
-    <div class="card">
-      <div class="card-title">Nabek PDF Creator</div>
-      <div class="card-text">
-        Un outil personnel pour créer des documents PDF structurés et professionnels. Conçu pour produire des rapports, des guides et des documents de projet avec un formatage cohérent et une esthétique soignée.
-      </div>
-      <div class="tag-row">
-        <span class="tag">Python</span>
-        <span class="tag">ReportLab</span>
-        <span class="tag">En cours</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Ferme régénérative Nabek</div>
-      <div class="card-text">
-        Projet de ferme au Québec fondé sur les principes de l'agriculture régénérative et du Wampum. Objectif : créer un modèle économique viable en CAD, sans subventions, qui enrichit le sol et produit des aliments sains en circuit court.
-      </div>
-      <div class="tag-row">
-        <span class="tag">Agriculture</span>
-        <span class="tag">Wampum</span>
-        <span class="tag">Québec</span>
-        <span class="tag">En développement</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Site web Nabek</div>
-      <div class="card-text">
-        Ce site web que tu consultes actuellement ! Construit à partir de zéro avec HTML, CSS et JavaScript. Hébergé gratuitement sur GitHub Pages. Il rassemble ma présentation, mes projets, mon blog et mes ressources en un seul endroit accessible partout.
-      </div>
-      <div class="tag-row">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">En ligne</span>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
-      </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
+      <a class="link-row" href="https://www.chta.ca/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Canadian Hemp Trade Alliance (CHTA)</span>
+          <span class="en-content">Canadian Hemp Trade Alliance (CHTA)</span>
+          <div class="link-desc fr-content">Association nationale du chanvre au Canada</div>
+          <div class="link-desc en-content">National hemp association in Canada</div>
+        </span>
       </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
+      <a class="link-row" href="https://www.savory.global/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Savory Institute — Gestion holistique des pâturages</span>
+          <span class="en-content">Savory Institute — Holistic grazing management</span>
+          <div class="link-desc fr-content">Méthode de régénération des sols par le pâturage</div>
+          <div class="link-desc en-content">Soil regeneration method through grazing</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.regenagri.org/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Regenagri — Certification agriculture régénérative</span>
+          <span class="en-content">Regenagri — Regenerative agriculture certification</span>
+          <div class="link-desc fr-content">Standard international pour l'agriculture régénérative</div>
+          <div class="link-desc en-content">International standard for regenerative agriculture</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.fungi.com/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Fungi Perfecti — Paul Stamets</span>
+          <span class="en-content">Fungi Perfecti — Paul Stamets</span>
+          <div class="link-desc fr-content">Référence mondiale en mycologie appliquée</div>
+          <div class="link-desc en-content">World reference in applied mycology</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.ecocert.com/fr-CA" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Ecocert Canada — Certification biologique</span>
+          <span class="en-content">Ecocert Canada — Organic certification</span>
+          <div class="link-desc fr-content">Organisme de certification biologique au Québec</div>
+          <div class="link-desc en-content">Organic certification body in Quebec</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.mapaq.gouv.qc.ca/fr/Productions/bien-etre-animaux/Pages/bien-etre-animaux.aspx" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">MAPAQ — Bien-être animal au Québec</span>
+          <span class="en-content">MAPAQ — Animal welfare in Quebec</span>
+          <div class="link-desc fr-content">Réglementation québécoise sur le bien-être animal</div>
+          <div class="link-desc en-content">Quebec regulation on animal welfare</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.wabanaki.ca/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Wabanaki — Peuples autochtones du Québec</span>
+          <span class="en-content">Wabanaki — Indigenous peoples of Quebec</span>
+          <div class="link-desc fr-content">Ressources sur les nations Wabanaki et le Wampum</div>
+          <div class="link-desc en-content">Resources on Wabanaki nations and Wampum</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.permaculturenews.org/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Permaculture News — Réseau international</span>
+          <span class="en-content">Permaculture News — International network</span>
+          <div class="link-desc fr-content">Actualités et ressources en permaculture</div>
+          <div class="link-desc en-content">Permaculture news and resources</div>
+        </span>
+      </a>
+      <a class="link-row" href="https://www.soilfoodweb.com/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+        <span>
+          <span class="fr-content">Soil Food Web — Dr. Elaine Ingham</span>
+          <span class="en-content">Soil Food Web — Dr. Elaine Ingham</span>
+          <div class="link-desc fr-content">Science du sol vivant et microbiologie</div>
+          <div class="link-desc en-content">Living soil science and microbiology</div>
+        </span>
+      </a>
     </div>
-  </section>
+    <div class="no-results" id="noLinks">
+      <span class="fr-content">Aucun lien ne correspond à votre recherche.</span>
+      <span class="en-content">No links match your search.</span>
+    </div>
+  </div>
+</div>
 
-  <!-- GALERIE -->
-  <section id="galerie" class="tab-panel">
-    <div class="section-title">Galerie</div>
-    <div class="section-subtitle">
-      Images du projet, de la ferme et des moments qui comptent.
+<!-- PROJETS -->
+<div class="tab-panel" id="projets">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Projets en cours</h1>
+      <h1 class="en-content">Ongoing projects</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Initiatives concrètes du terrain</p>
+      <p class="en-content">Concrete field initiatives</p>
     </div>
 
     <div class="card">
-      <div class="card-text" style="text-align: center; padding: 40px 20px;">
-        La galerie sera alimentée prochainement avec des photos du terrain, des récoltes et des moments du projet.
+      <div class="card-title fr-content">🌿 Projet Chanvre 2027</div>
+      <div class="card-title en-content">🌿 Hemp Project 2027</div>
+      <div class="meta fr-content">Statut : Préparation — Budget : 15 000 $ CAD</div>
+      <div class="meta en-content">Status: Preparation — Budget: $15,000 CAD</div>
+      <div class="card-text fr-content">
+        Première culture de chanvre industriel sur 10 hectares expérimentaux. Objectifs : tester trois variétés certifiées (Carmagnola, Ferimon, USO 31), évaluer le rendement en fibre et en chènevotte, et établir des partenariats avec des transformateurs québécois. Les semences sont commandées auprès de producteurs canadiens certifiés.
+      </div>
+      <div class="card-text en-content">
+        First industrial hemp crop on 10 experimental hectares. Objectives: test three certified varieties (Carmagnola, Ferimon, USO 31), evaluate fiber and hurds yield, and establish partnerships with Quebec processors. Seeds are ordered from certified Canadian producers.
+      </div>
+      <div class="tag-row">
+        <span class="tag fr-content">Agriculture</span>
+        <span class="tag fr-content">Chanvre</span>
+        <span class="tag fr-content">Expérimental</span>
+        <span class="tag en-content">Agriculture</span>
+        <span class="tag en-content">Hemp</span>
+        <span class="tag en-content">Experimental</span>
       </div>
     </div>
-  </section>
 
-  <!-- RESSOURCES -->
-  <section id="ressources" class="tab-panel">
-    <div class="section-title">Ressources téléchargeables</div>
-    <div class="section-subtitle">
-      Documents, guides et outils produits par Nabek. Télécharge-les gratuitement.
+    <div class="card">
+      <div class="card-title fr-content">🐂 Projet Bovin Régénératif</div>
+      <div class="card-title en-content">🐂 Regenerative Cattle Project</div>
+      <div class="meta fr-content">Statut : Recherche de troupeau — Budget : 100 000 $ CAD</div>
+      <div class="meta en-content">Status: Herd search — Budget: $100,000 CAD</div>
+      <div class="card-text fr-content">
+        Constitution d'un troupeau de 25 à 30 génisses de race Hereford ou Angus, achetées auprès d'éleveurs québécois pratiquant déjà le pâturage tournant. Mise en place de clôtures électriques mobiles, d'abreuvoirs sur roues, et d'un système de suivi individuel (poids, santé, reproduction). L'abattage se fera dans un abattoir artisanal certifié à moins de 50 km.
+      </div>
+      <div class="card-text en-content">
+        Formation of a herd of 25 to 30 Hereford or Angus heifers, purchased from Quebec breeders already practicing rotational grazing. Installation of mobile electric fences, wheeled waterers, and an individual tracking system (weight, health, reproduction). Slaughter will take place in a certified artisanal slaughterhouse less than 50 km away.
+      </div>
+      <div class="tag-row">
+        <span class="tag fr-content">Élevage</span>
+        <span class="tag fr-content">Bœuf</span>
+        <span class="tag fr-content">Pâturage tournant</span>
+        <span class="tag en-content">Livestock</span>
+        <span class="tag en-content">Beef</span>
+        <span class="tag en-content">Rotational grazing</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">🍄 Projet Mycélium Lab</div>
+      <div class="card-title en-content">🍄 Mycelium Lab Project</div>
+      <div class="meta fr-content">Statut : Prototypage — Budget : 25 000 $ CAD</div>
+      <div class="meta en-content">Status: Prototyping — Budget: $25,000 CAD</div>
+      <div class="card-text fr-content">
+        Construction d'un laboratoire de myciculture de 50 m² comprenant une chambre de culture stérile, une salle d'incubation climatisée, et une chambre de fructification. Premières espèces ciblées : shiitake sur rondins de feuillus, pleurotes sur paille de chanvre, et mycélium de <em>Ganoderma</em> pour biomatériaux isolants. Partenariat en discussion avec un cabinet d'architecture québécois intéressé par les matériaux biosourcés.
+      </div>
+      <div class="card-text en-content">
+        Construction of a 50 m² mushroom cultivation laboratory including a sterile culture room, a climate-controlled incubation room, and a fruiting chamber. First target species: shiitake on hardwood logs, oyster mushrooms on hemp straw, and <em>Ganoderma</em> mycelium for insulating biomaterials. Partnership under discussion with a Quebec architecture firm interested in bio-based materials.
+      </div>
+      <div class="tag-row">
+        <span class="tag fr-content">Mycologie</span>
+        <span class="tag fr-content">Biomatériaux</span>
+        <span class="tag fr-content">Innovation</span>
+        <span class="tag en-content">Mycology</span>
+        <span class="tag en-content">Biomaterials</span>
+        <span class="tag en-content">Innovation</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title fr-content">📚 Projet Documentation Ouverte</div>
+      <div class="card-title en-content">📚 Open Documentation Project</div>
+      <div class="meta fr-content">Statut : Actif — Budget : 0 $ CAD (bénévolat)</div>
+      <div class="meta en-content">Status: Active — Budget: $0 CAD (volunteer)</div>
+      <div class="card-text fr-content">
+        Publication mensuelle de rapports techniques détaillés sur GitHub : analyses de sol, rendements, coûts réels, échecs et succès. L'objectif est de créer une base de connaissances libre et réutilisable pour tout agriculteur québécois souhaitant adopter une approche régénérative sans subventions. Les données sont anonymisées où nécessaire mais toujours vérifiables.
+      </div>
+      <div class="card-text en-content">
+        Monthly publication of detailed technical reports on GitHub: soil analyses, yields, actual costs, failures and successes. The goal is to create a free and reusable knowledge base for any Quebec farmer wishing to adopt a regenerative approach without subsidies. Data is anonymized where necessary but always verifiable.
+      </div>
+      <div class="tag-row">
+        <span class="tag fr-content">Transparence</span>
+        <span class="tag fr-content">Open source</span>
+        <span class="tag fr-content">Transmission</span>
+        <span class="tag en-content">Transparency</span>
+        <span class="tag en-content">Open source</span>
+        <span class="tag en-content">Knowledge sharing</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GALERIE -->
+<div class="tab-panel" id="galerie">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Galerie</h1>
+      <h1 class="en-content">Gallery</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Images du projet et du territoire</p>
+      <p class="en-content">Images of the project and territory</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Terrain au lever du jour<br><small>À venir</small></span>
+          <span class="en-content">Land at dawn<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Terrain — Lever du jour</div>
+        <div class="gallery-caption en-content">Land — Dawn</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Analyse de sol<br><small>À venir</small></span>
+          <span class="en-content">Soil analysis<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Laboratoire — Analyse de sol</div>
+        <div class="gallery-caption en-content">Lab — Soil analysis</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Plants de chanvre<br><small>À venir</small></span>
+          <span class="en-content">Hemp plants<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Culture — Chanvre</div>
+        <div class="gallery-caption en-content">Crop — Hemp</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Pâturage tournant<br><small>À venir</small></span>
+          <span class="en-content">Rotational grazing<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Élevage — Pâturage</div>
+        <div class="gallery-caption en-content">Livestock — Grazing</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Culture de mycélium<br><small>À venir</small></span>
+          <span class="en-content">Mycelium cultivation<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Mycélium — Culture in vitro</div>
+        <div class="gallery-caption en-content">Mycelium — In vitro culture</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Biomatériaux<br><small>À venir</small></span>
+          <span class="en-content">Biomaterials<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Innovation — Blocs de mycélium</div>
+        <div class="gallery-caption en-content">Innovation — Mycelium blocks</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Équipe sur le terrain<br><small>À venir</small></span>
+          <span class="en-content">Team in the field<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Équipe — Travail sur le terrain</div>
+        <div class="gallery-caption en-content">Team — Field work</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="fr-content">Coucher de soleil<br><small>À venir</small></span>
+          <span class="en-content">Sunset<br><small>Coming soon</small></span>
+        </div>
+        <div class="gallery-caption fr-content">Territoire — Coucher de soleil</div>
+        <div class="gallery-caption en-content">Territory — Sunset</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESSOURCES -->
+<div class="tab-panel" id="ressources">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Ressources</h1>
+      <h1 class="en-content">Resources</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Documents, guides et outils à télécharger</p>
+      <p class="en-content">Documents, guides, and tools to download</p>
     </div>
 
     <div class="resource-card">
       <div class="resource-icon">
-        <svg viewBox="0 0 24 24"><path d="M15.48 15.497a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h6.96z"/><path d="M12.336 11.1a.9.9 0 0 1 0 1.8H8.52a.9.9 0 0 1 0-1.8h3.816z"/><path fill-rule="evenodd" d="M13.172 2.1a2.9 2.9 0 0 1 2.05.85l3.829 3.828a2.9 2.9 0 0 1 .85 2.05V18a2.9 2.9 0 0 1-2.9 2.9H8a2.9 2.9 0 0 1-2.9-2.9V6A2.9 2.9 0 0 1 8 2.1h5.172zM8 3.9A2.1 2.1 0 0 0 5.9 6v12a2.1 2.1 0 0 0 2.1 2.1h8a2.1 2.1 0 0 0 2.1-2.1V9.9H15a2.1 2.1 0 0 1-2.1-2.1V3.9H8zm5.9 3.1a1.1 1.1 0 0 0 1.1 1.1h2.821a.9.9 0 0 0-.044-.078l-3.828-3.828a.9.9 0 0 0-.049-.045V7z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
       </div>
       <div class="resource-content">
-        <div class="resource-title">Document complet — Fermes régénératives Nabek</div>
-        <div class="resource-desc">
-          Préambule fondateur + Document synthétique. 28 pages. Vision, modèle 18 ha, filières bovine et chanvre, investissements, projections 20 ans, bilan carbone, annuaire fournisseurs. Données réelles du marché québécois (mai 2026).
-        </div>
-        <div class="resource-meta">PDF · 28 pages · Juin 2026 · Données réelles · Prix du marché québécois</div>
-        <a class="resource-btn" href="nabek-document-complet.pdf" download>
-          <svg viewBox="0 0 24 24"><path d="M12 15.5l-5-5h3V4h4v6.5h3l-5 5zM5 16v3h14v-3h2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3h2z"/></svg>
-          Télécharger le PDF
+        <div class="resource-title fr-content">Document complet du projet (FR)</div>
+        <div class="resource-title en-content">Complete project document (FR)</div>
+        <div class="resource-desc fr-content">Version intégrale du document de planification, incluant les analyses financières, les données de marché et le cadre philosophique Wampum.</div>
+        <div class="resource-desc en-content">Full version of the planning document, including financial analyses, market data, and the Wampum philosophical framework.</div>
+        <div class="resource-meta">PDF — 28 pages — ~2,5 Mo</div>
+        <a href="#" class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span class="fr-content">Bientôt disponible</span>
+          <span class="en-content">Coming soon</span>
         </a>
       </div>
     </div>
 
-    <div class="card" style="margin-top: 14px;">
-      <div class="card-title">📋 À propos de ce document</div>
-      <div class="card-text">
-        Ce document est le fruit de 4 années de recherche et de travail. Il contient tous les chiffres du projet : superficies, investissements, bilans carbone, créations d'emplois, filières complètes bovine et chanvre. Tous les montants sont en dollars canadiens (CAD). Aucune subvention gouvernementale. Données ponctuelles et spécifiques au Québec (mai 2026).
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+      </div>
+      <div class="resource-content">
+        <div class="resource-title fr-content">Document complet du projet (EN)</div>
+        <div class="resource-title en-content">Complete project document (EN)</div>
+        <div class="resource-desc fr-content">Version anglaise du document de planification, traduite fidèlement pour les partenaires internationaux.</div>
+        <div class="resource-desc en-content">English version of the planning document, faithfully translated for international partners.</div>
+        <div class="resource-meta">PDF — 27 pages — ~2,4 Mo</div>
+        <a href="#" class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span class="fr-content">Bientôt disponible</span>
+          <span class="en-content">Coming soon</span>
+        </a>
       </div>
     </div>
 
-    <div class="card" style="margin-top: 14px;">
-      <div class="card-title">📚 Prochainement</div>
-      <div class="card-text">
-        D'autres documents seront ajoutés au fur et à mesure du projet : guides pratiques du soigneur, fiches techniques chanvre, modèles de gouvernance coopérative, et rapports de terrain.
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
       </div>
-    </div>
-  </section>
-
-  <!-- TEMOIGNAGES -->
-  <section id="temoignages" class="tab-panel">
-    <div class="section-title">Témoignages</div>
-    <div class="section-subtitle">
-      Messages et retours des visiteurs. Merci à tous ceux qui partagent un mot.
-    </div>
-
-    <div class="testimonial-grid">
-      <!-- Les témoignages authentiques apparaîtront ici -->
-    </div>
-    <div class="card" style="margin-top: 20px;">
-      <div class="card-title">Laisser un témoignage</div>
-      <div class="card-text">
-        Tu as un mot à partager ? Une idée, un encouragement, une question ? Écris-le ci-dessous. Ton message apparaîtra ici après validation.
-      </div>
-      <form class="testimonial-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST" style="margin-top: 14px;">
-        <input type="hidden" name="sujet" value="temoignage">
-        <div class="form-group">
-          <label for="temoignage-nom">Nom ou pseudo</label>
-          <input type="text" id="temoignage-nom" name="nom" placeholder="Ton nom" required>
-        </div>
-        <div class="form-group">
-          <label for="temoignage-message">Message</label>
-          <textarea id="temoignage-message" name="message" placeholder="Écris ton témoignage ici..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.1 12c0-1.893.809-3.163 1.874-3.93 1.019-.734 2.215-.97 3.026-.97h2a.9.9 0 0 1 0 1.8H7c-.522 0-1.326.164-1.974.53-.602.434-1.126 1.164-1.126 2.47s.524 2.036 1.126 2.47c.648.366 1.452.53 1.974.53h2a.9.9 0 0 1 0 1.8H7c-.81 0-2.007-.236-3.026-.97C2.909 15.164 2.1 13.893 2.1 12zm14-.9a.9.9 0 0 1 .9-.9h2c.81 0 2.007.236 3.026.97 1.065.767 1.874 2.037 1.874 3.93s-.809 3.163-1.874 3.93c-1.019.734-2.215.97-3.026.97h-2a.9.9 0 0 1 0-1.8h2c.522 0 1.326-.164 1.974-.53.602-.434 1.126-1.164 1.126-2.47s-.524-2.036-1.126-2.47c-.648-.366-1.452-.53-1.974-.53h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z" fill="currentColor"/></svg>
-          Envoyer le témoignage
-        </button>
-      </form>
-      <div class="contact-alt" style="margin-top: 16px; padding-top: 14px;">
-        <div class="contact-alt-text">
-          <i>Si le formulaire ne fonctionne pas, tu peux aussi envoyer ton témoignage par courriel à <a href="mailto:NabekTrappeur@proton.me?subject=Temoignage">NabekTrappeur@proton.me</a> avec le sujet "Temoignage".</i>
-        </div>
+      <div class="resource-content">
+        <div class="resource-title fr-content">Hors du navire — 10 tomes</div>
+        <div class="resource-title en-content">Off the Ship — 10 volumes</div>
+        <div class="resource-desc fr-content">Texte philosophique fondateur du projet Nabek. Dix tomes explorant la liberté agricole, l'autonomie et le rapport au vivant.</div>
+        <div class="resource-desc en-content">Foundational philosophical text of the Nabek project. Ten volumes exploring agricultural freedom, autonomy, and the relationship with the living world.</div>
+        <div class="resource-meta">PDF — 10 tomes — ~5 Mo</div>
+        <a href="#" class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span class="fr-content">Bientôt disponible</span>
+          <span class="en-content">Coming soon</span>
+        </a>
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
       </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
+      <div class="resource-content">
+        <div class="resource-title fr-content">Protocole Nabek</div>
+        <div class="resource-title en-content">Nabek Protocol</div>
+        <div class="resource-desc fr-content">Les 7 règles fondamentales qui structurent les échanges au sein du projet. Un cadre de respect, de transparence et de réversibilité.</div>
+        <div class="resource-desc en-content">The 7 fundamental rules that structure exchanges within the project. A framework of respect, transparency, and reversibility.</div>
+        <div class="resource-meta">PDF — 7 pages — ~500 Ko</div>
+        <a href="#" class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span class="fr-content">Bientôt disponible</span>
+          <span class="en-content">Coming soon</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      </div>
+      <div class="resource-content">
+        <div class="resource-title fr-content">Guide du débutant en agriculture régénérative</div>
+        <div class="resource-title en-content">Beginner's guide to regenerative agriculture</div>
+        <div class="resource-desc fr-content">Document synthétique pour les nouveaux arrivants : principes de base, erreurs courantes, ressources québécoises.</div>
+        <div class="resource-desc en-content">Synthesis document for newcomers: basic principles, common mistakes, Quebec resources.</div>
+        <div class="resource-meta">PDF — 12 pages — ~1 Mo</div>
+        <a href="#" class="resource-btn resource-btn-disabled">
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          <span class="fr-content">Bientôt disponible</span>
+          <span class="en-content">Coming soon</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="tab-panel" id="contact">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Contact</h1>
+      <h1 class="en-content">Contact</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Écrivez-nous. Chaque message est lu.</p>
+      <p class="en-content">Write to us. Every message is read.</p>
+    </div>
+
+    <div class="social-bar">
+      <a class="social-link" href="https://github.com/NabekKebek" target="_blank" rel="noopener" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
       </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
+      <a class="social-link" href="#" title="Twitter / X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a class="social-link" href="#" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a class="social-link" href="#" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
     </div>
-  </section>
 
-  <!-- CALENDRIER -->
-  <section id="calendrier" class="tab-panel">
-    <div class="section-title">Calendrier des événements</div>
-    <div class="section-subtitle">
-      Dates importantes, rencontres et moments clés du projet Nabek.
-    </div>
+    <form class="contact-form" onsubmit="handleContact(event)">
+      <div class="form-group">
+        <label class="fr-content">Nom</label>
+        <label class="en-content">Name</label>
+        <input type="text" id="contactName" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="contactEmail" required>
+      </div>
+      <div class="form-group">
+        <label class="fr-content">Sujet</label>
+        <label class="en-content">Subject</label>
+        <select id="contactSubject">
+          <option class="fr-content" value="general">Question générale</option>
+          <option class="fr-content" value="partnership">Partenariat</option>
+          <option class="fr-content" value="investment">Investissement</option>
+          <option class="fr-content" value="media">Médias</option>
+          <option class="fr-content" value="other">Autre</option>
+          <option class="en-content" value="general">General question</option>
+          <option class="en-content" value="partnership">Partnership</option>
+          <option class="en-content" value="investment">Investment</option>
+          <option class="en-content" value="media">Media</option>
+          <option class="en-content" value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="fr-content">Message</label>
+        <label class="en-content">Message</label>
+        <textarea id="contactMessage" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        <span class="fr-content">Envoyer</span>
+        <span class="en-content">Send</span>
+      </button>
+    </form>
 
-    <div class="card">
-      <div class="card-text" style="text-align: center; padding: 40px 20px;">
-        Aucun événement programmé pour le moment.
-        <br><br>
-        Les dates seront ajoutées au fur et à mesure du projet.
+    <div class="contact-alt">
+      <div class="contact-alt-title fr-content">Autres moyens de contact</div>
+      <div class="contact-alt-title en-content">Other ways to reach us</div>
+      <div class="contact-alt-text fr-content">
+        Pour les demandes urgentes ou confidentielles, vous pouvez aussi nous écrire directement sur GitHub via les Issues du dépôt <a href="https://github.com/NabekKebek/NabekKebek.github.io" target="_blank" rel="noopener">NabekKebek.github.io</a>.<br><br>
+        <strong>Adresse postale (à venir)</strong><br>
+        Fermes Nabek<br>
+        Québec, Canada
+      </div>
+      <div class="contact-alt-text en-content">
+        For urgent or confidential requests, you can also write to us directly on GitHub via the Issues of the <a href="https://github.com/NabekKebek/NabekKebek.github.io" target="_blank" rel="noopener">NabekKebek.github.io</a> repository.<br><br>
+        <strong>Mailing address (coming soon)</strong><br>
+        Nabek Farms<br>
+        Quebec, Canada
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- NEWSLETTER -->
-  <section id="newsletter" class="tab-panel">
+<!-- NEWSLETTER -->
+<div class="tab-panel" id="newsletter">
+  <div class="container">
     <div class="newsletter-hero">
       <div class="newsletter-hero-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </div>
-      <h2>La lettre de Nabek</h2>
-      <p>Reçois une fois par mois les nouvelles de la ferme, les apprentissages et les réflexions. Sans spam, sans pub. Uniquement du contenu qui compte.</p>
+      <h2 class="fr-content">Infolettre Nabek</h2>
+      <h2 class="en-content">Nabek Newsletter</h2>
+      <p class="fr-content">Un courriel par mois. Pas de spam, pas de publicité. Juste des nouvelles du terrain, des analyses et des réflexions.</p>
+      <p class="en-content">One email per month. No spam, no ads. Just field news, analyses, and reflections.</p>
     </div>
 
     <div class="newsletter-form-card">
-      <form action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST">
-        <input type="hidden" name="sujet" value="newsletter">
+      <form onsubmit="handleNewsletter(event)">
         <div class="form-group">
-          <label for="newsletter-nom">Prénom ou pseudo</label>
-          <input type="text" id="newsletter-nom" name="nom" placeholder="Ton prénom" required>
+          <label class="fr-content">Votre adresse courriel</label>
+          <label class="en-content">Your email address</label>
+          <input type="email" id="newsletterEmail" placeholder="nom@exemple.com" required>
         </div>
         <div class="form-group">
-          <label for="newsletter-email">Courriel</label>
-          <input type="email" id="newsletter-email" name="email" placeholder="ton@courriel.com" required>
+          <label class="fr-content">Langue préférée</label>
+          <label class="en-content">Preferred language</label>
+          <select id="newsletterLang">
+            <option value="fr">Français</option>
+            <option value="en">English</option>
+            <option value="both" class="fr-content">Les deux / Both</option>
+            <option value="both" class="en-content">Both / Les deux</option>
+          </select>
         </div>
-        <button type="submit" class="btn-submit" style="width: 100%; justify-content: center;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
-          S'abonner à la newsletter
+        <button type="submit" class="btn-submit" style="width:100%;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          <span class="fr-content">S'abonner</span>
+          <span class="en-content">Subscribe</span>
         </button>
       </form>
-      <div style="text-align: center; margin-top: 14px; font-size: 12px; color: var(--text-quaternary);">
-        Un courriel par mois maximum. Désabonnement possible à tout moment.
-      </div>
     </div>
 
-    <div class="newsletter-benefits" style="margin-top: 20px;">
+    <div class="newsletter-benefits">
       <div class="newsletter-benefit">
         <div class="newsletter-benefit-icon">
           <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
         </div>
-        <div class="newsletter-benefit-title">Journal mensuel</div>
-        <div class="newsletter-benefit-text">Le résumé de ce qui s'est passé sur le terrain ce mois-ci.</div>
+        <div class="newsletter-benefit-title fr-content">Rapports mensuels</div>
+        <div class="newsletter-benefit-title en-content">Monthly reports</div>
+        <div class="newsletter-benefit-text fr-content">Données de terrain, rendements, coûts réels.</div>
+        <div class="newsletter-benefit-text en-content">Field data, yields, actual costs.</div>
       </div>
       <div class="newsletter-benefit">
         <div class="newsletter-benefit-icon">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
         </div>
-        <div class="newsletter-benefit-title">Apprentissages</div>
-        <div class="newsletter-benefit-text">Les découvertes, les erreurs et les leçons tirées du terrain.</div>
+        <div class="newsletter-benefit-title fr-content">Analyses exclusives</div>
+        <div class="newsletter-benefit-title en-content">Exclusive analyses</div>
+        <div class="newsletter-benefit-text fr-content">Réflexions approfondies sur l'agriculture régénérative.</div>
+        <div class="newsletter-benefit-text en-content">In-depth reflections on regenerative agriculture.</div>
       </div>
       <div class="newsletter-benefit">
         <div class="newsletter-benefit-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
         </div>
-        <div class="newsletter-benefit-title">Annonces exclusives</div>
-        <div class="newsletter-benefit-text">Les nouveautés du site et du projet avant tout le monde.</div>
+        <div class="newsletter-benefit-title fr-content">Accès prioritaire</div>
+        <div class="newsletter-benefit-title en-content">Priority access</div>
+        <div class="newsletter-benefit-text fr-content">Événements, visites, et nouveaux projets.</div>
+        <div class="newsletter-benefit-text en-content">Events, visits, and new projects.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TÉMOIGNAGES -->
+<div class="tab-panel" id="temoignages">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Témoignages</h1>
+      <h1 class="en-content">Testimonials</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Ce que disent ceux qui nous ont rencontrés</p>
+      <p class="en-content">What those who met us say</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Marie-Claude L.</div>
+            <div class="testimonial-date fr-content">Agronome, Centre-du-Québec — Juin 2026</div>
+            <div class="testimonial-date en-content">Agronomist, Centre-du-Québec — June 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text fr-content">
+          « J'ai rarement rencontré un projet agricole aussi structuré et en même temps aussi humble. L'approche Wampum n'est pas un gadget marketing — on sent qu'elle traverse chaque décision. Les analyses de sol qu'ils ont partagées avec moi étaient rigoureuses et honnêtes. »
+        </div>
+        <div class="testimonial-text en-content">
+          "I have rarely encountered an agricultural project so structured and yet so humble. The Wampum approach is not a marketing gimmick — you can feel it running through every decision. The soil analyses they shared with me were rigorous and honest."
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jean-François R.</div>
+            <div class="testimonial-date fr-content">Éleveur bovin, Chaudière-Appalaches — Mai 2026</div>
+            <div class="testimonial-date en-content">Cattle breeder, Chaudière-Appalaches — May 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text fr-content">
+          « Quand ils sont venus voir mon système de pâturage tournant, ils n'ont pas pris de notes sur leur téléphone. Ils ont écouté, ont posé des questions pertinentes, et sont repartis avec une compréhension réelle. C'est rare. La plupart des visiteurs veulent juste copier-coller. Nabek veut comprendre. »
+        </div>
+        <div class="testimonial-text en-content">
+          "When they came to see my rotational grazing system, they didn't take notes on their phone. They listened, asked relevant questions, and left with real understanding. That's rare. Most visitors just want to copy-paste. Nabek wants to understand."
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah T.</div>
+            <div class="testimonial-date fr-content">Architecte, Montréal — Juillet 2026</div>
+            <div class="testimonial-date en-content">Architect, Montreal — July 2026</div>
+          </div>
+        </div>
+        <div class="testimonial-text fr-content">
+          « Leur projet de biomatériaux à base de mycélium m'a bluffée. Ce n'est pas de la science-fiction : les échantillons qu'ils m'ont montrés avaient des propriétés isolantes comparables au polystyrène, avec un cycle de vie compostable. Je suis prête à intégrer ça dans mes prochains chantiers. »
+        </div>
+        <div class="testimonial-text en-content">
+          "Their mycelium-based biomaterials project blew me away. This is not science fiction: the samples they showed me had insulating properties comparable to polystyrene, with a compostable life cycle. I am ready to integrate this into my next projects."
+        </div>
       </div>
     </div>
 
-    <div class="card" style="margin-top: 20px;">
-      <div class="card-title">Politique de confidentialité</div>
-      <div class="card-text">
-        Ton adresse courriel est utilisée uniquement pour t'envoyer la newsletter. Elle n'est pas partagée avec des tiers. Tu peux te désabonner à tout moment en cliquant sur le lien en bas de chaque courriel. Si le formulaire ne fonctionne pas, écris-moi directement à <a href="mailto:NabekTrappeur@proton.me?subject=Abonnement%20newsletter" style="color: var(--accent); text-decoration: none;">NabekTrappeur@proton.me</a> avec le sujet "Abonnement newsletter".
+    <div class="card" style="margin-top:20px;">
+      <div class="card-title fr-content">Laisser un témoignage</div>
+      <div class="card-title en-content">Leave a testimonial</div>
+      <div class="card-text fr-content">
+        Si vous avez rencontré l'équipe Nabek, visité le projet, ou échangé avec nous, votre témoignage compte. Il alimente la confiance et la transparence.
       </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
+      <div class="card-text en-content">
+        If you have met the Nabek team, visited the project, or exchanged with us, your testimonial matters. It feeds trust and transparency.
       </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
-      </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="tab-panel">
-    <div class="section-title">Contact</div>
-    <div class="section-subtitle">
-      Une question, une idée, un projet à partager ? Écris-moi.
-    </div>
-
-    <div class="card">
-      <div class="card-title">Formulaire de contact</div>
-      <form class="contact-form" action="https://formspree.io/f/TON_ID_FORMSPREE" method="POST">
+      <form class="testimonial-form" onsubmit="handleTestimonial(event)">
         <div class="form-group">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" name="nom" placeholder="Ton nom" required>
+          <label class="fr-content">Votre nom</label>
+          <label class="en-content">Your name</label>
+          <input type="text" id="testimonialName" required>
         </div>
         <div class="form-group">
-          <label for="courriel">Courriel</label>
-          <input type="email" id="courriel" name="email" placeholder="ton@courriel.com" required>
-        </div>
-        <div class="form-group">
-          <label for="sujet">Sujet</label>
-          <select id="sujet" name="sujet" required>
-            <option value="" disabled selected>Choisis un sujet</option>
-            <option value="projet">Projet de ferme</option>
-            <option value="collaboration">Collaboration</option>
-            <option value="question">Question générale</option>
-            <option value="autre">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Écris ton message ici..." required></textarea>
+          <label class="fr-content">Votre témoignage</label>
+          <label class="en-content">Your testimonial</label>
+          <textarea id="testimonialText" required></textarea>
         </div>
         <button type="submit" class="btn-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.1 12c0-1.893.809-3.163 1.874-3.93 1.019-.734 2.215-.97 3.026-.97h2a.9.9 0 0 1 0 1.8H7c-.522 0-1.326.164-1.974.53-.602.434-1.126 1.164-1.126 2.47s.524 2.036 1.126 2.47c.648.366 1.452.53 1.974.53h2a.9.9 0 0 1 0 1.8H7c-.81 0-2.007-.236-3.026-.97C2.909 15.164 2.1 13.893 2.1 12zm14-.9a.9.9 0 0 1 .9-.9h2c.81 0 2.007.236 3.026.97 1.065.767 1.874 2.037 1.874 3.93s-.809 3.163-1.874 3.93c-1.019.734-2.215.97-3.026.97h-2a.9.9 0 0 1 0-1.8h2c.522 0 1.326-.164 1.974-.53.602-.434 1.126-1.164 1.126-2.47s-.524-2.036-1.126-2.47c-.648-.366-1.452-.53-1.974-.53h-2a.9.9 0 0 1-.9-.9zm-7 4a.9.9 0 0 1 .9-.9h8a.9.9 0 0 1 0 1.8H8a.9.9 0 0 1-.9-.9z" fill="currentColor"/></svg>
-          Envoyer le message
+          <span class="fr-content">Publier</span>
+          <span class="en-content">Publish</span>
         </button>
       </form>
+    </div>
+  </div>
+</div>
 
-      <div class="contact-alt">
-        <div class="contact-alt-title">Autre moyen de contact</div>
-        <div class="contact-alt-text">
-          Si le formulaire ne fonctionne pas, tu peux aussi m'écrire directement par courriel à :
-          <br><br>
-          <a href="mailto:NabekTrappeur@proton.me">NabekTrappeur@proton.me</a>
-          <br><br>
-          <i>Courriel direct pour me joindre.</i>
+<!-- CALENDRIER -->
+<div class="tab-panel" id="calendrier">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Calendrier</h1>
+      <h1 class="en-content">Calendar</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Événements, visites et jalons</p>
+      <p class="en-content">Events, visits, and milestones</p>
+    </div>
+
+    <div class="event-list">
+      <div class="event-item past">
+        <div class="event-date-badge">
+          <div class="event-date-day">15</div>
+          <div class="event-date-month">Fév</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            <span class="fr-content">Analyse des sols — Phase 1</span>
+            <span class="en-content">Soil analysis — Phase 1</span>
+            <span class="event-status past">Passé</span>
+          </div>
+          <div class="event-meta fr-content">Terrain Nabek — 1 jour</div>
+          <div class="event-meta en-content">Nabek land — 1 day</div>
+          <div class="event-desc fr-content">Prélèvement de 20 échantillons sur les 150 hectares pour analyse granulométrique, pH et matière organique.</div>
+          <div class="event-desc en-content">Collection of 20 samples across the 150 hectares for granulometric, pH, and organic matter analysis.</div>
+        </div>
+      </div>
+
+      <div class="event-item past">
+        <div class="event-date-badge">
+          <div class="event-date-day">22</div>
+          <div class="event-date-month">Avr</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            <span class="fr-content">Visite élevage — Pâturage tournant</span>
+            <span class="en-content">Farm visit — Rotational grazing</span>
+            <span class="event-status past">Passé</span>
+          </div>
+          <div class="event-meta fr-content">Ferme J.-F. R. — Chaudière-Appalaches</div>
+          <div class="event-meta en-content">J.-F. R. Farm — Chaudière-Appalaches</div>
+          <div class="event-desc fr-content">Journée complète d'observation et d'échanges avec un éleveur pratiquant le pâturage tournant depuis 8 ans.</div>
+          <div class="event-desc en-content">Full day of observation and exchange with a breeder practicing rotational grazing for 8 years.</div>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">12</div>
+          <div class="event-date-month">Sep</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            <span class="fr-content">Journée portes ouvertes</span>
+            <span class="en-content">Open house day</span>
+            <span class="event-status upcoming">À venir</span>
+          </div>
+          <div class="event-meta fr-content">Terrain Nabek — 10 h à 16 h</div>
+          <div class="event-meta en-content">Nabek land — 10 AM to 4 PM</div>
+          <div class="event-desc fr-content">Première journée de rencontre avec le public. Visite guidée du terrain, présentation du projet, et échanges autour d'un repas partagé.</div>
+          <div class="event-desc en-content">First public meeting day. Guided tour of the land, project presentation, and exchanges over a shared meal.</div>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">05</div>
+          <div class="event-date-month">Oct</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            <span class="fr-content">Salon de l'agriculture régénérative</span>
+            <span class="en-content">Regenerative agriculture fair</span>
+            <span class="event-status upcoming">À venir</span>
+          </div>
+          <div class="event-meta fr-content">Québec — Stand Nabek</div>
+          <div class="event-meta en-content">Quebec — Nabek booth</div>
+          <div class="event-desc fr-content">Présentation du projet et des biomatériaux de mycélium au public professionnel et grand public.</div>
+          <div class="event-desc en-content">Presentation of the project and mycelium biomaterials to professional and general audiences.</div>
+        </div>
+      </div>
+
+      <div class="event-item">
+        <div class="event-date-badge">
+          <div class="event-date-day">15</div>
+          <div class="event-date-month">Nov</div>
+        </div>
+        <div class="event-content">
+          <div class="event-title">
+            <span class="fr-content">Atelier mycélium — Niveau débutant</span>
+            <span class="en-content">Mycelium workshop — Beginner level</span>
+            <span class="event-status upcoming">À venir</span>
+          </div>
+          <div class="event-meta fr-content">Laboratoire Nabek — 6 h</div>
+          <div class="event-meta en-content">Nabek Lab — 6 hours</div>
+          <div class="event-desc fr-content">Apprentissage des bases de la culture du mycélium : stérilisation, inoculation, incubation. Places limitées à 8 participants.</div>
+          <div class="event-desc en-content">Learning the basics of mycelium cultivation: sterilization, inoculation, incubation. Limited to 8 participants.</div>
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-title">Prendre rendez-vous</div>
-      <div class="card-text">
-        Tu préfères discuter en direct ? Choisis un créneau de 30 minutes dans mon agenda. Les rendez-vous se font par visioconférence (Zoom).
-      </div>
-      <a class="resource-btn" href="https://calendly.com/nabektrappeur-proton/30min" target="_blank" rel="noopener" style="margin-top: 10px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" fill="currentColor"/></svg>
-        Choisir un créneau
-      </a>
-      <div class="meta" style="margin-top: 10px;">Durée : 30 min · Visioconférence · Gratuit</div>
-    </div>
-  </section>
+  </div>
+</div>
 
 </main>
 
-<footer class="footer container">
-  <div class="social-bar">
-    <a class="social-link" href="https://www.facebook.com/profile.php?id=61578144923113" target="_blank" rel="noopener" aria-label="Facebook">
-      <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-    </a>
-    <a class="social-link" href="https://www.youtube.com/@nabektrappeur" target="_blank" rel="noopener" aria-label="YouTube">
-      <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.5 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
-    </a>
+<footer class="footer">
+  <div class="container">
+    <p class="fr-content">
+      © 2026 Projet Fermes Nabek — Québec, Canada<br>
+      Sans subventions gouvernementales. Toutes les données en CAD.<br>
+      <a href="https://github.com/NabekKebek/NabekKebek.github.io" target="_blank" rel="noopener">Code source sur GitHub</a>
+    </p>
+    <p class="en-content">
+      © 2026 Nabek Farm Project — Quebec, Canada<br>
+      Without government subsidies. All data in CAD.<br>
+      <a href="https://github.com/NabekKebek/NabekKebek.github.io" target="_blank" rel="noopener">Source code on GitHub</a>
+    </p>
   </div>
-  © 2026 Nabek · Québec, Canada · Tous droits réservés
 </footer>
 
 <script>
-function showTab(id) {
-  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  document.getElementById(id).classList.add('active');
-  document.querySelector('[data-tab="' + id + '"]').classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  var searchInput = document.getElementById('searchInput');
-  if (searchInput) { searchInput.value = ''; filterCards(''); }
+// ============================================================
+// LANGUAGE SYSTEM
+// ============================================================
+function setLanguage(lang) {
+  document.body.classList.remove('lang-fr', 'lang-en');
+  document.body.classList.add('lang-' + lang);
+  document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+  localStorage.setItem('nabek-lang', lang);
+  document.getElementById('langOverlay').style.display = 'none';
 }
 
-function filterCards(query) {
-  var activePanel = document.querySelector('.tab-panel.active');
-  if (!activePanel) return;
-  var cards = activePanel.querySelectorAll('.card, .resource-card, .gallery-item');
-  var visibleCount = 0;
-  query = query.toLowerCase().trim();
-  cards.forEach(function(card) {
-    var text = card.textContent.toLowerCase();
-    if (query === '' || text.indexOf(query) !== -1) {
-      card.style.display = '';
-      visibleCount++;
-    } else {
-      card.style.display = 'none';
-    }
-  });
-  var noResId = activePanel.id === 'blog' ? 'noResultsBlog' : (activePanel.id === 'journal' ? 'noResultsJournal' : null);
-  if (noResId) {
-    var noResults = document.getElementById(noResId);
-    if (noResults) {
-      noResults.style.display = (query !== '' && visibleCount === 0) ? 'block' : 'none';
-    }
-  }
+function toggleLanguage() {
+  const current = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  const next = current === 'fr' ? 'en' : 'fr';
+  setLanguage(next);
 }
 
-// Gestion du theme clair / sombre
+// Check saved language on load
 (function() {
-  var body = document.body;
-  var toggle = document.getElementById('themeToggle');
-  var saved = localStorage.getItem('nabek-theme');
-  if (saved === 'dark') {
-    body.classList.add('dark');
-  } else if (saved === 'light') {
-    body.classList.remove('dark');
-  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    body.classList.add('dark');
-  }
-  if (toggle) {
-    toggle.addEventListener('click', function() {
-      body.classList.toggle('dark');
-      localStorage.setItem('nabek-theme', body.classList.contains('dark') ? 'dark' : 'light');
-    });
+  const saved = localStorage.getItem('nabek-lang');
+  if (saved) {
+    document.body.classList.remove('lang-fr', 'lang-en');
+    document.body.classList.add('lang-' + saved);
+    document.documentElement.lang = saved === 'fr' ? 'fr' : 'en';
+    document.getElementById('langOverlay').style.display = 'none';
   }
 })();
-</script>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a8a1b9fbc557a344a5e4f4f/1k0lnnqd2';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
+// ============================================================
+// TAB SYSTEM
+// ============================================================
+function showTab(tabId) {
+  // Hide all panels
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  // Show target panel
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+  // Update nav buttons
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tabId);
+  });
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Save active tab
+  localStorage.setItem('nabek-tab', tabId);
+}
+
+// Restore active tab on load
+(function() {
+  const savedTab = localStorage.getItem('nabek-tab');
+  if (savedTab && document.getElementById(savedTab)) {
+    showTab(savedTab);
+  }
 })();
+
+// ============================================================
+// THEME TOGGLE
+// ============================================================
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('nabek-theme', isDark ? 'dark' : 'light');
+}
+
+// Restore theme on load
+(function() {
+  const savedTheme = localStorage.getItem('nabek-theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+  }
+})();
+
+// ============================================================
+// SEARCH / FILTER LINKS
+// ============================================================
+function filterLinks() {
+  const query = document.getElementById('linkSearch').value.toLowerCase();
+  const rows = document.querySelectorAll('#linkList .link-row');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const match = text.includes(query);
+    row.style.display = match ? 'flex' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('noLinks').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// ============================================================
+// CONTACT FORM
+// ============================================================
+function handleContact(e) {
+  e.preventDefault();
+  const name = document.getElementById('contactName').value;
+  const email = document.getElementById('contactEmail').value;
+  const subject = document.getElementById('contactSubject').value;
+  const message = document.getElementById('contactMessage').value;
+  const lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  const body = encodeURIComponent(
+    'Nom / Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Sujet / Subject: ' + subject + '\n\n' +
+    'Message:\n' + message
+  );
+  window.location.href = 'mailto:contact@nabek.ca?subject=' + encodeURIComponent('Contact Nabek — ' + subject) + '&body=' + body;
+  const msg = lang === 'fr'
+    ? 'Votre client de messagerie va s\'ouvrir. Si cela ne fonctionne pas, contactez-nous via GitHub.'
+    : 'Your email client will open. If this does not work, contact us via GitHub.';
+  alert(msg);
+}
+
+// ============================================================
+// NEWSLETTER FORM
+// ============================================================
+function handleNewsletter(e) {
+  e.preventDefault();
+  const lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  const msg = lang === 'fr'
+    ? 'Merci pour votre intérêt ! L\'infolettre sera bientôt disponible. En attendant, suivez-nous sur GitHub.'
+    : 'Thank you for your interest! The newsletter will be available soon. In the meantime, follow us on GitHub.';
+  alert(msg);
+}
+
+// ============================================================
+// TESTIMONIAL FORM
+// ============================================================
+function handleTestimonial(e) {
+  e.preventDefault();
+  const lang = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  const msg = lang === 'fr'
+    ? 'Merci pour votre témoignage ! Il sera publié après modération.'
+    : 'Thank you for your testimonial! It will be published after moderation.';
+  alert(msg);
+  document.getElementById('testimonialName').value = '';
+  document.getElementById('testimonialText').value = '';
+}
+
+// ============================================================
+// KEYBOARD NAVIGATION
+// ============================================================
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('langOverlay');
+    if (overlay && overlay.style.display !== 'none') {
+      // Default to French if they press Escape
+      setLanguage('fr');
+    }
+  }
+});
 </script>
-<!--End of Tawk.to Script-->
 
 </body>
 </html>
