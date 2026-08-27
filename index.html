@@ -964,6 +964,81 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+/* Sous-onglets (Personnel) */
+.sub-nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.sub-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  transition: all 0.15s ease-out;
+}
+.sub-tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-muted);
+}
+.sub-tab-btn.active {
+  color: var(--accent);
+  font-weight: 500;
+  background: var(--accent-light);
+}
+.sub-tab-panel {
+  display: none;
+  animation: fadeIn 0.25s ease-out;
+}
+.sub-tab-panel.active {
+  display: block;
+}
+.tome-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 12px;
+}
+.tome-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  background: var(--surface);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.tome-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+.tome-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.tome-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.tome-lang-label {
+  font-size: 12px;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 16px 0 8px;
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -1062,6 +1137,10 @@ body {
       <button class="tab-btn" data-tab="ressources" onclick="showTab('ressources')">
         <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
         <span class="fr-content">Ressources</span><span class="en-content">Resources</span>
+      </button>
+      <button class="tab-btn" data-tab="personnel" onclick="showTab('personnel')">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span class="fr-content">Personnel</span><span class="en-content">Personal</span>
       </button>
       <button class="tab-btn" data-tab="contact" onclick="showTab('contact')">
         <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -1356,7 +1435,7 @@ body {
           <tr><th>Poste</th><th>Coût estimé</th><th>Notes</th></tr>
           <tr><td>Acquisition terre (150 ha)</td><td>750 000 $ – 1 500 000 $</td><td>Varie selon la région et la qualité des sols</td></tr>
           <tr><td>Infrastructures (bâtiments, clôtures, puits)</td><td>300 000 $ – 500 000 $</td><td>Autoconstruction privilégiée</td></tr>
-          <tr><td>Troupeau initial (30 têtes)</td><td>45 000 $ – 75 000 $</td><td>Génisses de réforme ou vaches allaitantes</td></tr>
+          <tr><td>Troupeau initial (30 têtes)</td><td>45 000 $ – 75 000 $</td><td>Génisses de réforme ou bovins à viande</td></tr>
           <tr><td>Équipement agricole (usagé)</td><td>100 000 $ – 200 000 $</td><td>Tracteur, faucheuse, remorque</td></tr>
           <tr><td>Semences chanvre (première année)</td><td>8 000 $ – 15 000 $</td><td>Certifiées THC &lt; 0,3 %</td></tr>
           <tr><td>Installation myciculture</td><td>25 000 $ – 40 000 $</td><td>Chambres de fructification, stérilisateur</td></tr>
@@ -1369,7 +1448,7 @@ body {
           <tr><th>Item</th><th>Estimated cost</th><th>Notes</th></tr>
           <tr><td>Land acquisition (150 ha)</td><td>$750,000 – $1,500,000</td><td>Varies by region and soil quality</td></tr>
           <tr><td>Infrastructure (buildings, fences, wells)</td><td>$300,000 – $500,000</td><td>Self-build preferred</td></tr>
-          <tr><td>Initial herd (30 head)</td><td>$45,000 – $75,000</td><td>Cull heifers or suckler cows</td></tr>
+          <tr><td>Initial herd (30 head)</td><td>$45,000 – $75,000</td><td>Cull heifers or beef cattle</td></tr>
           <tr><td>Farm equipment (used)</td><td>$100,000 – $200,000</td><td>Tractor, mower, trailer</td></tr>
           <tr><td>Hemp seeds (first year)</td><td>$8,000 – $15,000</td><td>Certified THC &lt; 0.3 %</td></tr>
           <tr><td>Mushroom cultivation setup</td><td>$25,000 – $40,000</td><td>Fruiting chambers, sterilizer</td></tr>
@@ -2378,6 +2457,343 @@ body {
 
 </main>
 
+<!-- PERSONNEL -->
+<div class="tab-panel" id="personnel">
+  <div class="container">
+    <div class="hero">
+      <h1 class="fr-content">Personnel</h1>
+      <h1 class="en-content">Personal</h1>
+      <div class="hero-accent"></div>
+      <p class="fr-content">Textes et ouvrages personnels de Nabek</p>
+      <p class="en-content">Personal writings and works by Nabek</p>
+    </div>
+
+    <!-- Sous-onglets des ouvrages -->
+    <div class="sub-nav-tabs">
+      <button class="sub-tab-btn active" data-subtab="hors-navire" onclick="showSubTab('hors-navire')">
+        <span class="fr-content">Nabek Hors du Navire</span>
+        <span class="en-content">Nabek Off the Ship</span>
+      </button>
+      <button class="sub-tab-btn" data-subtab="discours-solstice" onclick="showSubTab('discours-solstice')">
+        <span class="fr-content">Discours du solstice</span>
+        <span class="en-content">Solstice Discourse</span>
+      </button>
+    </div>
+
+    <!-- NABEK HORS DU NAVIRE -->
+    <div class="sub-tab-panel active" id="hors-navire">
+      <div class="card">
+        <div class="card-title fr-content">📚 Nabek Hors du Navire — 10 tomes</div>
+        <div class="card-title en-content">📚 Nabek Off the Ship — 10 volumes</div>
+        <div class="card-text fr-content">
+          Une démarche philosophique articulée en dix tomes qui explore les fondements d'une agriculture libre, résiliente et respectueuse. Chaque tome aborde une dimension essentielle de la pensée Nabek.
+        </div>
+        <div class="card-text en-content">
+          A philosophical approach articulated in ten volumes that explores the foundations of free, resilient, and respectful agriculture. Each volume addresses an essential dimension of Nabek thought.
+        </div>
+      </div>
+
+      <div class="fr-content">
+        <div class="tome-lang-label">Version française</div>
+        <div class="tome-grid">
+          <div class="tome-card">
+            <div class="tome-title">Tome I — L'Entité qui ne meurt jamais</div>
+            <div class="tome-actions">
+              <a href="1-- TOME I — L'ENTITÉ QUI NE MEURT JAMAIS — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="1-- TOME I — L'ENTITÉ QUI NE MEURT JAMAIS — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome II — La Mer et la Terre</div>
+            <div class="tome-actions">
+              <a href="2--TOME II — LA MER ET LA TERRE — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="2--TOME II — LA MER ET LA TERRE — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome III — Le Colon invisible</div>
+            <div class="tome-actions">
+              <a href="3-- TOME III — LE COLON INVISIBLE — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="3-- TOME III — LE COLON INVISIBLE — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome IV — Les Trois Fronts</div>
+            <div class="tome-actions">
+              <a href="4-- TOME IV — LES TROIS FRONTS — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="4-- TOME IV — LES TROIS FRONTS — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome V — La Philosophie du droit</div>
+            <div class="tome-actions">
+              <a href="5-- TOME -- V — LA PHILOSOPHIE DU DROIT — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="5-- TOME -- V — LA PHILOSOPHIE DU DROIT — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome VI — Le Retrait</div>
+            <div class="tome-actions">
+              <a href="6-- TOME VI — LE RETRAIT — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="6-- TOME VI — LE RETRAIT — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome VII — Le Voile</div>
+            <div class="tome-actions">
+              <a href="7-- TOME VII — LE VOILE — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="7-- TOME VII — LE VOILE — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome VIII — Le Discours du solstice</div>
+            <div class="tome-actions">
+              <a href="8-- TOME VIII — LE DISCOURS DU SOLSTICE — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="8-- TOME VIII — LE DISCOURS DU SOLSTICE — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome IX — L'Amnistie</div>
+            <div class="tome-actions">
+              <a href="9-- TOME IX — L'AMNISTIE — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="9-- TOME IX — L'AMNISTIE — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Tome X — Les Deux Canots</div>
+            <div class="tome-actions">
+              <a href="10--TOME X — LES DEUX CANOTS — Nabek Hors du Navire.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Lire en ligne
+              </a>
+              <a href="10--TOME X — LES DEUX CANOTS — Nabek Hors du Navire.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Télécharger
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="en-content">
+        <div class="tome-lang-label">English version</div>
+        <div class="tome-grid">
+          <div class="tome-card">
+            <div class="tome-title">Volume I — The Entity That Never Dies</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_I_The_Entity_That_Never_Dies.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_I_The_Entity_That_Never_Dies.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume II — The Sea and the Land</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_II_The_Sea_and_the_Land.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_II_The_Sea_and_the_Land.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume III — The Invisible Colonist</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_III_The_Invisible_Colonist.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_III_The_Invisible_Colonist.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume IV — The Three Fronts</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_IV_The_Three_Fronts.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_IV_The_Three_Fronts.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume V — The Philosophy of Law</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_V_The_Philosophy_of_Law.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_V_The_Philosophy_of_Law.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume VI — The Withdrawal</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_VI_The_Withdrawal.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_VI_The_Withdrawal.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume VII — The Veil</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_VII_The_Veil.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_VII_The_Veil.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume VIII — Solstice Discourse</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_VIII_Solstice_Discourse.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_VIII_Solstice_Discourse.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume IX — The Amnesty</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_IX_The_Amnesty.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_IX_The_Amnesty.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+          <div class="tome-card">
+            <div class="tome-title">Volume X — The Two Canoes</div>
+            <div class="tome-actions">
+              <a href="Nabek_Tome_X_The_Two_Canoes.pdf" target="_blank" class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                📖 Read online
+              </a>
+              <a href="Nabek_Tome_X_The_Two_Canoes.pdf" download class="resource-btn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                ⬇ Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DISCOURS DU SOLSTICE -->
+    <div class="sub-tab-panel" id="discours-solstice">
+      <div class="card">
+        <div class="card-title fr-content">🌞 Discours du solstice 2026</div>
+        <div class="card-title en-content">🌞 Solstice Discourse 2026</div>
+        <div class="card-text fr-content">
+          Texte personnel rédigé à l'occasion du solstice 2026.
+        </div>
+        <div class="card-text en-content">
+          Personal text written for the 2026 solstice.
+        </div>
+        <div class="tome-actions" style="margin-top:16px;">
+          <a href="Discourt_du_solstice_2026.pdf" target="_blank" class="resource-btn">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            <span class="fr-content">📖 Lire en ligne</span>
+            <span class="en-content">📖 Read online</span>
+          </a>
+          <a href="Discourt_du_solstice_2026.pdf" download class="resource-btn">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            <span class="fr-content">⬇ Télécharger</span>
+            <span class="en-content">⬇ Download</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="container">
     <p class="fr-content">
@@ -2498,6 +2914,20 @@ function filterLinks() {
 
 
 
+
+// ============================================================
+// SUB-TAB SYSTEM (Personnel)
+// ============================================================
+function showSubTab(subTabId) {
+  const activeTab = document.querySelector('.tab-panel.active');
+  if (!activeTab) return;
+  activeTab.querySelectorAll('.sub-tab-panel').forEach(p => p.classList.remove('active'));
+  const target = activeTab.querySelector('#' + subTabId);
+  if (target) target.classList.add('active');
+  activeTab.querySelectorAll('.sub-tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.subtab === subTabId);
+  });
+}
 // ============================================================
 // KEYBOARD NAVIGATION
 // ============================================================
