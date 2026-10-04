@@ -33,7 +33,7 @@ PROTOCOLE D’ÉCHANGE — NABEK & COPILOT
    • Localisation : Québec, Canada.
    • Devise : CAD (dollars canadiens).
    • Niveau : débutant en informatique.
-   • Projet : Nabek PDF Creator, ferme régénérative Nabek.
+   • Projet :
    • Ne jamais hardcoder /home/serge — utiliser $HOME ou détection dynamique.
 
 6. CAPACITÉS DE COPILOT
