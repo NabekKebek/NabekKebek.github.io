@@ -1158,10 +1158,6 @@ body {
         <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
         <span class="fr-content">Calendrier</span><span class="en-content">Calendar</span>
       </button>
-      <button class="tab-btn" data-tab="video" onclick="showTab('video')">
-        <svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-        <span class="fr-content">Vidéo</span><span class="en-content">Video</span>
-      </button>
     </div>
     <div class="nav-right">
       <button class="theme-toggle" onclick="toggleTheme()" title="Thème clair/sombre">
@@ -1631,36 +1627,6 @@ body {
   </div>
 </div>
 
-<!-- VIDÉOCONFÉRENCE -->
-<div class="tab-panel" id="video">
-  <div class="container">
-    <div class="hero">
-      <h1 class="fr-content">Réunion en direct</h1>
-      <h1 class="en-content">Live Meeting</h1>
-      <div class="hero-accent"></div>
-      <p class="fr-content">Rejoignez notre salle de vidéoconférence.</p>
-      <p class="en-content">Join our video conference room.</p>
-    </div>
-    <div style="width:100%;height:600px;border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-      <iframe
-        src="https://meet.jit.si/Nabek-a3f8k2m9"
-        style="width:100%;height:100%;border:0;"
-        allow="camera; microphone; fullscreen; display-capture; autoplay"
-        sandbox="allow-same-origin allow-scripts allow-camera allow-microphone allow-fullscreen allow-display-capture">
-      </iframe>
-    </div>
-    <div class="card" style="margin-top:16px;text-align:center;">
-      <div class="card-title fr-content">Lien d'invitation</div>
-      <div class="card-title en-content">Invite Link</div>
-      <div class="card-text fr-content">Partagez ce lien pour inviter vos participants :</div>
-      <div class="card-text en-content">Share this link to invite participants:</div>
-      <a href="https://meet.jit.si/Nabek-a3f8k2m9" target="_blank" rel="noopener" class="resource-btn" style="margin-top:10px;">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
-        <span class="fr-content">Ouvrir la salle</span><span class="en-content">Open Room</span>
-      </a>
-    </div>
-  </div>
-</div>
 
 <!-- CONTACT -->
 <div class="tab-panel" id="contact">
@@ -1829,4 +1795,195 @@ body {
           <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
           <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
           <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
-          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l   
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+        </div>
+      </div>
+      <div class="en-content">
+        <div class="tome-lang-label"></div>
+        <div class="tome-grid">
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+          <div class="tome-card"><div class="tome-title"></div><div class="tome-actions"><a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a><a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-tab-panel" id="discours-solstice">
+      <div class="card">
+        <div class="card-title fr-content"></div>
+        <div class="card-title en-content"></div>
+        <div class="card-text fr-content"></div>
+        <div class="card-text en-content"></div>
+      </div>
+      <div class="fr-content">
+        <div class="tome-lang-label"></div>
+        <div class="tome-card">
+          <div class="tome-title"></div>
+          <div class="tome-actions">
+            <a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a>
+            <a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="en-content">
+        <div class="tome-lang-label"></div>
+        <div class="tome-card">
+          <div class="tome-title"></div>
+          <div class="tome-actions">
+            <a href="#" target="_blank" class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></a>
+            <a href="#" download class="resource-btn"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p class="fr-content"></p>
+    <p class="en-content"></p>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// LANGUAGE SYSTEM
+// ============================================================
+function setLanguage(lang) {
+  document.body.classList.remove('lang-fr', 'lang-en');
+  document.body.classList.add('lang-' + lang);
+  document.documentElement.lang = lang === 'fr' ? 'fr' : 'en';
+  localStorage.setItem('nabek-lang', lang);
+  document.getElementById('langOverlay').style.display = 'none';
+}
+
+function toggleLanguage() {
+  const current = document.body.classList.contains('lang-en') ? 'en' : 'fr';
+  const next = current === 'fr' ? 'en' : 'fr';
+  setLanguage(next);
+}
+
+// Check saved language on load
+(function() {
+  const saved = localStorage.getItem('nabek-lang');
+  if (saved) {
+    document.body.classList.remove('lang-fr', 'lang-en');
+    document.body.classList.add('lang-' + saved);
+    document.documentElement.lang = saved === 'fr' ? 'fr' : 'en';
+    document.getElementById('langOverlay').style.display = 'none';
+  }
+})();
+
+// ============================================================
+// TAB SYSTEM
+// ============================================================
+function showTab(tabId) {
+  // Hide all panels
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  // Show target panel
+  const target = document.getElementById(tabId);
+  if (target) target.classList.add('active');
+  // Update nav buttons
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tabId);
+  });
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Save active tab
+  localStorage.setItem('nabek-tab', tabId);
+}
+
+// Restore active tab on load
+(function() {
+  const savedTab = localStorage.getItem('nabek-tab');
+  if (savedTab && document.getElementById(savedTab)) {
+    showTab(savedTab);
+  }
+})();
+
+// Initialize links filter on page load
+(function() {
+  if (document.getElementById('linkSearch')) {
+    filterLinks();
+  }
+})();
+
+// ============================================================
+// THEME TOGGLE
+// ============================================================
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('nabek-theme', isDark ? 'dark' : 'light');
+}
+
+// Restore theme on load
+(function() {
+  const savedTheme = localStorage.getItem('nabek-theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+  }
+})();
+
+// ============================================================
+// SEARCH / FILTER LINKS
+// ============================================================
+function filterLinks() {
+  const query = document.getElementById('linkSearch').value.toLowerCase();
+  const rows = document.querySelectorAll('#linkList .link-row');
+  let visible = 0;
+  rows.forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const match = text.includes(query);
+    row.style.display = match ? 'flex' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('noLinks').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// ============================================================
+// CONTACT FORM — CONNECTÉ À FORMSPREE
+// ============================================================
+// Les formulaires utilisent action="https://formspree.io/f/ID"
+// Crée un compte gratuit sur https://formspree.io/
+
+
+
+
+
+// ============================================================
+// SUB-TAB SYSTEM (Personnel)
+// ============================================================
+function showSubTab(subTabId) {
+  const activeTab = document.querySelector('.tab-panel.active');
+  if (!activeTab) return;
+  activeTab.querySelectorAll('.sub-tab-panel').forEach(p => p.classList.remove('active'));
+  const target = activeTab.querySelector('#' + subTabId);
+  if (target) target.classList.add('active');
+  activeTab.querySelectorAll('.sub-tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.subtab === subTabId);
+  });
+}
+// ============================================================
+// KEYBOARD NAVIGATION
+// ============================================================
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const overlay = document.getElementById('langOverlay');
+    if (overlay && overlay.style.display !== 'none') {
+      // Default to French if they press Escape
+      setLanguage('fr');
+    }
+  }
+});
+</script>
+
+<!-- Crisp Chat -->
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e2f9a35a-94ce-4c99-be58-47f6ea10000f";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+</body>
+</html>
